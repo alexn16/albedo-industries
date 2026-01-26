@@ -194,6 +194,79 @@ The site is designed for modern browsers and is fully responsive. Tested on:
 - Safari (latest)
 - Mobile Safari / Chrome on iOS and Android
 
+## Troubleshooting GitHub Pages
+
+If the site appears blank or unstyled on GitHub Pages, check the following:
+
+### 1. Tailwind CSS Not Loading
+
+**Symptom**: Page shows plain HTML without styles.
+
+**Cause**: Tailwind v4 requires the Vite plugin to be explicitly configured.
+
+**Fix**: Ensure `vite.config.ts` includes the Tailwind plugin:
+
+```typescript
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  base: "/albedo-industries/",
+});
+```
+
+And `src/index.css` uses the v4 import syntax:
+
+```css
+@import "tailwindcss";
+```
+
+### 2. Assets Not Loading (404 Errors)
+
+**Symptom**: Console shows 404 errors for CSS/JS files.
+
+**Cause**: Incorrect base path configuration.
+
+**Fix**: Ensure `vite.config.ts` has the correct base path matching your repository name:
+
+```typescript
+base: "/albedo-industries/",
+```
+
+### 3. Routing Not Working
+
+**Symptom**: Direct navigation to `/about` shows 404.
+
+**Cause**: GitHub Pages doesn't support SPA routing.
+
+**Fix**: Use HashRouter (already configured). URLs will be `/#/about` format.
+
+### 4. Verifying the Build
+
+To verify your production build locally:
+
+```bash
+npm run build
+npm run preview
+```
+
+Then check:
+- Page source should reference `/albedo-industries/assets/...` paths
+- CSS file should contain Tailwind utilities
+- All routes should work via hash navigation
+
+### 5. Checking Deployed Site
+
+On the live GitHub Pages site:
+1. Open browser DevTools (F12)
+2. Check Console for errors
+3. Check Network tab for failed asset requests
+4. View page source to verify asset paths start with `/albedo-industries/`
+
+If assets are loading from `/assets/...` instead of `/albedo-industries/assets/...`, the base path is misconfigured.
+
 ## License
 
 Copyright ALBEDO Industries. All rights reserved.
