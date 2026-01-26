@@ -11,39 +11,93 @@ export default function Home() {
             Building focused products for real-world problems.
           </h1>
           <p className="text-lg md:text-xl text-zinc-600 leading-relaxed animate-fade-in animation-delay-100">
-            ALBEDO Industries is an independent startup company that builds and operates
-            multiple software products across consumer and B2B sectors, with a focus on
-            clarity, usability, and long-term value.
+            ALBEDO Industries is an independent software company that builds and operates
+            multiple products across consumer and B2B sectors. We focus on clarity,
+            usability, and long-term value over rapid growth.
           </p>
         </div>
       </section>
 
-      {/* Principles Section */}
+      {/* What We Are Section */}
       <section className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                What We Are
+              </h2>
+            </div>
+            <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
+              <p>
+                ALBEDO operates as a startup holding company and product studio. We identify
+                meaningful problems, build software solutions internally, and run each product
+                as an independent business within our portfolio.
+              </p>
+              <p>
+                Unlike traditional venture-backed startups focused on a single bet, or agencies
+                that build for others, we maintain ownership and operational control of everything
+                we create. This structure lets us take a longer view on what we build and how we
+                grow it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Operating Model Section */}
+      <section className="border-t border-zinc-100 bg-zinc-50/50">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-12">
-            How We Work
+            Operating Model
           </h2>
           <div className="grid md:grid-cols-3 gap-12 md:gap-8">
             <div>
-              <h3 className="text-lg font-medium mb-3">Solve real problems</h3>
+              <h3 className="text-lg font-medium mb-3">Build internally</h3>
               <p className="text-zinc-600 leading-relaxed">
-                Every product starts with a genuine frustration we've experienced ourselves
-                or observed repeatedly in others. We don't build solutions looking for problems.
+                All products originate from problems we've identified and validated. We don't
+                take outside projects or build for others. Every line of code serves our
+                portfolio.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-medium mb-3">Ship and improve</h3>
+              <h3 className="text-lg font-medium mb-3">Ship iteratively</h3>
               <p className="text-zinc-600 leading-relaxed">
                 We favor working software over perfect plans. Get something useful into
                 people's hands quickly, then refine based on how they actually use it.
               </p>
             </div>
             <div>
-              <h3 className="text-lg font-medium mb-3">Think in decades</h3>
+              <h3 className="text-lg font-medium mb-3">Run as independent products</h3>
               <p className="text-zinc-600 leading-relaxed">
-                We're not optimizing for a quick exit. We want to build products that
-                remain useful and companies that remain independent for the long haul.
+                Each product operates with its own identity, user base, and business model.
+                They share infrastructure and learnings, but succeed or fail on their own
+                merits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Now Section */}
+      <section className="border-t border-zinc-100">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                Why Now
+              </h2>
+            </div>
+            <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
+              <p>
+                The cost of building and distributing software has dropped significantly.
+                Cloud infrastructure, open-source tooling, and modern frameworks mean small
+                teams can build products that previously required large organizations.
+              </p>
+              <p>
+                At the same time, many categories remain underserved by thoughtful software.
+                Enterprise solutions are often bloated and expensive. Consumer apps optimize
+                for engagement over utility. There's room for focused products that do fewer
+                things well and respect their users.
               </p>
             </div>
           </div>
@@ -55,7 +109,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-              Our Projects
+              Current Portfolio
             </h2>
             <Link
               to="/projects"
@@ -86,36 +140,84 @@ export default function Home() {
                 <h3 className="text-lg font-medium mb-2 group-hover:text-zinc-600 transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-sm text-zinc-500 leading-relaxed">
+                <p className="text-sm text-zinc-500 leading-relaxed mb-3">
                   {project.tagline}
                 </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.capabilities.slice(0, 2).map((cap, i) => (
+                    <span key={i} className="text-xs text-zinc-400 bg-zinc-50 px-2 py-0.5 rounded">
+                      {cap}
+                    </span>
+                  ))}
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Closing Statement Section */}
+      {/* Signals Section */}
       <section className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-12">
+            Current Signals
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="border-l-2 border-green-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">ALB Parking</p>
+              <p className="font-medium text-zinc-900">Live in 12 markets</p>
+              <p className="text-sm text-zinc-500 mt-1">Expanding operator partnerships</p>
+            </div>
+            <div className="border-l-2 border-blue-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">Foreman</p>
+              <p className="font-medium text-zinc-900">In pilot</p>
+              <p className="text-sm text-zinc-500 mt-1">Testing with construction teams</p>
+            </div>
+            <div className="border-l-2 border-zinc-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">Ardyn Fitness</p>
+              <p className="font-medium text-zinc-900">In research</p>
+              <p className="text-sm text-zinc-500 mt-1">User interviews and concept validation</p>
+            </div>
+            <div className="border-l-2 border-zinc-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">Distribution</p>
+              <p className="font-medium text-zinc-900">Early experiments</p>
+              <p className="text-sm text-zinc-500 mt-1">Testing organic growth channels</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="border-t border-zinc-100 bg-zinc-50/50">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="max-w-2xl">
-            <p className="text-xl md:text-2xl text-zinc-600 leading-relaxed mb-8">
-              We're a small team focused on building useful software. No venture funding,
-              no growth-at-all-costs mentality. Just products we believe in, built carefully
-              over time.
+            <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+              Work with us
+            </h2>
+            <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              We're selectively open to partnerships, investment conversations, and
+              collaboration with operators who share our values. If you're building
+              something meaningful or want to learn more about what we're doing,
+              we'd like to hear from you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/about"
+              <a
+                href="mailto:partnerships@albedo.industries?subject=Partnership Inquiry"
                 className="inline-flex items-center justify-center px-6 py-3 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
               >
-                Learn more about us
-              </Link>
-              <Link
-                to="/projects"
-                className="inline-flex items-center justify-center px-6 py-3 border border-zinc-200 rounded-lg text-sm font-medium hover:border-zinc-300 hover:bg-zinc-50 transition-colors"
+                Partner with us
+              </a>
+              <a
+                href="mailto:hello@albedo.industries?subject=Demo Request"
+                className="inline-flex items-center justify-center px-6 py-3 border border-zinc-200 rounded-lg text-sm font-medium hover:border-zinc-300 hover:bg-white transition-colors"
               >
-                Explore our projects
+                Request a demo
+              </a>
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors"
+              >
+                Learn more
               </Link>
             </div>
           </div>

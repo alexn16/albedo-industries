@@ -22,9 +22,18 @@ export default function Header() {
           <NavLink to="/projects" className={linkClass}>
             Projects
           </NavLink>
+          <NavLink to="/updates" className={linkClass}>
+            Updates
+          </NavLink>
           <NavLink to="/support" className={linkClass}>
             Support
           </NavLink>
+          <a
+            href="mailto:hello@albedo.industries"
+            className="ml-4 px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
+          >
+            Contact
+          </a>
         </div>
 
         {/* Mobile menu button */}
@@ -63,7 +72,7 @@ export default function Header() {
         <div className="md:hidden border-t border-zinc-100 px-6 py-4 space-y-4">
           <NavLink
             to="/about"
-            className={linkClass}
+            className={`block ${linkClass({ isActive: false })}`}
             onClick={() => setMobileMenuOpen(false)}
           >
             About
@@ -76,12 +85,25 @@ export default function Header() {
             Projects
           </NavLink>
           <NavLink
+            to="/updates"
+            className={`block ${linkClass({ isActive: false })}`}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Updates
+          </NavLink>
+          <NavLink
             to="/support"
             className={`block ${linkClass({ isActive: false })}`}
             onClick={() => setMobileMenuOpen(false)}
           >
             Support
           </NavLink>
+          <a
+            href="mailto:hello@albedo.industries"
+            className="block w-full text-center px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
+          >
+            Contact
+          </a>
         </div>
       )}
     </header>
