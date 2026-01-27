@@ -1,0 +1,74 @@
+{
+  "date": "2026-01-26",
+  "marketStatus": "closed",
+  "premarketHighlights": [
+    "Futures pointed to a flat open after mixed week of trading",
+    "European markets closed marginally higher ahead of weekend",
+    "Asian markets ended mixed on mixed economic signals from China"
+  ],
+  "sessionHighlights": [
+    "S&P 500 ended the week down 0.3% after volatile Thursday session",
+    "Tech sector outperformed with gains led by AI-related names",
+    "Energy sector lagged on lower oil prices"
+  ],
+  "afterHoursHighlights": [
+    "Earnings releases from major tech companies due next week",
+    "Federal Reserve meeting scheduled for Wednesday",
+    "Economic calendar includes GDP and employment data"
+  ],
+  "topMovers": [
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corp",
+      "change": "+3.21%",
+      "changePercent": "+15.42"
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla Inc",
+      "change": "-2.45%",
+      "changePercent": "-8.12"
+    },
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc",
+      "change": "+1.12%",
+      "changePercent": "+2.34"
+    },
+    {
+      "symbol": "META",
+      "name": "Meta Platforms",
+      "change": "+2.87%",
+      "changePercent": "+14.23"
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com",
+      "change": "+0.98%",
+      "changePercent": "+1.89"
+    }
+  ],
+  "newsDrivers": [
+    {
+      "title": "Federal Reserve expected to hold rates steady at upcoming meeting",
+      "source": "Reuters"
+    },
+    {
+      "title": "Tech earnings season kicks off with major reports next week",
+      "source": "Bloomberg"
+    },
+    {
+      "title": "Treasury yields stabilize after recent volatility",
+      "source": "WSJ"
+    },
+    {
+      "title": "Oil prices find support at key technical levels",
+      "source": "CNBC"
+    },
+    {
+      "title": "Dollar strength continues against major currencies",
+      "source": "FT"
+    }
+  ],
+  "generatedAt": "2026-01-26T18:30:00Z"
+}

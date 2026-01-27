@@ -1,5 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { projects } from '../data/projects'
+import MarketBrief from '../components/MarketBrief'
+import BeatFlowListen from '../components/BeatFlowListen'
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -56,6 +58,16 @@ export default function ProjectDetail() {
           <p className="text-lg text-zinc-500">
             {project.positioning}
           </p>
+
+          {/* Disclaimer for Alphaclaim */}
+          {project.disclaimer && (
+            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+              <p className="text-sm text-amber-800">
+                <span className="font-medium">Note:</span> {project.disclaimer}
+              </p>
+            </div>
+          )}
+
           {(project.website || project.app) && (
             <div className="flex gap-4 mt-8">
               {project.website && (
@@ -82,6 +94,42 @@ export default function ProjectDetail() {
           )}
         </div>
       </section>
+
+      {/* Alphaclaim Market Brief Section */}
+      {project.slug === 'alphaclaim' && (
+        <section className="border-t border-zinc-100 bg-zinc-50/50">
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div>
+                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                  Today's Brief
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <MarketBrief />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* BeatFlow Listen Section */}
+      {project.slug === 'beatflow' && (
+        <section className="border-t border-zinc-100 bg-zinc-50/50">
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div>
+                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                  Listen
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <BeatFlowListen />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Problem */}
       <section id="memo" className="border-t border-zinc-100">
@@ -119,8 +167,35 @@ export default function ProjectDetail() {
         </div>
       </section>
 
+      {/* Key Features (for projects that have them, like Aperta) */}
+      {project.keyFeatures && project.keyFeatures.length > 0 && (
+        <section className="border-t border-zinc-100">
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div>
+                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                  Key Features
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <ul className="space-y-4">
+                  {project.keyFeatures.map((feature, i) => (
+                    <li key={i} className="flex items-start text-zinc-600">
+                      <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-lg leading-relaxed">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Differentiator */}
-      <section className="border-t border-zinc-100">
+      <section className={`border-t border-zinc-100 ${project.keyFeatures ? 'bg-zinc-50/50' : ''}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -138,7 +213,7 @@ export default function ProjectDetail() {
       </section>
 
       {/* Target Users & Use Cases */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section className={`border-t border-zinc-100 ${project.keyFeatures ? '' : 'bg-zinc-50/50'}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -249,8 +324,28 @@ export default function ProjectDetail() {
         </div>
       </section>
 
+      {/* Ethics Note (for BeatFlow) */}
+      {project.ethicsNote && (
+        <section className="border-t border-zinc-100">
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div>
+                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                  Ethics & Approach
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <p className="text-lg text-zinc-600 leading-relaxed">
+                  {project.ethicsNote}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Vision */}
-      <section className="border-t border-zinc-100">
+      <section className={`border-t border-zinc-100 ${project.ethicsNote ? 'bg-zinc-50/50' : ''}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -268,7 +363,7 @@ export default function ProjectDetail() {
       </section>
 
       {/* Links & Resources */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section className={`border-t border-zinc-100 ${project.ethicsNote ? '' : 'bg-zinc-50/50'}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>

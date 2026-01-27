@@ -51,6 +51,21 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/projects/aperta" className="hover:text-zinc-900 transition-colors">
+                  Aperta
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/alphaclaim" className="hover:text-zinc-900 transition-colors">
+                  Alphaclaim
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/beatflow" className="hover:text-zinc-900 transition-colors">
+                  BeatFlow
+                </Link>
+              </li>
+              <li>
                 <Link to="/projects/ardyn-fitness" className="hover:text-zinc-900 transition-colors">
                   Ardyn Fitness
                 </Link>

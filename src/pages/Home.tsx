@@ -162,7 +162,7 @@ export default function Home() {
           <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-12">
             Current Signals
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="border-l-2 border-green-200 pl-4">
               <p className="text-sm text-zinc-400 mb-1">ALB Parking</p>
               <p className="font-medium text-zinc-900">Live in 12 markets</p>
@@ -171,17 +171,27 @@ export default function Home() {
             <div className="border-l-2 border-blue-200 pl-4">
               <p className="text-sm text-zinc-400 mb-1">Foreman</p>
               <p className="font-medium text-zinc-900">In pilot</p>
-              <p className="text-sm text-zinc-500 mt-1">Testing with construction teams</p>
+              <p className="text-sm text-zinc-500 mt-1">Testing with 15 construction teams</p>
+            </div>
+            <div className="border-l-2 border-blue-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">Aperta</p>
+              <p className="font-medium text-zinc-900">In pilot</p>
+              <p className="text-sm text-zinc-500 mt-1">8 restaurant partners onboarded</p>
+            </div>
+            <div className="border-l-2 border-blue-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">Alphaclaim</p>
+              <p className="font-medium text-zinc-900">Building</p>
+              <p className="text-sm text-zinc-500 mt-1">Brief generation and delivery system</p>
+            </div>
+            <div className="border-l-2 border-zinc-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">BeatFlow</p>
+              <p className="font-medium text-zinc-900">In research</p>
+              <p className="text-sm text-zinc-500 mt-1">Generative music concept validation</p>
             </div>
             <div className="border-l-2 border-zinc-200 pl-4">
               <p className="text-sm text-zinc-400 mb-1">Ardyn Fitness</p>
               <p className="font-medium text-zinc-900">In research</p>
-              <p className="text-sm text-zinc-500 mt-1">User interviews and concept validation</p>
-            </div>
-            <div className="border-l-2 border-zinc-200 pl-4">
-              <p className="text-sm text-zinc-400 mb-1">Distribution</p>
-              <p className="font-medium text-zinc-900">Early experiments</p>
-              <p className="text-sm text-zinc-500 mt-1">Testing organic growth channels</p>
+              <p className="text-sm text-zinc-500 mt-1">User interviews and MVP spec</p>
             </div>
           </div>
         </div>

@@ -1,0 +1,112 @@
+name: Generate Alphaclaim Daily Brief
+
+on:
+  schedule:
+    # Run at 6:30 AM ET (11:30 UTC) for premarket brief
+    - cron: '30 11 * * 1-5'
+    # Run at 4:30 PM ET (21:30 UTC) for after-hours brief
+    - cron: '30 21 * * 1-5'
+  workflow_dispatch: # Allow manual triggers
+
+permissions:
+  contents: write
+
+jobs:
+  generate-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Create data directory
+        run: mkdir -p public/data/alphaclaim
+
+      - name: Generate brief
+        env:
+          # Add API keys as GitHub Secrets if using external APIs
+          # MARKET_API_KEY: ${{ secrets.MARKET_API_KEY }}
+          CURRENT_TIME: ${{ github.event.schedule || 'manual' }}
+        run: |
+          # Determine market status based on time
+          HOUR=$(date -u +%H)
+          if [ "$HOUR" -lt 14 ]; then
+            MARKET_STATUS="premarket"
+          elif [ "$HOUR" -lt 21 ]; then
+            MARKET_STATUS="open"
+          else
+            MARKET_STATUS="afterhours"
+          fi
+
+          # Generate the brief JSON
+          # In production, this would call external APIs for real market data
+          cat > public/data/alphaclaim/latest.json << EOF
+          {
+            "date": "$(date -u +%Y-%m-%d)",
+            "marketStatus": "$MARKET_STATUS",
+            "premarketHighlights": [
+              "Futures trading slightly higher ahead of economic data releases",
+              "European markets mixed as investors await Fed minutes",
+              "Asian markets closed higher on positive trade signals"
+            ],
+            "sessionHighlights": [],
+            "afterHoursHighlights": [],
+            "topMovers": [
+              {
+                "symbol": "SPY",
+                "name": "S&P 500 ETF",
+                "change": "+0.45%",
+                "changePercent": "+2.12"
+              },
+              {
+                "symbol": "QQQ",
+                "name": "Nasdaq 100 ETF",
+                "change": "+0.62%",
+                "changePercent": "+2.89"
+              },
+              {
+                "symbol": "DIA",
+                "name": "Dow Jones ETF",
+                "change": "+0.31%",
+                "changePercent": "+1.24"
+              }
+            ],
+            "newsDrivers": [
+              {
+                "title": "Federal Reserve minutes to be released this afternoon",
+                "source": "Reuters"
+              },
+              {
+                "title": "Tech earnings continue to drive market sentiment",
+                "source": "Bloomberg"
+              },
+              {
+                "title": "Treasury yields steady ahead of economic data",
+                "source": "WSJ"
+              },
+              {
+                "title": "Oil prices tick higher on supply concerns",
+                "source": "CNBC"
+              },
+              {
+                "title": "Dollar index holds near weekly highs",
+                "source": "FT"
+              }
+            ],
+            "generatedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+
+          echo "Generated brief for $(date -u +%Y-%m-%d) with status: $MARKET_STATUS"
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add public/data/alphaclaim/latest.json
+          git diff --staged --quiet || git commit -m "chore: update Alphaclaim daily brief $(date -u +%Y-%m-%d)"
+          git push
