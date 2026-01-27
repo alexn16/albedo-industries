@@ -1,74 +1,54 @@
 {
-  "date": "2026-01-26",
-  "marketStatus": "closed",
+  "date": "2026-01-27",
+  "marketStatus": "premarket",
   "premarketHighlights": [
-    "Futures pointed to a flat open after mixed week of trading",
-    "European markets closed marginally higher ahead of weekend",
-    "Asian markets ended mixed on mixed economic signals from China"
+    "Futures trading slightly higher ahead of economic data releases",
+    "European markets mixed as investors await Fed minutes",
+    "Asian markets closed higher on positive trade signals"
   ],
-  "sessionHighlights": [
-    "S&P 500 ended the week down 0.3% after volatile Thursday session",
-    "Tech sector outperformed with gains led by AI-related names",
-    "Energy sector lagged on lower oil prices"
-  ],
-  "afterHoursHighlights": [
-    "Earnings releases from major tech companies due next week",
-    "Federal Reserve meeting scheduled for Wednesday",
-    "Economic calendar includes GDP and employment data"
-  ],
+  "sessionHighlights": [],
+  "afterHoursHighlights": [],
   "topMovers": [
     {
-      "symbol": "NVDA",
-      "name": "NVIDIA Corp",
-      "change": "+3.21%",
-      "changePercent": "+15.42"
+      "symbol": "SPY",
+      "name": "S&P 500 ETF",
+      "change": "+0.45%",
+      "changePercent": "+2.12"
     },
     {
-      "symbol": "TSLA",
-      "name": "Tesla Inc",
-      "change": "-2.45%",
-      "changePercent": "-8.12"
+      "symbol": "QQQ",
+      "name": "Nasdaq 100 ETF",
+      "change": "+0.62%",
+      "changePercent": "+2.89"
     },
     {
-      "symbol": "AAPL",
-      "name": "Apple Inc",
-      "change": "+1.12%",
-      "changePercent": "+2.34"
-    },
-    {
-      "symbol": "META",
-      "name": "Meta Platforms",
-      "change": "+2.87%",
-      "changePercent": "+14.23"
-    },
-    {
-      "symbol": "AMZN",
-      "name": "Amazon.com",
-      "change": "+0.98%",
-      "changePercent": "+1.89"
+      "symbol": "DIA",
+      "name": "Dow Jones ETF",
+      "change": "+0.31%",
+      "changePercent": "+1.24"
     }
   ],
   "newsDrivers": [
     {
-      "title": "Federal Reserve expected to hold rates steady at upcoming meeting",
+      "title": "Federal Reserve minutes to be released this afternoon",
       "source": "Reuters"
     },
     {
-      "title": "Tech earnings season kicks off with major reports next week",
+      "title": "Tech earnings continue to drive market sentiment",
       "source": "Bloomberg"
     },
     {
-      "title": "Treasury yields stabilize after recent volatility",
+      "title": "Treasury yields steady ahead of economic data",
       "source": "WSJ"
     },
     {
-      "title": "Oil prices find support at key technical levels",
+      "title": "Oil prices tick higher on supply concerns",
       "source": "CNBC"
     },
     {
-      "title": "Dollar strength continues against major currencies",
+      "title": "Dollar index holds near weekly highs",
       "source": "FT"
     }
   ],
-  "generatedAt": "2026-01-26T18:30:00Z"
+  "generatedAt": "2026-01-27T11:47:35Z"
 }
