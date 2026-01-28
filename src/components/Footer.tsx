@@ -12,7 +12,7 @@ export default function Footer() {
               ALBEDO
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
-              Building focused products for real-world problems.
+              Real systems for real infrastructure.
             </p>
           </div>
 
@@ -46,6 +46,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/projects/ardyn-fitness" className="hover:text-zinc-900 transition-colors">
+                  Ardyn Fitness
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/germet" className="hover:text-zinc-900 transition-colors">
+                  Germet
+                </Link>
+              </li>
+              <li>
                 <Link to="/projects/foreman" className="hover:text-zinc-900 transition-colors">
                   Foreman
                 </Link>
@@ -58,16 +68,6 @@ export default function Footer() {
               <li>
                 <Link to="/projects/alphaclaim" className="hover:text-zinc-900 transition-colors">
                   Alphaclaim
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/beatflow" className="hover:text-zinc-900 transition-colors">
-                  BeatFlow
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/ardyn-fitness" className="hover:text-zinc-900 transition-colors">
-                  Ardyn Fitness
                 </Link>
               </li>
             </ul>
