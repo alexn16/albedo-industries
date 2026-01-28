@@ -8,12 +8,12 @@ export default function Home() {
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight mb-6 animate-fade-in">
-            Building focused products for real-world problems.
+            Real systems for real infrastructure.
           </h1>
           <p className="text-lg md:text-xl text-zinc-600 leading-relaxed animate-fade-in animation-delay-100">
-            ALBEDO Industries is an independent software company that builds and operates
-            multiple products across consumer and B2B sectors. We focus on clarity,
-            usability, and long-term value over rapid growth.
+            ALBEDO Industries builds software that turns overlooked assets into working infrastructure.
+            Urban parking. Daily fitness decisions. Global supply chain visibility.
+            We focus on clarity, measurable impact, and long-term value.
           </p>
         </div>
       </section>
@@ -24,20 +24,20 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-                What We Are
+                Why This Matters
               </h2>
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                ALBEDO operates as a startup holding company and product studio. We identify
-                meaningful problems, build software solutions internally, and run each product
-                as an independent business within our portfolio.
+                Cities have unused parking that could reduce traffic. Fitness apps assume perfect lives
+                instead of adapting to real constraints. Global sourcing teams juggle spreadsheets
+                to coordinate complex products across continents.
               </p>
               <p>
-                Unlike traditional venture-backed startups focused on a single bet, or agencies
-                that build for others, we maintain ownership and operational control of everything
-                we create. This structure lets us take a longer view on what we build and how we
-                grow it.
+                ALBEDO builds the systems layer that makes these problems tractable. We don't add
+                more complexity — we make existing assets and workflows more visible, more accessible,
+                and more useful. Each product operates independently but shares a focus on structured,
+                accountable systems.
               </p>
             </div>
           </div>
@@ -165,8 +165,18 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="border-l-2 border-green-200 pl-4">
               <p className="text-sm text-zinc-400 mb-1">ALB Parking</p>
-              <p className="font-medium text-zinc-900">Live in 12 markets</p>
-              <p className="text-sm text-zinc-500 mt-1">Expanding operator partnerships</p>
+              <p className="font-medium text-zinc-900">Live</p>
+              <p className="text-sm text-zinc-500 mt-1">Booking + QR access in initial markets. Charging Wall in development.</p>
+            </div>
+            <div className="border-l-2 border-blue-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">Ardyn Fitness</p>
+              <p className="font-medium text-zinc-900">Building</p>
+              <p className="text-sm text-zinc-500 mt-1">Closed beta. Equipment library and daily workout engine.</p>
+            </div>
+            <div className="border-l-2 border-blue-200 pl-4">
+              <p className="text-sm text-zinc-400 mb-1">Germet</p>
+              <p className="font-medium text-zinc-900">Building</p>
+              <p className="text-sm text-zinc-500 mt-1">Component modeling and supplier comparison in pilot.</p>
             </div>
             <div className="border-l-2 border-blue-200 pl-4">
               <p className="text-sm text-zinc-400 mb-1">Foreman</p>
@@ -182,16 +192,6 @@ export default function Home() {
               <p className="text-sm text-zinc-400 mb-1">Alphaclaim</p>
               <p className="font-medium text-zinc-900">Building</p>
               <p className="text-sm text-zinc-500 mt-1">Brief generation and delivery system</p>
-            </div>
-            <div className="border-l-2 border-zinc-200 pl-4">
-              <p className="text-sm text-zinc-400 mb-1">BeatFlow</p>
-              <p className="font-medium text-zinc-900">In research</p>
-              <p className="text-sm text-zinc-500 mt-1">Generative music concept validation</p>
-            </div>
-            <div className="border-l-2 border-zinc-200 pl-4">
-              <p className="text-sm text-zinc-400 mb-1">Ardyn Fitness</p>
-              <p className="font-medium text-zinc-900">In research</p>
-              <p className="text-sm text-zinc-500 mt-1">User interviews and MVP spec</p>
             </div>
           </div>
         </div>

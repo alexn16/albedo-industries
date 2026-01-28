@@ -306,8 +306,34 @@ export default function ProjectDetail() {
         </div>
       </section>
 
+      {/* Charging Wall (for ALB Parking only) */}
+      {project.chargingWall && (
+        <section className="border-t border-zinc-100 bg-zinc-50/50">
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div>
+                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                  Hardware Innovation
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <h3 className="text-xl font-medium text-zinc-900 mb-4">
+                  {project.chargingWall.headline}
+                </h3>
+                <p className="text-lg text-zinc-600 leading-relaxed mb-4">
+                  {project.chargingWall.description}
+                </p>
+                <p className="text-sm text-zinc-500 italic">
+                  {project.chargingWall.note}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Trust & Safety */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section className={`border-t border-zinc-100 ${!project.chargingWall ? 'bg-zinc-50/50' : ''}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
