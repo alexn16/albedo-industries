@@ -145,16 +145,16 @@ export default function Projects() {
                   {/* Actions */}
                   <div className="flex flex-col gap-3 md:items-end mt-4 md:mt-0">
                     <Link
-                      to={`/projects/${project.slug}`}
+                      to={project.dedicatedPage || `/projects/${project.slug}`}
                       className="inline-flex items-center justify-center px-5 py-2.5 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
                     >
                       View details
                     </Link>
                     <Link
-                      to={`/projects/${project.slug}#memo`}
+                      to={project.dedicatedPage || `/projects/${project.slug}#memo`}
                       className="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
                     >
-                      Read the memo
+                      {project.dedicatedPage ? 'Learn more' : 'Read the memo'}
                       <svg
                         className="w-4 h-4 ml-1"
                         fill="none"

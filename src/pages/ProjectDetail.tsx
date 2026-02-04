@@ -11,6 +11,11 @@ export default function ProjectDetail() {
     return <Navigate to="/projects" replace />
   }
 
+  // Redirect to dedicated page if one exists
+  if (project.dedicatedPage) {
+    return <Navigate to={project.dedicatedPage} replace />
+  }
+
   return (
     <div>
       {/* Hero Section */}

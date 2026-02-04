@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
+import Foreman from './pages/Foreman'
 import Updates from './pages/Updates'
 import Support from './pages/Support'
 import Privacy from './pages/Privacy'
@@ -18,6 +19,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="projects" element={<Projects />} />
         <Route path="projects/:slug" element={<ProjectDetail />} />
+        <Route path="foreman" element={<Foreman />} />
         <Route path="updates" element={<Updates />} />
         <Route path="support" element={<Support />} />
         <Route path="privacy" element={<Privacy />} />

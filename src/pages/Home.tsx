@@ -122,7 +122,7 @@ export default function Home() {
             {projects.map((project) => (
               <Link
                 key={project.slug}
-                to={`/projects/${project.slug}`}
+                to={project.dedicatedPage || `/projects/${project.slug}`}
                 className="group block bg-white border border-zinc-200 rounded-lg p-6 hover:border-zinc-300 hover:shadow-sm transition-all"
               >
                 <div className="flex items-center gap-2 mb-3">
@@ -181,7 +181,7 @@ export default function Home() {
             <div className="border-l-2 border-blue-200 pl-4">
               <p className="text-sm text-zinc-400 mb-1">Foreman</p>
               <p className="font-medium text-zinc-900">In pilot</p>
-              <p className="text-sm text-zinc-500 mt-1">Testing with 15 construction teams</p>
+              <p className="text-sm text-zinc-500 mt-1">Core + PDA modules with 15 construction teams. Email and CNC modules next.</p>
             </div>
             <div className="border-l-2 border-blue-200 pl-4">
               <p className="text-sm text-zinc-400 mb-1">Aperta</p>
