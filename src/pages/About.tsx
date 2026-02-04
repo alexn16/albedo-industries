@@ -100,7 +100,7 @@ export default function About() {
                 what you need, organized the way your work actually flows.
               </p>
               <p>
-                This isn't about custom development being better than products—it's about
+                This isn't about custom development being better than products. It's about
                 recognizing that different industries, different company sizes, and different
                 operational models require different software. A construction company doesn't
                 work like a restaurant. A 10-person team doesn't work like a 500-person
@@ -129,7 +129,7 @@ export default function About() {
                 could be automated, and tools that create work instead of reducing it.
               </p>
               <p>
-                Working across sectors isn't about spreading thin—it's about pattern recognition.
+                Working across sectors is not about spreading thin. It's about pattern recognition.
                 Solutions developed for material tracking in construction inform inventory
                 management in restaurants. Scheduling optimization for fitness training applies
                 to crew coordination on construction sites. The underlying problems are often
@@ -157,7 +157,7 @@ export default function About() {
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                Generic software scales by adding features—which makes it more complex and
+                Generic software scales by adding features. That makes it more complex and
                 harder to use. Personalized software scales by going deeper into specific
                 workflows. The more we understand a domain, the more value we can add
                 without adding complexity.
@@ -189,7 +189,7 @@ export default function About() {
               <h3 className="text-lg font-medium mb-2">Automation</h3>
               <p className="text-zinc-600 leading-relaxed">
                 Repetitive tasks get automated. Data entry, report generation, status updates,
-                notifications—anything that follows predictable rules gets handled by the system.
+                notifications. Anything that follows predictable rules gets handled by the system.
                 People focus on decisions that require judgment.
               </p>
             </div>
@@ -213,7 +213,7 @@ export default function About() {
               <h3 className="text-lg font-medium mb-2">AI as Assistance</h3>
               <p className="text-zinc-600 leading-relaxed">
                 AI helps understand complex information, surfaces relevant context, and
-                highlights what needs attention. It doesn't make decisions—it makes
+                highlights what needs attention. It does not make decisions for you. It makes
                 decision-makers more informed.
               </p>
             </div>
