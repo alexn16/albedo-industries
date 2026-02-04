@@ -57,7 +57,7 @@ export default function Foreman() {
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                Traditional ERPs were designed for manufacturing and retail—environments where
+                Traditional ERPs were designed for manufacturing and retail. Those are environments where
                 processes repeat predictably and inventory sits in warehouses. Construction
                 operates differently. Every project is unique. Sites change daily. Materials
                 arrive when they arrive. Weather delays work. Subcontractors have their own
@@ -90,8 +90,8 @@ export default function Foreman() {
               <p>
                 Foreman models construction projects as living systems, not static plans. Every
                 project has works in progress, each with its own status, materials, and dependencies.
-                When something changes—a delivery is delayed, a crew is reassigned, a client
-                requests a modification—the system shows you what that change affects.
+                When something changes (a delivery is delayed, a crew is reassigned, a client
+                requests a modification) the system shows you what that change affects.
               </p>
               <p>
                 Priorities are explicit, not assumed. You can see which works are urgent, which
@@ -146,8 +146,8 @@ export default function Foreman() {
             </div>
             <div className="md:col-span-2">
               <p className="text-lg text-zinc-600 leading-relaxed mb-8">
-                The operational backbone. Projects, suppliers, budgets, and works in progress—all
-                visible in one place. Foreman Core replaces the spreadsheets, whiteboards, and
+                The operational backbone. Projects, suppliers, budgets, and works in progress,
+                all visible in one place. Foreman Core replaces the spreadsheets, whiteboards, and
                 disconnected tools that most construction companies rely on.
               </p>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -216,7 +216,7 @@ export default function Foreman() {
               <p className="text-lg text-zinc-600 leading-relaxed mb-8">
                 Construction runs on email. Supplier quotes arrive in inboxes. Client change
                 requests come through messages. Crew updates happen over threads. The problem
-                isn't email itself—it's that none of this communication connects to your projects.
+                is not email itself. It's that none of this communication connects to your projects.
               </p>
               <p className="text-lg text-zinc-600 leading-relaxed mb-8">
                 Foreman Email bridges the gap between unstructured communication and structured
@@ -333,7 +333,7 @@ export default function Foreman() {
               </div>
               <p className="text-zinc-600 leading-relaxed">
                 Typical construction shops operate cutting independently from project management.
-                Foreman CNC closes that gap—when a project becomes urgent, the production
+                Foreman CNC closes that gap. When a project becomes urgent, the production
                 floor knows immediately.
               </p>
 
@@ -453,7 +453,7 @@ export default function Foreman() {
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p className="text-lg">
-                AI runs across all Foreman modules—not as a replacement for human judgment,
+                AI runs across all Foreman modules. Not as a replacement for human judgment,
                 but as a layer of assistance that makes information clearer and decisions faster.
               </p>
               <div className="grid sm:grid-cols-2 gap-6">

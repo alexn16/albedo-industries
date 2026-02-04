@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { projects } from '../data/projects'
+import { projects, type Project } from '../data/projects'
 
 type FilterType = 'all' | 'Consumer' | 'B2B'
 type StatusFilter = 'all' | 'Live' | 'Building' | 'Concept'
@@ -9,7 +9,12 @@ export default function Projects() {
   const [categoryFilter, setCategoryFilter] = useState<FilterType>('all')
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all')
 
-  const filteredProjects = projects.filter((project) => {
+  // Separate parent products from child modules
+  const parentProjects = projects.filter((p) => !p.parentSlug)
+  const getChildModules = (parentSlug: string) =>
+    projects.filter((p) => p.parentSlug === parentSlug)
+
+  const filteredProjects = parentProjects.filter((project) => {
     const matchesCategory = categoryFilter === 'all' || project.category === categoryFilter
     const matchesStatus = statusFilter === 'all' || project.status === statusFilter
     return matchesCategory && matchesStatus
@@ -27,6 +32,106 @@ export default function Projects() {
         return ''
     }
   }
+
+  const renderProjectCard = (project: Project, isModule = false) => (
+    <div
+      key={project.slug}
+      className={`border border-zinc-200 rounded-lg hover:border-zinc-300 hover:shadow-sm transition-all ${
+        isModule ? 'p-4 md:p-5 ml-4 md:ml-6 border-l-2 border-l-zinc-300' : 'p-6 md:p-8'
+      }`}
+    >
+      <div className={`${isModule ? '' : 'md:flex md:items-start md:justify-between gap-8'}`}>
+        <div className="flex-1">
+          {/* Status and Category */}
+          <div className="flex items-center gap-3 mb-2">
+            <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
+              project.status === 'Live'
+                ? 'bg-green-50 text-green-700'
+                : project.status === 'Building'
+                ? 'bg-blue-50 text-blue-700'
+                : 'bg-zinc-100 text-zinc-600'
+            }`}>
+              {project.status}
+            </span>
+            {!isModule && (
+              <>
+                <span className="text-sm text-zinc-400">{project.category}</span>
+                <span className="text-xs text-zinc-400 hidden sm:inline">
+                  {getStageDescription(project.status)}
+                </span>
+              </>
+            )}
+            {isModule && (
+              <span className="text-xs text-zinc-400">Module</span>
+            )}
+          </div>
+
+          {/* Name and Positioning */}
+          <h2 className={`font-medium mb-2 ${isModule ? 'text-lg' : 'text-xl md:text-2xl'}`}>
+            {project.name}
+          </h2>
+          <p className={`text-zinc-600 leading-relaxed ${isModule ? 'text-sm mb-3' : 'mb-4'}`}>
+            {project.positioning}
+          </p>
+
+          {/* Capabilities */}
+          {!isModule && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.capabilities.map((cap, i) => (
+                <span
+                  key={i}
+                  className="text-xs text-zinc-500 bg-zinc-50 px-2.5 py-1 rounded-md border border-zinc-100"
+                >
+                  {cap}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Who it's for (parent products only) */}
+          {!isModule && (
+            <p className="text-sm text-zinc-500 mb-4">
+              <span className="font-medium text-zinc-600">For:</span>{' '}
+              {project.targetUsers.split('.')[0]}.
+            </p>
+          )}
+        </div>
+
+        {/* Actions */}
+        <div className={`flex gap-3 ${isModule ? 'mt-3' : 'flex-col md:items-end mt-4 md:mt-0'}`}>
+          <Link
+            to={project.dedicatedPage || `/projects/${project.slug}`}
+            className={`inline-flex items-center justify-center bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors ${
+              isModule ? 'px-4 py-2' : 'px-5 py-2.5'
+            }`}
+          >
+            {isModule ? 'Details' : 'View details'}
+          </Link>
+          {!isModule && (
+            <Link
+              to={project.dedicatedPage || `/projects/${project.slug}#memo`}
+              className="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
+            >
+              {project.dedicatedPage ? 'Learn more' : 'Read the memo'}
+              <svg
+                className="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  )
 
   return (
     <div>
@@ -91,88 +196,27 @@ export default function Projects() {
       <section className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="space-y-8">
-            {filteredProjects.map((project) => (
-              <div
-                key={project.slug}
-                className="border border-zinc-200 rounded-lg p-6 md:p-8 hover:border-zinc-300 hover:shadow-sm transition-all"
-              >
-                <div className="md:flex md:items-start md:justify-between gap-8">
-                  <div className="flex-1">
-                    {/* Status and Category */}
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
-                        project.status === 'Live'
-                          ? 'bg-green-50 text-green-700'
-                          : project.status === 'Building'
-                          ? 'bg-blue-50 text-blue-700'
-                          : 'bg-zinc-100 text-zinc-600'
-                      }`}>
-                        {project.status}
-                      </span>
-                      <span className="text-sm text-zinc-400">{project.category}</span>
-                      <span className="text-xs text-zinc-400 hidden sm:inline">
-                        {getStageDescription(project.status)}
-                      </span>
+            {filteredProjects.map((project) => {
+              const childModules = getChildModules(project.slug)
+              const hasModules = childModules.length > 0
+
+              return (
+                <div key={project.slug} className="space-y-3">
+                  {/* Parent product card */}
+                  {renderProjectCard(project)}
+
+                  {/* Child modules */}
+                  {hasModules && (
+                    <div className="space-y-3">
+                      <p className="text-xs text-zinc-400 uppercase tracking-wider ml-4 md:ml-6 mt-4">
+                        Available modules (can be adopted separately)
+                      </p>
+                      {childModules.map((module) => renderProjectCard(module, true))}
                     </div>
-
-                    {/* Name and Positioning */}
-                    <h2 className="text-xl md:text-2xl font-medium mb-2">
-                      {project.name}
-                    </h2>
-                    <p className="text-zinc-600 leading-relaxed mb-4">
-                      {project.positioning}
-                    </p>
-
-                    {/* Capabilities */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.capabilities.map((cap, i) => (
-                        <span
-                          key={i}
-                          className="text-xs text-zinc-500 bg-zinc-50 px-2.5 py-1 rounded-md border border-zinc-100"
-                        >
-                          {cap}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Who it's for */}
-                    <p className="text-sm text-zinc-500 mb-4">
-                      <span className="font-medium text-zinc-600">For:</span>{' '}
-                      {project.targetUsers.split('.')[0]}.
-                    </p>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex flex-col gap-3 md:items-end mt-4 md:mt-0">
-                    <Link
-                      to={project.dedicatedPage || `/projects/${project.slug}`}
-                      className="inline-flex items-center justify-center px-5 py-2.5 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
-                    >
-                      View details
-                    </Link>
-                    <Link
-                      to={project.dedicatedPage || `/projects/${project.slug}#memo`}
-                      className="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
-                    >
-                      {project.dedicatedPage ? 'Learn more' : 'Read the memo'}
-                      <svg
-                        className="w-4 h-4 ml-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {filteredProjects.length === 0 && (
