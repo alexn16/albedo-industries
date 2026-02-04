@@ -31,6 +31,14 @@ export interface Project {
     description: string
     note: string
   }
+  // Indicates this project has a dedicated page with richer content
+  dedicatedPage?: string
+  // Module breakdown for complex products
+  modules?: {
+    name: string
+    shortName: string
+    description: string
+  }[]
 }
 
 export const projects: Project[] = [
@@ -84,34 +92,58 @@ export const projects: Project[] = [
   {
     slug: 'foreman',
     name: 'Foreman',
-    tagline: 'Job management for construction teams that actually gets used.',
-    positioning: 'Field-first construction software built by watching real crews work.',
+    tagline: 'A construction operating system, not a traditional ERP.',
+    positioning: 'Built for how construction actually works: projects evolve daily, priorities shift, materials move, and teams need clarity in real time.',
     category: 'B2B',
     status: 'Building',
     capabilities: [
-      'Offline-first job logging',
-      'Automatic photo documentation',
-      'Crew scheduling sync',
+      'Real-time project visibility',
+      'Email-to-project linking',
+      'CNC cutting optimization',
+      'Mobile warehouse & site',
     ],
-    problem: 'Construction project management software is either too complex for small teams or too basic to be useful. Field workers avoid using tools that slow them down, which leads to communication gaps and costly mistakes. The industry loses billions annually to miscommunication, rework, and documentation failures that better tools could prevent.',
-    solution: 'Foreman is built for how construction teams actually work. Quick job logging from the field, automatic photo documentation with GPS and timestamp, and simple scheduling that syncs across the whole crew. Works offline in basements and rural sites, syncs when connected. Designed for gloved hands and bright sunlight.',
-    differentiator: 'We spent months on job sites before writing a line of code. Every feature exists because we watched someone struggle without it. The app is designed for gloved hands and bright sunlight, not conference room demos. Our offline-first architecture means the app works even in basements, tunnels, and rural sites with poor connectivity.',
-    targetUsers: 'Small to mid-size construction companies, general contractors, and specialty trade teams. Particularly suited for teams of 5-50 who need structure without bureaucracy.',
+    dedicatedPage: '/foreman',
+    modules: [
+      {
+        name: 'Foreman Core',
+        shortName: 'Core',
+        description: 'Projects, suppliers, budgets, works in progress—all visible in one place.',
+      },
+      {
+        name: 'Foreman Email',
+        shortName: 'Email',
+        description: 'Connects email communication to projects. Extracts relevant information. Prevents loss of context.',
+      },
+      {
+        name: 'Foreman CNC',
+        shortName: 'CNC',
+        description: 'Optimizes cutting of plates, wood, aluminum, steel. Reduces waste. Connects production to project priorities.',
+      },
+      {
+        name: 'Foreman PDA',
+        shortName: 'PDA',
+        description: 'Mobile interface for warehouse and site workers. Real-time stock visibility. Priority-based picking.',
+      },
+    ],
+    problem: 'Traditional ERPs were designed for manufacturing and retail—environments where processes repeat predictably. Construction operates differently. Every project is unique. Sites change daily. Materials arrive when they arrive. ERPs assume you can define processes upfront and execute them. Construction requires systems that adapt continuously. When project managers spend more time updating software than managing projects, something is wrong with the software.',
+    solution: 'Foreman models construction projects as living systems, not static plans. Every project has works in progress, each with its own status, materials, and dependencies. When something changes—a delivery is delayed, a crew is reassigned, a client requests a modification—the system shows you what that change affects. Four integrated modules handle the full operational scope: Core ERP, Email integration, CNC optimization, and mobile PDA for warehouse and site.',
+    differentiator: 'We don\'t just track what happened—we help you see what\'s coming. AI integration across all modules assists understanding, highlights priorities, simulates future scenarios, and helps teams make better decisions faster. The goal is clarity, not automation. Foreman\'s AI helps teams understand their situation. It doesn\'t make decisions for them.',
+    targetUsers: 'Construction companies that have outgrown spreadsheets but find traditional ERPs too rigid. Teams that need real-time visibility across projects, materials, and production. Companies where the gap between office planning and field execution causes problems.',
     useCases: [
-      'General contractors managing multiple active sites',
-      'Specialty trades (electrical, plumbing, HVAC) coordinating crews',
-      'Renovation companies tracking progress for homeowner updates',
-      'Commercial fit-out teams documenting compliance requirements',
+      'General contractors managing multiple active projects with shared resources',
+      'Fabrication shops coordinating cutting schedules with project priorities',
+      'Warehouses organizing materials for multiple concurrent construction sites',
+      'Project managers needing real-time visibility without chasing updates',
     ],
-    businessModel: 'Per-seat SaaS subscription with tiered pricing. Free tier for solo contractors (up to 3 projects). Team tier for small crews. Business tier with advanced features, integrations, and priority support.',
-    distribution: 'Direct outreach to construction companies through industry networks. Partnerships with material suppliers and equipment rental companies. Trade show presence. Referral program with existing customers.',
+    businessModel: 'Per-seat SaaS subscription with modular pricing. Start with Core, add modules as needs grow. Starter tier for small teams (up to 5 users). Team tier for growing companies (6-25 users). Enterprise tier with custom integration and support.',
+    distribution: 'Direct outreach to construction companies through industry networks. Partnerships with material suppliers and equipment rental companies. Trade show presence. Referral program with existing pilot customers.',
     roadmap: {
-      now: 'Core job logging, photo documentation, and scheduling in pilot with 15 construction teams.',
-      next: 'Material tracking and simple invoicing. QuickBooks integration.',
-      later: 'Subcontractor portal. Permit and inspection tracking. Equipment maintenance scheduling.',
+      now: 'Foreman Core and PDA in pilot with 15 construction teams. Core job management, material tracking, and warehouse operations.',
+      next: 'Email integration and CNC optimization modules. Expanded supplier management. Mobile improvements based on pilot feedback.',
+      later: 'Full AI integration across modules. Subcontractor portal. Integration with accounting systems. Multi-company collaboration features.',
     },
-    trustAndSafety: 'All project data encrypted. Granular access controls for crew members vs. management. Photo metadata preserved for compliance documentation. Regular backups with 30-day retention. GDPR-ready data export.',
-    vision: 'Build out material tracking and simple invoicing to reduce the number of tools teams need to juggle. Keep the core experience fast and field-friendly as we grow.',
+    trustAndSafety: 'All project data encrypted at rest and in transit. Role-based access controls separate field workers from management views. Photo metadata preserved for compliance documentation. Regular backups with 30-day retention. GDPR-ready data export. Audit trail for all changes.',
+    vision: 'Become the operational backbone for construction companies—the system that connects planning, production, materials, and field execution. Not by adding complexity, but by making existing workflows visible, connected, and responsive to change.',
   },
   {
     slug: 'ardyn-fitness',
