@@ -21,29 +21,55 @@ export default function Home() {
 
   return (
     <div>
-      {/* ─── Hero Section ─── */}
-      <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-36 md:pb-24">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.1] mb-6 animate-fade-in text-gradient">
+      {/* ─── Hero Section with Video Background ─── */}
+      <section className="hero-video-section relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <video
+          className="hero-video absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source
+            src={`${basePath}media/ALBEDO - INDUSTRIES/weryai_5bb6aefbba19268f1e7c90c34015e82f.mp4`}
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.08] mb-6 animate-fade-in text-white">
             Real systems for<br />real infrastructure.
           </h1>
-          <p className="text-lg md:text-xl text-zinc-500 leading-relaxed max-w-2xl animate-fade-in animation-delay-100">
+          <p className="text-base md:text-lg text-zinc-300 leading-relaxed max-w-2xl mx-auto animate-fade-in animation-delay-100">
             ALBEDO Industries builds software that turns overlooked assets into working
             infrastructure. Urban parking. Fitness decisions. Global supply chains. Construction operations.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-in animation-delay-200">
+          <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center animate-fade-in animation-delay-200">
             <Link
               to="/projects"
-              className="inline-flex items-center justify-center px-6 py-3 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
+              className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors"
             >
               Explore projects
             </Link>
             <a
               href="mailto:hello@albedo.industries?subject=Partnership Inquiry"
-              className="inline-flex items-center justify-center px-6 py-3 border border-zinc-200 rounded-lg text-sm font-medium hover:border-zinc-300 hover:bg-zinc-50 transition-all"
+              className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all"
             >
               Get in touch
             </a>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-400">
+          <div className="scroll-indicator w-5 h-8 rounded-full border-2 border-white/40 flex items-start justify-center p-1">
+            <div className="w-1 h-2 bg-white/60 rounded-full animate-scroll-dot" />
           </div>
         </div>
       </section>

@@ -40,6 +40,27 @@ body {
   background: #a1a1aa;
 }
 
+/* ─── Hero video background ─── */
+.hero-video-section {
+  margin-top: -73px; /* offset sticky header height so video is truly fullscreen */
+  padding-top: 73px;
+}
+
+.hero-video {
+  filter: brightness(0.9);
+}
+
+/* Scroll indicator dot animation */
+@keyframes scrollDot {
+  0%   { opacity: 1; transform: translateY(0); }
+  50%  { opacity: 0.4; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-scroll-dot {
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
 /* ─── Hero entrance animation ─── */
 @keyframes fadeIn {
   from {
