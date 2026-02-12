@@ -2,6 +2,24 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import { projects } from '../data/projects'
 import MarketBrief from '../components/MarketBrief'
 import BeatFlowListen from '../components/BeatFlowListen'
+import GermetShowcase from '../components/GermetShowcase'
+import AlbParkingShowcase from '../components/AlbParkingShowcase'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+
+function RevealSection({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  const ref = useScrollReveal<HTMLElement>()
+  return (
+    <section ref={ref} className={`reveal ${className}`}>
+      {children}
+    </section>
+  )
+}
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -23,26 +41,25 @@ export default function ProjectDetail() {
         <div className="mb-6">
           <Link
             to="/projects"
-            className="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
+            className="inline-flex items-center text-sm text-zinc-400 hover:text-zinc-900 transition-colors"
           >
-            <svg
-              className="w-4 h-4 mr-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
+            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             All Projects
           </Link>
         </div>
         <div className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-4">
+          {project.logo && (
+            <div className="mb-6 animate-fade-in">
+              <img
+                src={`${import.meta.env.BASE_URL}${project.logo}`}
+                alt={`${project.name} logo`}
+                className="h-10 md:h-12 object-contain"
+              />
+            </div>
+          )}
+          <div className="flex items-center gap-3 mb-4 animate-fade-in">
             <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
               project.status === 'Live'
                 ? 'bg-green-50 text-green-700'
@@ -54,19 +71,19 @@ export default function ProjectDetail() {
             </span>
             <span className="text-sm text-zinc-400">{project.category}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-4 animate-fade-in animation-delay-100">
             {project.name}
           </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed mb-2">
+          <p className="text-xl text-zinc-600 leading-relaxed mb-2 animate-fade-in animation-delay-200">
             {project.tagline}
           </p>
-          <p className="text-lg text-zinc-500">
+          <p className="text-lg text-zinc-500 animate-fade-in animation-delay-300">
             {project.positioning}
           </p>
 
           {/* Disclaimer for Alphaclaim */}
           {project.disclaimer && (
-            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+            <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg animate-fade-in animation-delay-300">
               <p className="text-sm text-amber-800">
                 <span className="font-medium">Note:</span> {project.disclaimer}
               </p>
@@ -74,7 +91,7 @@ export default function ProjectDetail() {
           )}
 
           {(project.website || project.app) && (
-            <div className="flex gap-4 mt-8">
+            <div className="flex gap-4 mt-8 animate-fade-in animation-delay-400">
               {project.website && (
                 <a
                   href={project.website}
@@ -100,9 +117,11 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {/* Alphaclaim Market Brief Section */}
+      {/* ─── Media Showcase Sections (right after hero) ─── */}
+
+      {/* Alphaclaim Market Brief */}
       {project.slug === 'alphaclaim' && (
-        <section className="border-t border-zinc-100 bg-zinc-50/50">
+        <RevealSection className="border-t border-zinc-100 bg-zinc-50/50">
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
@@ -115,12 +134,12 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
-        </section>
+        </RevealSection>
       )}
 
-      {/* BeatFlow Listen Section */}
+      {/* BeatFlow Listen */}
       {project.slug === 'beatflow' && (
-        <section className="border-t border-zinc-100 bg-zinc-50/50">
+        <RevealSection className="border-t border-zinc-100 bg-zinc-50/50">
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
@@ -133,12 +152,50 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
-        </section>
+        </RevealSection>
       )}
 
+      {/* Germet Platform Demo */}
+      {project.slug === 'germet' && (
+        <RevealSection className="border-t border-zinc-100 bg-zinc-50/50">
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div>
+                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                  Platform Demo
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <GermetShowcase />
+              </div>
+            </div>
+          </div>
+        </RevealSection>
+      )}
+
+      {/* ALB Parking App Showcase */}
+      {project.slug === 'alb-parking' && (
+        <RevealSection className="border-t border-zinc-100 bg-zinc-50/50">
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div>
+                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                  The App
+                </h2>
+              </div>
+              <div className="md:col-span-2">
+                <AlbParkingShowcase />
+              </div>
+            </div>
+          </div>
+        </RevealSection>
+      )}
+
+      {/* ─── Content Sections ─── */}
+
       {/* Problem */}
-      <section id="memo" className="border-t border-zinc-100">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
+      <RevealSection className="border-t border-zinc-100">
+        <div id="memo" className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
@@ -152,10 +209,10 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Solution */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <RevealSection className="border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -170,11 +227,11 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
-      {/* Key Features (for projects that have them, like Aperta) */}
+      {/* Key Features */}
       {project.keyFeatures && project.keyFeatures.length > 0 && (
-        <section className="border-t border-zinc-100">
+        <RevealSection className="border-t border-zinc-100">
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
@@ -196,11 +253,11 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
-        </section>
+        </RevealSection>
       )}
 
       {/* Differentiator */}
-      <section className={`border-t border-zinc-100 ${project.keyFeatures ? 'bg-zinc-50/50' : ''}`}>
+      <RevealSection className={`border-t border-zinc-100 ${project.keyFeatures ? 'bg-zinc-50/50' : ''}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -215,10 +272,10 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Target Users & Use Cases */}
-      <section className={`border-t border-zinc-100 ${project.keyFeatures ? '' : 'bg-zinc-50/50'}`}>
+      <RevealSection className={`border-t border-zinc-100 ${project.keyFeatures ? '' : 'bg-zinc-50/50'}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -236,7 +293,7 @@ export default function ProjectDetail() {
               <ul className="space-y-3">
                 {project.useCases.map((useCase, i) => (
                   <li key={i} className="flex items-start text-zinc-600">
-                    <span className="text-zinc-400 mr-3">-</span>
+                    <span className="text-zinc-300 mr-3">—</span>
                     <span>{useCase}</span>
                   </li>
                 ))}
@@ -244,10 +301,10 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Business Model */}
-      <section className="border-t border-zinc-100">
+      <RevealSection className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -262,10 +319,10 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Distribution */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <RevealSection className="border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -280,10 +337,10 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Roadmap */}
-      <section className="border-t border-zinc-100">
+      <RevealSection className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -293,11 +350,11 @@ export default function ProjectDetail() {
             </div>
             <div className="md:col-span-2">
               <div className="space-y-8">
-                <div className="border-l-2 border-green-200 pl-4">
+                <div className="border-l-2 border-green-300 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Now</h3>
                   <p className="text-zinc-600">{project.roadmap.now}</p>
                 </div>
-                <div className="border-l-2 border-blue-200 pl-4">
+                <div className="border-l-2 border-blue-300 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Next</h3>
                   <p className="text-zinc-600">{project.roadmap.next}</p>
                 </div>
@@ -309,11 +366,11 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Charging Wall (for ALB Parking only) */}
       {project.chargingWall && (
-        <section className="border-t border-zinc-100 bg-zinc-50/50">
+        <RevealSection className="border-t border-zinc-100 bg-zinc-50/50">
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
@@ -334,11 +391,11 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
-        </section>
+        </RevealSection>
       )}
 
       {/* Trust & Safety */}
-      <section className={`border-t border-zinc-100 ${!project.chargingWall ? 'bg-zinc-50/50' : ''}`}>
+      <RevealSection className={`border-t border-zinc-100 ${!project.chargingWall ? 'bg-zinc-50/50' : ''}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -353,11 +410,11 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Ethics Note (for BeatFlow) */}
       {project.ethicsNote && (
-        <section className="border-t border-zinc-100">
+        <RevealSection className="border-t border-zinc-100">
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
@@ -372,11 +429,11 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
-        </section>
+        </RevealSection>
       )}
 
       {/* Vision */}
-      <section className={`border-t border-zinc-100 ${project.ethicsNote ? 'bg-zinc-50/50' : ''}`}>
+      <RevealSection className={`border-t border-zinc-100 ${project.ethicsNote ? 'bg-zinc-50/50' : ''}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -391,10 +448,10 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* Links & Resources */}
-      <section className={`border-t border-zinc-100 ${project.ethicsNote ? '' : 'bg-zinc-50/50'}`}>
+      <RevealSection className={`border-t border-zinc-100 ${project.ethicsNote ? '' : 'bg-zinc-50/50'}`}>
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -409,7 +466,7 @@ export default function ProjectDetail() {
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white transition-all group"
+                    className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white hover:shadow-sm transition-all group"
                   >
                     <div>
                       <p className="font-medium text-zinc-900">Website</p>
@@ -422,7 +479,7 @@ export default function ProjectDetail() {
                 )}
                 <a
                   href={`mailto:hello@albedo.industries?subject=Demo Request: ${project.name}`}
-                  className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white transition-all group"
+                  className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white hover:shadow-sm transition-all group"
                 >
                   <div>
                     <p className="font-medium text-zinc-900">Request Demo</p>
@@ -434,7 +491,7 @@ export default function ProjectDetail() {
                 </a>
                 <a
                   href={`mailto:investors@albedo.industries?subject=Investor Deck Request: ${project.name}`}
-                  className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white transition-all group"
+                  className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white hover:shadow-sm transition-all group"
                 >
                   <div>
                     <p className="font-medium text-zinc-900">Investor Deck</p>
@@ -446,7 +503,7 @@ export default function ProjectDetail() {
                 </a>
                 <Link
                   to="/support"
-                  className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white transition-all group"
+                  className="flex items-center justify-between p-4 border border-zinc-200 rounded-lg hover:border-zinc-300 hover:bg-white hover:shadow-sm transition-all group"
                 >
                   <div>
                     <p className="font-medium text-zinc-900">Support</p>
@@ -460,10 +517,10 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
 
       {/* CTA */}
-      <section className="border-t border-zinc-100">
+      <RevealSection className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
@@ -488,7 +545,7 @@ export default function ProjectDetail() {
             </div>
           </div>
         </div>
-      </section>
+      </RevealSection>
     </div>
   )
 }

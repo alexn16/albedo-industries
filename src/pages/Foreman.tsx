@@ -1,11 +1,33 @@
 import { Link } from 'react-router-dom'
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal'
+import VideoPlayer from '../components/VideoPlayer'
+
+const basePath = import.meta.env.BASE_URL || '/'
 
 export default function Foreman() {
+  const heroRef = useScrollReveal<HTMLDivElement>()
+  const problemRef = useScrollReveal<HTMLElement>()
+  const livingRef = useScrollReveal<HTMLElement>()
+  const modulesHeaderRef = useScrollReveal<HTMLElement>()
+  const coreRef = useScrollReveal<HTMLElement>()
+  const coreCardsRef = useStaggerReveal<HTMLDivElement>()
+  const emailRef = useScrollReveal<HTMLElement>()
+  const emailCardsRef = useStaggerReveal<HTMLDivElement>()
+  const cncRef = useScrollReveal<HTMLElement>()
+  const cncCardsRef = useStaggerReveal<HTMLDivElement>()
+  const pdaRef = useScrollReveal<HTMLElement>()
+  const pdaCardsRef = useStaggerReveal<HTMLDivElement>()
+  const aiRef = useScrollReveal<HTMLElement>()
+  const aiCardsRef = useStaggerReveal<HTMLDivElement>()
+  const statusRef = useScrollReveal<HTMLElement>()
+  const pricingRef = useScrollReveal<HTMLElement>()
+  const ctaRef = useScrollReveal<HTMLElement>()
+
   return (
     <div>
       {/* Hero Section */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
-        <div className="mb-6">
+        <div className="mb-6 animate-fade-in">
           <Link
             to="/projects"
             className="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
@@ -26,28 +48,52 @@ export default function Foreman() {
             All Projects
           </Link>
         </div>
-        <div className="max-w-3xl">
+        <div ref={heroRef} className="reveal max-w-3xl">
           <div className="flex items-center gap-3 mb-4">
             <span className="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-50 text-blue-700">
               Building
             </span>
             <span className="text-sm text-zinc-400">B2B</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-4 animate-fade-in">
             Foreman
           </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed mb-2">
+          <p className="text-xl text-zinc-600 leading-relaxed mb-2 animate-fade-in animation-delay-100">
             A construction operating system, not a traditional ERP.
           </p>
-          <p className="text-lg text-zinc-500">
+          <p className="text-lg text-zinc-500 animate-fade-in animation-delay-200">
             Built for how construction actually works: projects evolve daily, priorities shift,
             materials move, and teams need clarity in real time.
           </p>
         </div>
       </section>
 
+      {/* ─── See It In Action ─── */}
+      <section className="border-t border-zinc-100 bg-zinc-950">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+          <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">
+            See It In Action
+          </h2>
+          <p className="text-zinc-400 mb-10 max-w-2xl">
+            Watch how Foreman handles core construction workflows — from purchase orders through invoice processing.
+          </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <VideoPlayer
+              src={`${basePath}media/foreman/foreman-po-workflow.mp4`}
+              title="Purchase Order Workflow"
+              description="Creating and managing purchase orders across projects and suppliers."
+            />
+            <VideoPlayer
+              src={`${basePath}media/foreman/foreman-invoice-workflow.mp4`}
+              title="Invoice Processing"
+              description="Invoice creation, matching to purchase orders, and approval flow."
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Why ERPs Fail Construction */}
-      <section className="border-t border-zinc-100">
+      <section ref={problemRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -78,7 +124,7 @@ export default function Foreman() {
       </section>
 
       {/* Living Systems Approach */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section ref={livingRef} className="reveal border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -103,22 +149,13 @@ export default function Foreman() {
                 installation. You don't have to guess what's available. You can see it, in real
                 time, across all your projects.
               </p>
-
-              {/* Visual suggestion */}
-              <div className="mt-8 p-6 bg-white border border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 uppercase tracking-wider mb-3">Visual Concept</p>
-                <p className="text-sm text-zinc-500">
-                  Diagram showing a project as a network: works, materials, and dependencies connected.
-                  Color-coded status indicators. Timeline showing how changes propagate through the system.
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Modules Header */}
-      <section className="border-t border-zinc-100">
+      <section ref={modulesHeaderRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="max-w-3xl">
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
@@ -134,7 +171,7 @@ export default function Foreman() {
       </section>
 
       {/* Module 1: Foreman Core */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section ref={coreRef} className="reveal border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -150,36 +187,36 @@ export default function Foreman() {
                 all visible in one place. Foreman Core replaces the spreadsheets, whiteboards, and
                 disconnected tools that most construction companies rely on.
               </p>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+              <div ref={coreCardsRef} className="grid sm:grid-cols-2 gap-6">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Projects</h3>
                   <p className="text-sm text-zinc-500">
                     Every project with its works, timelines, and status. Drill down from overview
                     to specific tasks in seconds.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Suppliers</h3>
                   <p className="text-sm text-zinc-500">
                     Your supplier relationships, pricing agreements, and delivery history.
                     Compare options when planning new work.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Budgets</h3>
                   <p className="text-sm text-zinc-500">
                     Track costs against budgets at the project and work level. See where
                     you're on track and where overruns are developing.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Works in Progress</h3>
                   <p className="text-sm text-zinc-500">
                     Every active work item with its status, assigned crew, materials needed,
                     and dependencies on other works.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg sm:col-span-2">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg sm:col-span-2 hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Real-time Visibility</h3>
                   <p className="text-sm text-zinc-500">
                     Dashboards that show what's happening now, not what the plan said would
@@ -187,22 +224,13 @@ export default function Foreman() {
                   </p>
                 </div>
               </div>
-
-              {/* Visual suggestion */}
-              <div className="mt-8 p-6 bg-white border border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 uppercase tracking-wider mb-3">Visual Concept</p>
-                <p className="text-sm text-zinc-500">
-                  Screenshot of the Foreman Core dashboard: project cards with status indicators,
-                  budget progress bars, and urgent items highlighted. Clean, scannable, no clutter.
-                </p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Module 2: Foreman Email */}
-      <section className="border-t border-zinc-100">
+      <section ref={emailRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -224,8 +252,8 @@ export default function Foreman() {
                 relevant information, and ensures context isn't lost when conversations happen
                 outside the system.
               </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg">
+              <div ref={emailCardsRef} className="space-y-4">
+                <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
@@ -239,7 +267,7 @@ export default function Foreman() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg">
+                <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -253,7 +281,7 @@ export default function Foreman() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg">
+                <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -269,13 +297,9 @@ export default function Foreman() {
                 </div>
               </div>
 
-              {/* Visual suggestion */}
-              <div className="mt-8 p-6 bg-white border border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 uppercase tracking-wider mb-3">Visual Concept</p>
-                <p className="text-sm text-zinc-500">
-                  Split view: work item on the left with details, linked email thread on the
-                  right with extracted information highlighted. Visual connection between
-                  unstructured communication and structured project data.
+              <div className="mt-8 p-6 bg-zinc-50 border border-dashed border-zinc-200 rounded-lg">
+                <p className="text-sm text-zinc-400 text-center">
+                  Screenshots and demos coming soon.
                 </p>
               </div>
             </div>
@@ -284,7 +308,7 @@ export default function Foreman() {
       </section>
 
       {/* Module 3: Foreman CNC Optimization */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section ref={cncRef} className="reveal border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -301,29 +325,29 @@ export default function Foreman() {
                 Foreman CNC optimizes cutting layouts to reduce waste and connects production
                 planning directly to project priorities.
               </p>
-              <div className="grid sm:grid-cols-2 gap-6 mb-8">
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+              <div ref={cncCardsRef} className="grid sm:grid-cols-2 gap-6 mb-8">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Layout optimization</h3>
                   <p className="text-sm text-zinc-500">
                     Algorithms that arrange cuts to minimize waste across plates, sheets,
                     and stock material. Supports complex shapes and grain direction constraints.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Dynamic job reorganization</h3>
                   <p className="text-sm text-zinc-500">
                     When project priorities change, cutting schedules adjust. Urgent items
                     move up automatically while maintaining material efficiency.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Multi-project batching</h3>
                   <p className="text-sm text-zinc-500">
                     Combine cuts from multiple projects onto the same material sheets.
                     What's waste in one project might be perfect for another.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Production integration</h3>
                   <p className="text-sm text-zinc-500">
                     Connects CNC machines to project schedules. Operators see what to
@@ -337,13 +361,9 @@ export default function Foreman() {
                 floor knows immediately.
               </p>
 
-              {/* Visual suggestion */}
-              <div className="mt-8 p-6 bg-white border border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 uppercase tracking-wider mb-3">Visual Concept</p>
-                <p className="text-sm text-zinc-500">
-                  Cutting layout diagram showing parts nested efficiently on a plate.
-                  Color-coded by project. Waste percentage indicator. Before/after comparison
-                  showing material savings.
+              <div className="mt-8 p-6 bg-zinc-50 border border-dashed border-zinc-200 rounded-lg">
+                <p className="text-sm text-zinc-400 text-center">
+                  Screenshots and demos coming soon.
                 </p>
               </div>
             </div>
@@ -352,7 +372,7 @@ export default function Foreman() {
       </section>
 
       {/* Module 4: Foreman PDA */}
-      <section className="border-t border-zinc-100">
+      <section ref={pdaRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -369,8 +389,8 @@ export default function Foreman() {
                 It's designed for real conditions: gloved hands, bright sunlight, intermittent
                 connectivity.
               </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg">
+              <div ref={pdaCardsRef} className="space-y-4 mb-8">
+                <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -384,7 +404,7 @@ export default function Foreman() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg">
+                <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -398,7 +418,7 @@ export default function Foreman() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg">
+                <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -412,7 +432,7 @@ export default function Foreman() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg">
+                <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
@@ -428,13 +448,9 @@ export default function Foreman() {
                 </div>
               </div>
 
-              {/* Visual suggestion */}
-              <div className="mt-8 p-6 bg-white border border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 uppercase tracking-wider mb-3">Visual Concept</p>
-                <p className="text-sm text-zinc-500">
-                  Phone screen mockup showing the PDA interface: large touch targets, high contrast,
-                  clear status indicators. Worker in warehouse environment scanning a barcode.
-                  Photo with bright sunlight showing screen readability.
+              <div className="mt-8 p-6 bg-zinc-50 border border-dashed border-zinc-200 rounded-lg">
+                <p className="text-sm text-zinc-400 text-center">
+                  Screenshots and demos coming soon.
                 </p>
               </div>
             </div>
@@ -443,7 +459,7 @@ export default function Foreman() {
       </section>
 
       {/* AI Integration */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section ref={aiRef} className="reveal border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -456,29 +472,29 @@ export default function Foreman() {
                 AI runs across all Foreman modules. Not as a replacement for human judgment,
                 but as a layer of assistance that makes information clearer and decisions faster.
               </p>
-              <div className="grid sm:grid-cols-2 gap-6">
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+              <div ref={aiCardsRef} className="grid sm:grid-cols-2 gap-6">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Understanding assistance</h3>
                   <p className="text-sm text-zinc-500">
                     Summarize long email threads. Explain what changed between document versions.
                     Translate technical specifications into plain language.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Priority highlighting</h3>
                   <p className="text-sm text-zinc-500">
                     Surface what needs attention now. Flag conflicts before they become problems.
                     Identify works at risk of delay based on dependencies.
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Scenario simulation</h3>
                   <p className="text-sm text-zinc-500">
                     Model "what if" questions. What happens if this delivery is delayed?
                     How does moving this crew affect other projects?
                   </p>
                 </div>
-                <div className="p-4 bg-white border border-zinc-200 rounded-lg">
+                <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Decision support</h3>
                   <p className="text-sm text-zinc-500">
                     Show tradeoffs clearly. When you have three options, show the implications
@@ -496,7 +512,7 @@ export default function Foreman() {
       </section>
 
       {/* Current Status */}
-      <section className="border-t border-zinc-100">
+      <section ref={statusRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -506,7 +522,7 @@ export default function Foreman() {
             </div>
             <div className="md:col-span-2">
               <div className="space-y-8">
-                <div className="border-l-2 border-green-200 pl-4">
+                <div className="border-l-2 border-green-400 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Now</h3>
                   <p className="text-zinc-600">
                     Foreman Core and PDA in pilot with 15 construction teams. Core job management,
@@ -514,14 +530,14 @@ export default function Foreman() {
                     and priorities.
                   </p>
                 </div>
-                <div className="border-l-2 border-blue-200 pl-4">
+                <div className="border-l-2 border-blue-400 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Next</h3>
                   <p className="text-zinc-600">
                     Email integration and CNC optimization modules. Expanded supplier management.
                     Mobile improvements based on pilot feedback.
                   </p>
                 </div>
-                <div className="border-l-2 border-zinc-200 pl-4">
+                <div className="border-l-2 border-zinc-300 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Later</h3>
                   <p className="text-zinc-600">
                     Full AI integration across modules. Subcontractor portal. Integration with
@@ -535,7 +551,7 @@ export default function Foreman() {
       </section>
 
       {/* Business Model */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section ref={pricingRef} className="reveal border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -549,21 +565,21 @@ export default function Foreman() {
                 Start with Core, add modules as your needs grow.
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
-                <div className="p-6 bg-white border border-zinc-200 rounded-lg">
+                <div className="p-6 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Starter</h3>
                   <p className="text-sm text-zinc-500 mb-4">
                     Solo contractors and small teams up to 5 users
                   </p>
                   <p className="text-sm text-zinc-400">Core module included</p>
                 </div>
-                <div className="p-6 bg-white border border-zinc-200 rounded-lg">
+                <div className="p-6 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Team</h3>
                   <p className="text-sm text-zinc-500 mb-4">
                     Growing companies with 6-25 users
                   </p>
                   <p className="text-sm text-zinc-400">All modules available</p>
                 </div>
-                <div className="p-6 bg-white border border-zinc-200 rounded-lg">
+                <div className="p-6 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Enterprise</h3>
                   <p className="text-sm text-zinc-500 mb-4">
                     Large operations with custom needs
@@ -577,7 +593,7 @@ export default function Foreman() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-zinc-100">
+      <section ref={ctaRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>

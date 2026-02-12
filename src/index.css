@@ -13,15 +13,38 @@ body {
 }
 
 ::selection {
-  background-color: #3b82f6;
+  background-color: #18181b;
   color: white;
 }
 
-/* Subtle fade-in animation */
+/* ─── Focus visible for keyboard navigation ─── */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Custom scrollbar (webkit) ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* ─── Hero entrance animation ─── */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -30,17 +53,100 @@ body {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-out forwards;
+  animation: fadeIn 0.6s ease-out forwards;
 }
 
-.animation-delay-100 {
-  animation-delay: 100ms;
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+
+/* ─── Scroll-triggered reveal animations ─── */
+
+/* Base: hidden state */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.reveal-item {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.animation-delay-200 {
-  animation-delay: 200ms;
+/* Default: fade up */
+.reveal,
+.reveal-item {
+  transform: translateY(20px);
 }
 
-.animation-delay-300 {
-  animation-delay: 300ms;
+/* Variant: slide from left */
+.reveal-left {
+  transform: translateX(-20px);
+}
+
+/* Variant: slide from right */
+.reveal-right {
+  transform: translateX(20px);
+}
+
+/* Variant: scale up */
+.reveal-scale {
+  transform: scale(0.96);
+}
+
+/* Revealed state (added by IntersectionObserver) */
+.revealed {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* ─── Video player overlay ─── */
+.video-overlay {
+  transition: opacity 0.3s ease;
+}
+.video-overlay:hover {
+  opacity: 0.9;
+}
+
+/* ─── Gradient text utility ─── */
+.text-gradient {
+  background: linear-gradient(135deg, #18181b 0%, #52525b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Smooth mobile menu ─── */
+.mobile-menu-enter {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Snap scroll for carousels ─── */
+.snap-scroll {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-scroll > * {
+  scroll-snap-align: center;
+}
+
+/* Hide scrollbar on snap-scroll containers */
+.snap-scroll::-webkit-scrollbar {
+  display: none;
+}
+.snap-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

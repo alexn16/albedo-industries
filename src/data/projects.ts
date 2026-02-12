@@ -31,6 +31,8 @@ export interface Project {
     description: string
     note: string
   }
+  // Path to project logo relative to public/, e.g. "media/germet/germet-logo.png"
+  logo?: string
   // Indicates this project has a dedicated page with richer content
   dedicatedPage?: string
   // For sub-products: links to parent product slug
@@ -47,6 +49,7 @@ export const projects: Project[] = [
   {
     slug: 'alb-parking',
     name: 'ALB Parking',
+    logo: 'media/alb-parking/alb-parking-logo.png',
     tagline: 'Turn unused parking into city infrastructure.',
     positioning: 'A marketplace that converts private parking spots into bookable, reliable urban capacity.',
     category: 'Consumer',
@@ -290,6 +293,7 @@ export const projects: Project[] = [
   {
     slug: 'ardyn-fitness',
     name: 'Ardyn Fitness',
+    logo: 'media/ardyn/ardyn-logo.png',
     tagline: 'A daily decision engine for fitness and nutrition.',
     positioning: 'Adaptive training that fits your day — not the other way around. Primary focus: Asia.',
     category: 'Consumer',
@@ -434,6 +438,7 @@ export const projects: Project[] = [
   {
     slug: 'germet',
     name: 'Germet',
+    logo: 'media/germet/germet-logo.png',
     tagline: 'The control layer for global apparel sourcing.',
     positioning: 'A modular purchasing platform that makes garment sourcing legible, comparable, and auditable.',
     category: 'B2B',

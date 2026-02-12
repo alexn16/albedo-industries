@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { projects, type Project } from '../data/projects'
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal'
+
+const basePath = import.meta.env.BASE_URL || '/'
 
 type FilterType = 'all' | 'Consumer' | 'B2B'
 type StatusFilter = 'all' | 'Live' | 'Building' | 'Concept'
@@ -8,6 +11,11 @@ type StatusFilter = 'all' | 'Live' | 'Building' | 'Concept'
 export default function Projects() {
   const [categoryFilter, setCategoryFilter] = useState<FilterType>('all')
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all')
+
+  const heroRef = useScrollReveal<HTMLDivElement>()
+  const gridRef = useStaggerReveal<HTMLDivElement>()
+  const approachRef = useScrollReveal<HTMLElement>()
+  const stagesRef = useScrollReveal<HTMLElement>()
 
   // Separate parent products from child modules
   const parentProjects = projects.filter((p) => !p.parentSlug)
@@ -34,16 +42,25 @@ export default function Projects() {
   }
 
   const renderProjectCard = (project: Project, isModule = false) => (
-    <div
+    <Link
       key={project.slug}
-      className={`border border-zinc-200 rounded-lg hover:border-zinc-300 hover:shadow-sm transition-all ${
-        isModule ? 'p-4 md:p-5 ml-4 md:ml-6 border-l-2 border-l-zinc-300' : 'p-6 md:p-8'
+      to={project.dedicatedPage || `/projects/${project.slug}`}
+      className={`block border border-zinc-200 rounded-lg hover:border-zinc-300 hover:shadow-md transition-all duration-300 ${
+        isModule ? 'p-4 md:p-5 ml-4 md:ml-6 border-l-2 border-l-zinc-300' : 'reveal-item p-6 md:p-8'
       }`}
     >
       <div className={`${isModule ? '' : 'md:flex md:items-start md:justify-between gap-8'}`}>
         <div className="flex-1">
-          {/* Status and Category */}
-          <div className="flex items-center gap-3 mb-2">
+          {/* Logo + Status row */}
+          <div className="flex items-center gap-3 mb-3">
+            {!isModule && project.logo && (
+              <img
+                src={`${basePath}${project.logo}`}
+                alt=""
+                className="h-7 object-contain"
+                loading="lazy"
+              />
+            )}
             <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${
               project.status === 'Live'
                 ? 'bg-green-50 text-green-700'
@@ -90,58 +107,42 @@ export default function Projects() {
 
           {/* Who it's for (parent products only) */}
           {!isModule && (
-            <p className="text-sm text-zinc-500 mb-4">
+            <p className="text-sm text-zinc-500">
               <span className="font-medium text-zinc-600">For:</span>{' '}
               {project.targetUsers.split('.')[0]}.
             </p>
           )}
         </div>
 
-        {/* Actions */}
-        <div className={`flex gap-3 ${isModule ? 'mt-3' : 'flex-col md:items-end mt-4 md:mt-0'}`}>
-          <Link
-            to={project.dedicatedPage || `/projects/${project.slug}`}
-            className={`inline-flex items-center justify-center bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors ${
-              isModule ? 'px-4 py-2' : 'px-5 py-2.5'
-            }`}
-          >
-            {isModule ? 'Details' : 'View details'}
-          </Link>
-          {!isModule && (
-            <Link
-              to={project.dedicatedPage || `/projects/${project.slug}#memo`}
-              className="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
-            >
-              {project.dedicatedPage ? 'Learn more' : 'Read the memo'}
-              <svg
-                className="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-          )}
-        </div>
+        {/* Arrow indicator */}
+        {!isModule && (
+          <div className="hidden md:flex items-center mt-4 md:mt-0">
+            <svg className="w-5 h-5 text-zinc-300 group-hover:text-zinc-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        )}
       </div>
-    </div>
+
+      {/* Bottom accent line */}
+      {!isModule && (
+        <div className={`h-0.5 -mx-6 md:-mx-8 -mb-6 md:-mb-8 mt-6 rounded-b-lg ${
+          project.status === 'Live' ? 'bg-green-400' :
+          project.status === 'Building' ? 'bg-blue-400' : 'bg-zinc-200'
+        } opacity-40`} />
+      )}
+    </Link>
   )
 
   return (
     <div>
       {/* Hero Section */}
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+        <div ref={heroRef} className="reveal max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6 animate-fade-in text-gradient">
             Our Projects
           </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed">
+          <p className="text-xl text-zinc-600 leading-relaxed animate-fade-in animation-delay-100">
             Software products we're building, operating, or exploring. Each one addresses
             a real problem we've observed and aims to provide lasting value to its users.
           </p>
@@ -195,7 +196,7 @@ export default function Projects() {
       {/* Project Grid */}
       <section className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <div className="space-y-8">
+          <div ref={gridRef} className="space-y-8">
             {filteredProjects.map((project) => {
               const childModules = getChildModules(project.slug)
               const hasModules = childModules.length > 0
@@ -237,7 +238,7 @@ export default function Projects() {
       </section>
 
       {/* Portfolio Approach */}
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
+      <section ref={approachRef} className="reveal border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
@@ -262,27 +263,27 @@ export default function Projects() {
       </section>
 
       {/* Stages Explained */}
-      <section className="border-t border-zinc-100">
+      <section ref={stagesRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-12">
             Development Stages
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="border-l-2 border-green-200 pl-4">
+            <div className="border-l-2 border-green-400 pl-4">
               <h3 className="font-medium text-zinc-900 mb-2">Live</h3>
               <p className="text-sm text-zinc-600">
                 Product is in market, serving real users. Revenue-generating or on clear path
                 to sustainability. Active maintenance and feature development.
               </p>
             </div>
-            <div className="border-l-2 border-blue-200 pl-4">
+            <div className="border-l-2 border-blue-400 pl-4">
               <h3 className="font-medium text-zinc-900 mb-2">Building</h3>
               <p className="text-sm text-zinc-600">
                 Product is in active development. May have early pilots or beta users. Core
                 features being built and validated. Not yet generally available.
               </p>
             </div>
-            <div className="border-l-2 border-zinc-200 pl-4">
+            <div className="border-l-2 border-zinc-300 pl-4">
               <h3 className="font-medium text-zinc-900 mb-2">Concept</h3>
               <p className="text-sm text-zinc-600">
                 Problem validated, solution being designed. User research in progress.

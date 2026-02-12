@@ -1,14 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `transition-colors ${isActive ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`
 
   return (
-    <header className="border-b border-zinc-100">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/80 backdrop-blur-lg border-b border-zinc-200/60 shadow-sm'
+          : 'bg-white/0 backdrop-blur-none border-b border-transparent'
+      }`}
+    >
       <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="text-lg font-semibold tracking-tight">
           ALBEDO
@@ -41,6 +54,7 @@ export default function Header() {
           className="md:hidden p-2 -mr-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
         >
           <svg
             className="w-5 h-5"
@@ -67,9 +81,9 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile navigation */}
+      {/* Mobile navigation — animated slide-down */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-100 px-6 py-4 space-y-4">
+        <div className="md:hidden border-t border-zinc-100 px-6 py-4 space-y-4 bg-white/95 backdrop-blur-lg mobile-menu-enter">
           <NavLink
             to="/about"
             className={`block ${linkClass({ isActive: false })}`}
