@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -11,8 +13,13 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // On the home page with video hero, use white text when not scrolled
+  const heroOverlay = isHome && !scrolled
+
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `transition-colors ${isActive ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`
+    heroOverlay
+      ? `transition-colors ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}`
+      : `transition-colors ${isActive ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`
 
   return (
     <header
@@ -23,7 +30,7 @@ export default function Header() {
       }`}
     >
       <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="text-lg font-semibold tracking-tight">
+        <Link to="/" className={`text-lg font-semibold tracking-tight transition-colors duration-300 ${heroOverlay ? 'text-white' : ''}`}>
           ALBEDO
         </Link>
 
@@ -43,7 +50,11 @@ export default function Header() {
           </NavLink>
           <a
             href="mailto:hello@albedo.industries"
-            className="ml-4 px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
+            className={`ml-4 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              heroOverlay
+                ? 'bg-white text-zinc-900 hover:bg-zinc-100'
+                : 'bg-zinc-900 text-white hover:bg-zinc-800'
+            }`}
           >
             Contact
           </a>
@@ -51,7 +62,7 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden p-2 -mr-2"
+          className={`md:hidden p-2 -mr-2 ${heroOverlay ? 'text-white' : ''}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileMenuOpen}
@@ -86,28 +97,28 @@ export default function Header() {
         <div className="md:hidden border-t border-zinc-100 px-6 py-4 space-y-4 bg-white/95 backdrop-blur-lg mobile-menu-enter">
           <NavLink
             to="/about"
-            className={`block ${linkClass({ isActive: false })}`}
+            className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
             About
           </NavLink>
           <NavLink
             to="/projects"
-            className={`block ${linkClass({ isActive: false })}`}
+            className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
             Projects
           </NavLink>
           <NavLink
             to="/updates"
-            className={`block ${linkClass({ isActive: false })}`}
+            className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
             Updates
           </NavLink>
           <NavLink
             to="/support"
-            className={`block ${linkClass({ isActive: false })}`}
+            className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
             Support
