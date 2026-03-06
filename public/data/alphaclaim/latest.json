@@ -1,6 +1,6 @@
 {
-  "date": "2026-03-05",
-  "marketStatus": "afterhours",
+  "date": "2026-03-06",
+  "marketStatus": "premarket",
   "premarketHighlights": [
     "Futures trading slightly higher ahead of economic data releases",
     "European markets mixed as investors await Fed minutes",
@@ -50,5 +50,5 @@
       "source": "FT"
     }
   ],
-  "generatedAt": "2026-03-05T21:55:31Z"
+  "generatedAt": "2026-03-06T11:52:45Z"
 }
