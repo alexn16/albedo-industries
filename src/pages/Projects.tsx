@@ -48,7 +48,7 @@ export default function Projects() {
     <Link
       key={project.slug}
       to={project.dedicatedPage || `/projects/${project.slug}`}
-      className={`block border border-zinc-200 rounded-lg hover:border-zinc-300 hover:shadow-md transition-all duration-300 ${
+      className={`block border border-zinc-200 rounded-2xl bg-white hover:border-zinc-300 hover:shadow-md transition-all duration-300 ${
         isModule ? 'p-4 md:p-5 ml-4 md:ml-6 border-l-2 border-l-zinc-300' : 'reveal-item p-6 md:p-8'
       }`}
     >
@@ -99,7 +99,7 @@ export default function Projects() {
           {/* Capabilities */}
           {!isModule && (
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.capabilities.map((cap, i) => (
+              {project.capabilities.slice(0, 4).map((cap, i) => (
                 <span
                   key={i}
                   className="text-xs text-zinc-500 bg-zinc-50 px-2.5 py-1 rounded-md border border-zinc-100"
@@ -193,9 +193,9 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-zinc-400">Stage:</span>
-              <div className="flex gap-1">
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Stage</span>
+              <div className="flex gap-1 flex-wrap">
                 {(['all', 'Live', 'Building', 'Concept'] as const).map((status) => (
                   <button
                     key={status}

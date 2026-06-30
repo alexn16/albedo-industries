@@ -153,7 +153,7 @@ export default function Updates() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="mailto:hello@albedo.industries?subject=Keep me updated"
+                href="mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks."
                 className="inline-flex items-center justify-center px-6 py-3 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
               >
                 Get in touch

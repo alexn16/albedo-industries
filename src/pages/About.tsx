@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+const generalMailto = 'mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks.'
+
 export default function About() {
   return (
     <div>
@@ -331,31 +333,14 @@ export default function About() {
               </h2>
             </div>
             <div className="md:col-span-2">
-              <div className="grid sm:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="font-medium mb-2">General inquiries</h3>
-                  <a href="mailto:hello@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    hello@albedo.industries
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2">Partnerships</h3>
-                  <a href="mailto:partnerships@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    partnerships@albedo.industries
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2">Investors</h3>
-                  <a href="mailto:investors@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    investors@albedo.industries
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2">Press</h3>
-                  <a href="mailto:press@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    press@albedo.industries
-                  </a>
-                </div>
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6 md:p-8">
+                <p className="text-sm text-zinc-500 mb-2">Current contact email</p>
+                <a href={generalMailto} className="text-lg font-medium text-zinc-900 hover:text-zinc-600 transition-colors">
+                  albparking@gmail.com
+                </a>
+                <p className="text-sm text-zinc-500 mt-4 leading-relaxed">
+                  Temporary contact email while dedicated ALBEDO channels are being prepared. Use this address for FastSoftware, ALB Parking, partnerships, strategic inquiries and general questions.
+                </p>
               </div>
             </div>
           </div>
@@ -369,7 +354,7 @@ export default function About() {
             <h2 className="text-2xl font-semibold mb-4">Interested in what we're building?</h2>
             <p className="text-zinc-600 leading-relaxed mb-6">
               Explore our current projects or reach out if you'd like to learn more about
-              how ALB Industries can help solve your operational problems.
+              how ALBEDO Industries can help solve your operational problems.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

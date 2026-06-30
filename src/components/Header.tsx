@@ -52,7 +52,7 @@ export default function Header() {
             Support
           </NavLink>
           <a
-            href="mailto:hello@albedo.industries"
+            href="mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks."
             className={`ml-4 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               heroOverlay
                 ? 'bg-white text-zinc-900 hover:bg-zinc-100'
@@ -134,7 +134,7 @@ export default function Header() {
             Support
           </NavLink>
           <a
-            href="mailto:hello@albedo.industries"
+            href="mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks."
             className="block w-full text-center px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
           >
             Contact
