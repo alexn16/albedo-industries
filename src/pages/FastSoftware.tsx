@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal'
 
-const sprintMailto = 'mailto:albparking@gmail.com?subject=FastSoftware%20Sprint%20request&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20discuss%20a%20FastSoftware%20Sprint%20for%20one%20internal%20workflow.%0A%0AThe%20process%20I%20want%20to%20improve%20is%3A%0A%0ACompany%20%2F%20team%3A%0A%0APreferred%20contact%20time%3A%0A%0AThanks.'
+const sprintMailto = 'mailto:hello@albedo.industries?subject=FastSoftware%20Sprint%20request&body=Hi%20ALBEDO%2C%20I%E2%80%99d%20like%20to%20discuss%20a%20FastSoftware%20Sprint%20for%20one%20internal%20workflow.'
 
 const sprintSteps = [
   {
@@ -178,25 +178,25 @@ export default function FastSoftware() {
         </div>
       </section>
 
-      <section ref={sprintRef} className="reveal border-t border-zinc-100 bg-zinc-950 text-white">
+      <section ref={sprintRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="max-w-3xl mb-12">
-            <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">
               FastSoftware Sprint
             </h2>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
               A focused build cycle to turn one operational bottleneck into a working internal tool.
             </h3>
-            <p className="text-lg text-zinc-400 leading-relaxed">
+            <p className="text-lg text-zinc-600 leading-relaxed">
               Designed for weeks, not months. Start with one workflow, prove the system with real users and expand only after the first version is useful.
             </p>
           </div>
           <div ref={stepsRef} className="grid md:grid-cols-4 gap-4">
             {sprintSteps.map((item) => (
-              <div key={item.step} className="reveal-item border border-white/10 rounded-xl p-5 bg-white/5">
+              <div key={item.step} className="reveal-item border border-zinc-200 rounded-xl p-5 bg-white">
                 <span className="text-xs font-medium text-zinc-400">{item.step}</span>
-                <h4 className="font-medium text-white mt-3 mb-2">{item.title}</h4>
-                <p className="text-sm text-zinc-400 leading-relaxed">{item.description}</p>
+                <h4 className="font-medium text-zinc-900 mt-3 mb-2">{item.title}</h4>
+                <p className="text-sm text-zinc-500 leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -217,7 +217,7 @@ export default function FastSoftware() {
             {useCases.map((item) => (
               <div key={item.title} className="reveal-item border border-zinc-200 rounded-xl p-5 bg-white hover:shadow-sm transition-shadow">
                 <h4 className="font-medium text-zinc-900 mb-3">{item.title}</h4>
-                <p className="text-sm text-zinc-400 leading-relaxed">{item.description}</p>
+                <p className="text-sm text-zinc-500 leading-relaxed">{item.description}</p>
                 {item.title === 'Purchasing Agent' && (
                   <Link
                     to="/fastsoftware/purchasing-agent"
@@ -332,11 +332,8 @@ export default function FastSoftware() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
               Start with one workflow.
             </h2>
-            <p className="text-lg text-zinc-400 leading-relaxed mb-4">
+            <p className="text-lg text-zinc-400 leading-relaxed mb-8">
               Choose one repetitive process, one manual report or one operational bottleneck. We turn it into a working internal system and expand from there.
-            </p>
-            <p className="text-sm text-zinc-500 mb-8">
-              Current contact: <a href={sprintMailto} className="text-zinc-300 hover:text-white transition-colors">albparking@gmail.com</a>. Dedicated ALBEDO contact channels are being prepared.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a

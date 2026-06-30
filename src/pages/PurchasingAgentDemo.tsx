@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal'
 
-const sprintMailto = 'mailto:albparking@gmail.com?subject=FastSoftware%20Sprint%20request&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20discuss%20a%20FastSoftware%20Sprint%20for%20one%20internal%20workflow.%0A%0AThe%20process%20I%20want%20to%20improve%20is%3A%0A%0ACompany%20%2F%20team%3A%0A%0APreferred%20contact%20time%3A%0A%0AThanks.'
+const sprintMailto = 'mailto:hello@albedo.industries?subject=FastSoftware%20Sprint%20request&body=Hi%20ALBEDO%2C%20I%E2%80%99d%20like%20to%20discuss%20a%20FastSoftware%20Sprint%20for%20one%20internal%20workflow.'
 
 const offers = [
   {

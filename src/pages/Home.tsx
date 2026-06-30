@@ -44,11 +44,11 @@ const divisionGroups = [
 
 function DivisionCard({ division }: { division: (typeof divisions)[number] }) {
   return (
-    <Link to={division.to} className="reveal-item group block rounded-2xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-lg transition-all duration-300">
+    <Link to={division.to} className="reveal-item group block rounded-xl border border-zinc-200 bg-white p-6 hover:border-zinc-300 hover:shadow-lg transition-all duration-300">
       <p className="text-xs font-medium text-zinc-400 uppercase tracking-wider mb-3">{division.name}</p>
       <h3 className="text-xl font-semibold mb-2 group-hover:text-zinc-600 transition-colors">{division.title}</h3>
       <p className="text-sm font-medium text-zinc-700 mb-4">{division.subtitle}</p>
-      <p className="text-sm text-zinc-500 leading-relaxed mb-6">{division.description}</p>
+      <p className="text-sm text-zinc-500 leading-relaxed mb-5">{division.description}</p>
       <ul className="space-y-2">
         {division.bullets.map((bullet) => (
           <li key={bullet} className="flex items-start text-sm text-zinc-600">
@@ -95,7 +95,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center animate-fade-in animation-delay-200">
             <a href="#divisions" className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Explore the divisions</a>
-            <a href={generalMailto} className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Contact ALBEDO</a>
+            <a href="mailto:hello@albedo.industries?subject=ALBEDO Inquiry" className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Contact ALBEDO</a>
           </div>
         </div>
       </section>
@@ -103,8 +103,8 @@ export default function Home() {
       <section id="divisions" className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="max-w-3xl mb-12">
-            <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">Three infrastructure lines.</h2>
-            <p className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight">ALBEDO is organized around three practical lines: company software, mobility hardware systems and local compute.</p>
+            <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">Three divisions</h2>
+            <p className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight">Three practical lines: company software, mobility hardware systems and local compute.</p>
           </div>
           <div ref={divisionsRef} className="grid md:grid-cols-3 gap-6">
             {divisions.map((division) => <DivisionCard key={division.title} division={division} />)}
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="flex items-center justify-between mb-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">Current systems and products</h2>
-              <p className="text-lg text-zinc-600 max-w-2xl">A strategic map of systems, pilots and experiments grouped by the infrastructure line they strengthen.</p>
+              <p className="text-lg text-zinc-600 max-w-2xl">Products are organized by the infrastructure line they support, so the portfolio reads as an operating map instead of a list of apps.</p>
             </div>
             <Link to="/projects" className="hidden sm:inline text-sm text-zinc-400 hover:text-zinc-900 transition-colors">View all</Link>
           </div>
@@ -152,7 +152,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">Build infrastructure with ALBEDO</h2>
             <p className="text-lg text-zinc-400 leading-relaxed mb-8">Start with a FastSoftware Sprint for an internal tool, or talk to us about parking access, EV charging control, vehicle security or local AI compute pilots.</p>
-            <a href={generalMailto} className="inline-flex items-center justify-center px-6 py-3 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Start a conversation</a>
+            <a href="mailto:partnerships@albedo.industries?subject=ALBEDO Infrastructure Inquiry" className="inline-flex items-center justify-center px-6 py-3 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Start a conversation</a>
           </div>
         </div>
       </section>

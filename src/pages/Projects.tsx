@@ -145,10 +145,10 @@ export default function Projects() {
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div ref={heroRef} className="reveal max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6 animate-fade-in text-gradient">
-            Operating map
+            Products organized by division
           </h1>
           <p className="text-xl text-zinc-600 leading-relaxed animate-fade-in animation-delay-100">
-            ALBEDO systems grouped by the infrastructure line they strengthen: company software, mobility systems, local compute and selected experiments.
+            Systems inside each infrastructure line: FastSoftware for company operations, Mobility Infrastructure for parking and EV environments, Albedo Nodes for local AI compute, plus selected consumer experiments.
           </p>
         </div>
       </section>
@@ -156,9 +156,9 @@ export default function Projects() {
       {/* Filters */}
       <section className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-6">
-          <div className="rounded-2xl border border-zinc-200 bg-white p-4 flex flex-col gap-4">
-            <div className="flex flex-col gap-2">
-              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Division</span>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-wrap">
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-zinc-400">Division:</span>
               <div className="flex gap-1 flex-wrap">
                 {(['all', 'FastSoftware', 'Mobility Infrastructure', 'Albedo Nodes', 'Consumer / Experiments'] as const).map((division) => (
                   <button
@@ -175,9 +175,9 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Category</span>
-              <div className="flex gap-1 flex-wrap">
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-zinc-400">Category:</span>
+              <div className="flex gap-1">
                 {(['all', 'Consumer', 'B2B'] as const).map((cat) => (
                   <button
                     key={cat}
