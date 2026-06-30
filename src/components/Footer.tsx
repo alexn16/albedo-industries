@@ -12,7 +12,7 @@ export default function Footer() {
               ALBEDO
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
-              Real systems for real infrastructure.
+              Intelligent infrastructure for software, mobility and compute.
             </p>
           </div>
 
@@ -28,7 +28,10 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-medium mb-4 text-zinc-300">Products</h4>
             <ul className="space-y-3 text-sm">
+              <li><Link to="/fastsoftware" className="hover:text-white transition-colors">FastSoftware</Link></li>
               <li><Link to="/projects/alb-parking" className="hover:text-white transition-colors">ALB Parking</Link></li>
+              <li><Link to="/projects/alb-ev-guardian" className="hover:text-white transition-colors">ALB EV Guardian</Link></li>
+              <li><Link to="/projects/albedo-nodes" className="hover:text-white transition-colors">Albedo Nodes</Link></li>
               <li><Link to="/projects/ardyn-fitness" className="hover:text-white transition-colors">Ardyn Fitness</Link></li>
               <li><Link to="/projects/germet" className="hover:text-white transition-colors">Germet</Link></li>
               <li><Link to="/foreman" className="hover:text-white transition-colors">Foreman</Link></li>

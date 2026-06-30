@@ -5,6 +5,8 @@ import About from './pages/About'
 import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
 import Foreman from './pages/Foreman'
+import FastSoftware from './pages/FastSoftware'
+import PurchasingAgentDemo from './pages/PurchasingAgentDemo'
 import Updates from './pages/Updates'
 import Support from './pages/Support'
 import Privacy from './pages/Privacy'
@@ -20,6 +22,8 @@ function App() {
         <Route path="projects" element={<Projects />} />
         <Route path="projects/:slug" element={<ProjectDetail />} />
         <Route path="foreman" element={<Foreman />} />
+        <Route path="fastsoftware" element={<FastSoftware />} />
+        <Route path="fastsoftware/purchasing-agent" element={<PurchasingAgentDemo />} />
         <Route path="updates" element={<Updates />} />
         <Route path="support" element={<Support />} />
         <Route path="privacy" element={<Privacy />} />
