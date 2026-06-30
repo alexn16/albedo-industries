@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 
+const generalMailto = 'mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks.'
+
 export default function About() {
   return (
     <div>
@@ -7,11 +9,10 @@ export default function About() {
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div className="max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
-            About ALB Industries
+            About ALBEDO Industries
           </h1>
           <p className="text-xl text-zinc-600 leading-relaxed">
-            We design and build personalized software systems as fast as possible for individuals
-            and companies. No hype, no empty promises. Just working systems that solve real problems.
+            ALBEDO Industries builds practical infrastructure for companies: custom software and AI agents, smart parking and EV access systems, vehicle security tools, and local AI boxes for private workflows.
           </p>
         </div>
       </section>
@@ -22,56 +23,42 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-                The Core Idea
+                The Infrastructure Thesis
               </h2>
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                Traditional software is slow, generic, and rigid. A company identifies an
-                operational problem. They search for software. They find options that partially
-                fit. They spend months implementing. They adapt their processes to the software
-                instead of the other way around. Years later, they're still working around
-                limitations that were obvious from day one.
+                Companies, buildings and small operators already own useful assets: processes, parking spaces, EV chargers, gates, cameras, documents and local compute. Most of those assets remain disconnected, manual or difficult to monetize.
               </p>
               <p>
-                ALB Industries reduces the time between a real operational problem and a working
-                software solution. We build vertical platforms and custom systems using automation,
-                optimization, simulation, and artificial intelligence as an assistive layer.
+                ALBEDO starts with software because most infrastructure problems begin as workflow problems: purchasing, stock, invoices, access permissions, alerts and reporting. From there, the software connects to parking gates, cameras, EV sockets and local compute boxes when the operation needs physical control.
               </p>
               <p>
-                Our goal is not to replace people. Our goal is to remove friction from work.
+                Our goal is practical infrastructure: systems that companies can deploy, measure and operate without waiting on slow enterprise software cycles.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What Fast Software Means */}
+      {/* Three Lines of Work */}
       <section className="border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-                What Fast Software Means
+                Three Lines of Work
               </h2>
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                Fast doesn't mean rushed. Fast means reducing the delay between understanding
-                a problem and having software that addresses it. Most enterprise software
-                projects take 12-24 months before delivering meaningful value. We target
-                weeks to initial deployment, with continuous refinement from there.
+                FastSoftware is the most immediate line: internal tools delivered in weeks, not months. We build lightweight ERPs, purchasing agents, stock and operations dashboards, email or order automation, invoice review and reporting agents around the way a company already works.
               </p>
               <p>
-                Speed comes from several choices: we use modern tooling that eliminates
-                boilerplate. We design modular systems that can be extended without rewriting.
-                We work closely with the people who will use the software, not just the people
-                who sign contracts. We ship incrementally and adjust based on reality.
+                Mobility Infrastructure starts with ALB Parking for reservations, access control, camera verification and operator dashboards. ALB EV Guardian is the related layer for EV charging consumption, socket usage and vehicle-security alerts.
               </p>
               <p>
-                Most importantly, we don't build features no one asked for. Every piece of
-                functionality exists because someone needs it to do their work. When you remove
-                speculative features, software gets built faster and stays maintainable.
+                Albedo Nodes is developing local AI boxes for private company agents, document processing, storage and edge compute. The longer-term research path is a future network where node owners may monetize unused capacity.
               </p>
             </div>
           </div>
@@ -117,29 +104,18 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-                Across Multiple Sectors
+                From Operations to Infrastructure
               </h2>
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                ALB Industries operates across construction, hospitality, fitness, financial
-                information, and urban infrastructure. Each sector has unique operational
-                problems, but they share common patterns: data that doesn't flow where it's
-                needed, decisions made with incomplete information, manual processes that
-                could be automated, and tools that create work instead of reducing it.
+                These lines belong together because the same operational problems repeat across sectors: a company needs software, the software needs access to real assets, and sensitive work often benefits from local processing.
               </p>
               <p>
-                Working across sectors is not about spreading thin. It's about pattern recognition.
-                Solutions developed for material tracking in construction inform inventory
-                management in restaurants. Scheduling optimization for fitness training applies
-                to crew coordination on construction sites. The underlying problems are often
-                similar even when the domains look different.
+                Foreman and Germet strengthen the FastSoftware layer. ALB Parking and EV Guardian anchor mobility infrastructure. Albedo Nodes extends the same operating logic into private AI and local compute. Consumer products remain experiments where focused software can still teach useful patterns.
               </p>
               <p>
-                Each product we build adds to a shared foundation: authentication systems,
-                notification infrastructure, real-time data synchronization, mobile offline
-                capabilities. New products benefit from this foundation instead of building
-                everything from scratch.
+                Shared foundations still matter: authentication, notifications, dashboards, mobile interfaces, event logs, integrations and agent environments. Each deployment improves the next.
               </p>
             </div>
           </div>
@@ -291,7 +267,7 @@ export default function About() {
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                ALB Industries functions as a startup studio with a long-term holding mentality.
+                ALBEDO Industries functions as an intelligent infrastructure company with a long-term builder mentality.
                 New products are developed internally, validated with real users, and either
                 grown into standalone offerings or sunset if they don't find meaningful traction.
               </p>
@@ -357,31 +333,14 @@ export default function About() {
               </h2>
             </div>
             <div className="md:col-span-2">
-              <div className="grid sm:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="font-medium mb-2">General inquiries</h3>
-                  <a href="mailto:hello@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    hello@albedo.industries
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2">Partnerships</h3>
-                  <a href="mailto:partnerships@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    partnerships@albedo.industries
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2">Investors</h3>
-                  <a href="mailto:investors@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    investors@albedo.industries
-                  </a>
-                </div>
-                <div>
-                  <h3 className="font-medium mb-2">Press</h3>
-                  <a href="mailto:press@albedo.industries" className="text-zinc-600 hover:text-zinc-900 transition-colors">
-                    press@albedo.industries
-                  </a>
-                </div>
+              <div className="rounded-2xl border border-zinc-200 bg-white p-6 md:p-8">
+                <p className="text-sm text-zinc-500 mb-2">Current contact email</p>
+                <a href={generalMailto} className="text-lg font-medium text-zinc-900 hover:text-zinc-600 transition-colors">
+                  albparking@gmail.com
+                </a>
+                <p className="text-sm text-zinc-500 mt-4 leading-relaxed">
+                  Temporary contact email while dedicated ALBEDO channels are being prepared. Use this address for FastSoftware, ALB Parking, partnerships, strategic inquiries and general questions.
+                </p>
               </div>
             </div>
           </div>
@@ -395,7 +354,7 @@ export default function About() {
             <h2 className="text-2xl font-semibold mb-4">Interested in what we're building?</h2>
             <p className="text-zinc-600 leading-relaxed mb-6">
               Explore our current projects or reach out if you'd like to learn more about
-              how ALB Industries can help solve your operational problems.
+              how ALBEDO Industries can help solve your operational problems.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

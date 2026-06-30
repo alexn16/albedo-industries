@@ -12,7 +12,7 @@ export default function Footer() {
               ALBEDO
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
-              Real systems for real infrastructure.
+              Intelligent infrastructure for software, mobility and compute.
             </p>
           </div>
 
@@ -28,7 +28,10 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-medium mb-4 text-zinc-300">Products</h4>
             <ul className="space-y-3 text-sm">
+              <li><Link to="/fastsoftware" className="hover:text-white transition-colors">FastSoftware</Link></li>
               <li><Link to="/projects/alb-parking" className="hover:text-white transition-colors">ALB Parking</Link></li>
+              <li><Link to="/projects/alb-ev-guardian" className="hover:text-white transition-colors">ALB EV Guardian</Link></li>
+              <li><Link to="/projects/albedo-nodes" className="hover:text-white transition-colors">Albedo Nodes</Link></li>
               <li><Link to="/projects/ardyn-fitness" className="hover:text-white transition-colors">Ardyn Fitness</Link></li>
               <li><Link to="/projects/germet" className="hover:text-white transition-colors">Germet</Link></li>
               <li><Link to="/foreman" className="hover:text-white transition-colors">Foreman</Link></li>
@@ -49,10 +52,8 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-medium mb-4 text-zinc-300">Contact</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="mailto:hello@albedo.industries" className="hover:text-white transition-colors">General</a></li>
-              <li><a href="mailto:support@albedo.industries" className="hover:text-white transition-colors">Support</a></li>
-              <li><a href="mailto:partnerships@albedo.industries" className="hover:text-white transition-colors">Partnerships</a></li>
-              <li><a href="mailto:investors@albedo.industries" className="hover:text-white transition-colors">Investors</a></li>
+              <li><a href="mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks." className="hover:text-white transition-colors">albparking@gmail.com</a></li>
+              <li className="text-xs leading-relaxed text-zinc-500">Temporary contact while dedicated ALBEDO channels are being prepared.</li>
             </ul>
           </div>
         </div>
@@ -60,8 +61,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
           <p>&copy; {currentYear} ALBEDO Industries. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a href="mailto:hello@albedo.industries" className="hover:text-zinc-300 transition-colors">
-              hello@albedo.industries
+            <a href="mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks." className="hover:text-zinc-300 transition-colors">
+              albparking@gmail.com
             </a>
             <span className="hidden md:inline text-zinc-600">|</span>
             <span className="hidden md:inline text-zinc-600">Building quietly, shipping steadily.</span>

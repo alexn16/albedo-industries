@@ -7,10 +7,12 @@ const basePath = import.meta.env.BASE_URL || '/'
 
 type FilterType = 'all' | 'Consumer' | 'B2B'
 type StatusFilter = 'all' | 'Live' | 'Building' | 'Concept'
+type DivisionFilter = 'all' | Project['division']
 
 export default function Projects() {
   const [categoryFilter, setCategoryFilter] = useState<FilterType>('all')
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all')
+  const [divisionFilter, setDivisionFilter] = useState<DivisionFilter>('all')
 
   const heroRef = useScrollReveal<HTMLDivElement>()
   const gridRef = useStaggerReveal<HTMLDivElement>()
@@ -23,9 +25,10 @@ export default function Projects() {
     projects.filter((p) => p.parentSlug === parentSlug)
 
   const filteredProjects = parentProjects.filter((project) => {
+    const matchesDivision = divisionFilter === 'all' || project.division === divisionFilter
     const matchesCategory = categoryFilter === 'all' || project.category === categoryFilter
     const matchesStatus = statusFilter === 'all' || project.status === statusFilter
-    return matchesCategory && matchesStatus
+    return matchesDivision && matchesCategory && matchesStatus
   })
 
   const getStageDescription = (status: string) => {
@@ -45,7 +48,7 @@ export default function Projects() {
     <Link
       key={project.slug}
       to={project.dedicatedPage || `/projects/${project.slug}`}
-      className={`block border border-zinc-200 rounded-lg hover:border-zinc-300 hover:shadow-md transition-all duration-300 ${
+      className={`block border border-zinc-200 rounded-2xl bg-white hover:border-zinc-300 hover:shadow-md transition-all duration-300 ${
         isModule ? 'p-4 md:p-5 ml-4 md:ml-6 border-l-2 border-l-zinc-300' : 'reveal-item p-6 md:p-8'
       }`}
     >
@@ -72,6 +75,8 @@ export default function Projects() {
             </span>
             {!isModule && (
               <>
+                <span className="text-sm text-zinc-400">{project.division}</span>
+                <span className="text-sm text-zinc-300">/</span>
                 <span className="text-sm text-zinc-400">{project.category}</span>
                 <span className="text-xs text-zinc-400 hidden sm:inline">
                   {getStageDescription(project.status)}
@@ -94,7 +99,7 @@ export default function Projects() {
           {/* Capabilities */}
           {!isModule && (
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.capabilities.map((cap, i) => (
+              {project.capabilities.slice(0, 4).map((cap, i) => (
                 <span
                   key={i}
                   className="text-xs text-zinc-500 bg-zinc-50 px-2.5 py-1 rounded-md border border-zinc-100"
@@ -140,11 +145,10 @@ export default function Projects() {
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div ref={heroRef} className="reveal max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6 animate-fade-in text-gradient">
-            Our Projects
+            Operating map
           </h1>
           <p className="text-xl text-zinc-600 leading-relaxed animate-fade-in animation-delay-100">
-            Software products we're building, operating, or exploring. Each one addresses
-            a real problem we've observed and aims to provide lasting value to its users.
+            ALBEDO systems grouped by the infrastructure line they strengthen: company software, mobility systems, local compute and selected experiments.
           </p>
         </div>
       </section>
@@ -152,10 +156,28 @@ export default function Projects() {
       {/* Filters */}
       <section className="border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-6">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-zinc-400">Category:</span>
-              <div className="flex gap-1">
+          <div className="rounded-2xl border border-zinc-200 bg-white p-4 flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Division</span>
+              <div className="flex gap-1 flex-wrap">
+                {(['all', 'FastSoftware', 'Mobility Infrastructure', 'Albedo Nodes', 'Consumer / Experiments'] as const).map((division) => (
+                  <button
+                    key={division}
+                    onClick={() => setDivisionFilter(division)}
+                    className={`px-3 py-1 text-sm rounded-md transition-colors ${
+                      divisionFilter === division
+                        ? 'bg-zinc-900 text-white'
+                        : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+                    }`}
+                  >
+                    {division === 'all' ? 'All' : division}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Category</span>
+              <div className="flex gap-1 flex-wrap">
                 {(['all', 'Consumer', 'B2B'] as const).map((cat) => (
                   <button
                     key={cat}
@@ -171,9 +193,9 @@ export default function Projects() {
                 ))}
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-zinc-400">Stage:</span>
-              <div className="flex gap-1">
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Stage</span>
+              <div className="flex gap-1 flex-wrap">
                 {(['all', 'Live', 'Building', 'Concept'] as const).map((status) => (
                   <button
                     key={status}
@@ -225,6 +247,7 @@ export default function Projects() {
               <p className="text-zinc-500">No projects match the selected filters.</p>
               <button
                 onClick={() => {
+                  setDivisionFilter('all')
                   setCategoryFilter('all')
                   setStatusFilter('all')
                 }}
@@ -237,25 +260,21 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Portfolio Approach */}
+      {/* Operating Map */}
       <section ref={approachRef} className="reveal border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-                Portfolio Approach
+                Operating Map
               </h2>
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                We take a portfolio approach to product development. Some products are live and
-                generating revenue. Others are actively being built. A few remain in the concept
-                stage, being refined until they're ready for development.
+                This page is an operating map of ALBEDO Industries. Each product is grouped by the infrastructure line it strengthens: company software, mobility systems, local compute or selected experiments.
               </p>
               <p>
-                This allows us to balance immediate operational needs with longer-term product
-                exploration. Not every idea becomes a product, and not every product succeeds.
-                The structure lets us learn and adjust without betting everything on a single outcome.
+                The structure makes the commercial line clear first: FastSoftware Sprints for operational systems. Mobility and Nodes then extend the same software discipline into physical access, EV charging, vehicle security and local compute.
               </p>
             </div>
           </div>
