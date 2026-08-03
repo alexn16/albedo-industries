@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -13,8 +14,15 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Security from './pages/Security'
 
+const ComputeInfrastructure = lazy(() => import('./pages/ComputeInfrastructure'))
+const InfrastructureEurope = lazy(() => import('./pages/InfrastructureEurope'))
+const InfrastructureCountry = lazy(() => import('./pages/InfrastructureCountry'))
+const InfrastructureCandidate = lazy(() => import('./pages/InfrastructureCandidate'))
+const InfrastructureFunding = lazy(() => import('./pages/InfrastructureFunding'))
+
 function App() {
   return (
+    <Suspense fallback={<div className="mx-auto max-w-5xl px-6 py-24" role="status">Loading page…</div>}>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -29,8 +37,16 @@ function App() {
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
         <Route path="security" element={<Security />} />
+        <Route path="compute-infrastructure" element={<ComputeInfrastructure />} />
+        <Route path="infrastructure" element={<InfrastructureEurope />} />
+        <Route path="infrastructure/europe" element={<InfrastructureEurope />} />
+        <Route path="infrastructure/funding" element={<InfrastructureFunding />} />
+        <Route path="infrastructure/:country" element={<InfrastructureCountry />} />
+        <Route path="infrastructure/:country/:slug" element={<InfrastructureCandidate />} />
+        <Route path="infrastructure/:country/:slug/funding" element={<InfrastructureFunding />} />
       </Route>
     </Routes>
+    </Suspense>
   )
 }
 

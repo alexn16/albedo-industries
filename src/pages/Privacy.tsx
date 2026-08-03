@@ -82,6 +82,24 @@ export default function Privacy() {
             </div>
 
             <div>
+              <h2 className="text-xl font-medium mb-4">Compute Infrastructure Interest</h2>
+              <p className="text-zinc-600 leading-relaxed">
+                If you register capacity, investment or partnership interest, we use the professional contact,
+                organization and project-requirement information you submit only to assess demand and respond to
+                your enquiry. This can include capacity and workload requirements or professional investment and
+                partnership interests. Registration is optional and non-binding, and we may contact you to clarify
+                the information provided. When you register from a European candidate page, we also record the
+                candidate identifier, country, interest strength or local relationship type so that the evidence is
+                assessed against the correct research hypothesis. A funding-interest form may also record an
+                indicative range, residence or establishment country, basic professional or retail self-identification,
+                preferred future instrument and stage, and whether you request notification of a regulated offer.
+                These answers remain non-binding and are not an investor-classification decision. We retain these registrations only while they are needed for assessment,
+                follow-up or applicable legal obligations, then delete or anonymize them. You may ask us to access,
+                correct or delete this information by contacting privacy@albedo.industries.
+              </p>
+            </div>
+
+            <div>
               <h2 className="text-xl font-medium mb-4">Information Sharing</h2>
               <p className="text-zinc-600 leading-relaxed mb-4">
                 We do not sell your personal information. We may share information in the

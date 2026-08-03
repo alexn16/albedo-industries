@@ -87,15 +87,41 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.08] mb-6 animate-fade-in text-white">
-            Custom software, smart parking and local AI boxes for company infrastructure.
+            Intelligent infrastructure for software, mobility and compute.
           </h1>
           <p className="text-base md:text-lg text-zinc-300 leading-relaxed max-w-3xl mx-auto animate-fade-in animation-delay-100">
-            We build operational software for companies, parking access and EV charging systems, vehicle security tools, and local compute nodes for private AI workflows.
+            Albedo builds practical software and mobility systems. Atlas applies the same operating discipline to researching where European AI infrastructure could be viable—and why a candidate may fail.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center animate-fade-in animation-delay-200">
-            <a href="#divisions" className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Explore the divisions</a>
-            <a href="mailto:hello@albedo.industries?subject=ALBEDO Inquiry" className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Contact ALBEDO</a>
+            <Link to="/infrastructure/europe" className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Explore Atlas Europe</Link>
+            <a href="#divisions" className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Explore Albedo</a>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-zinc-100 bg-zinc-950 text-white">
+        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-[1.3fr_.7fr] gap-12 items-end">
+          <div>
+            <span className="inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300 mb-6">Research and demand validation</span>
+            <p className="text-xs font-medium uppercase tracking-[.2em] text-zinc-500 mb-4">European AI Infrastructure Research and Development</p>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-6">Researching where Europe should build its next AI infrastructure.</h2>
+            <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl">Albedo Industries is evaluating candidate locations across Europe through a transparent, evidence-led process. Each opportunity is tested against power, connectivity, land, regulation, construction and verified demand before it can advance.</p>
+          </div>
+          <div>
+            <ul className="space-y-3 text-sm text-zinc-300 mb-8"><li>01 — Shared Atlas evidence method</li><li>02 — Transparent development gates</li><li>03 — Candidate-tagged demand research</li></ul>
+            <div className="flex flex-wrap gap-3"><Link to="/infrastructure/europe" className="rounded-lg bg-white text-zinc-950 px-5 py-3 text-sm font-medium">Explore European candidates</Link><Link to="/compute-infrastructure#capacity-interest" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">Register capacity demand</Link><Link to="/infrastructure/europe#candidates" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">Contribute a site or partnership</Link></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-zinc-200 bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium uppercase tracking-[.2em] text-zinc-400 mb-4">Funding methodology</p>
+            <h2 className="text-2xl md:text-4xl font-semibold tracking-tight">Open development. Transparent funding.</h2>
+            <p className="mt-5 text-zinc-600 leading-relaxed">Each Albedo infrastructure opportunity is developed through defined research, technical, commercial and financing gates. If a project progresses to regulated community funding, its target, use of funds, risks and financial reporting will be published transparently.</p>
+          </div>
+          <Link to="/infrastructure/funding" className="shrink-0 rounded-lg bg-zinc-950 px-5 py-3 text-sm font-medium text-white">Explore funding transparency</Link>
         </div>
       </section>
 
