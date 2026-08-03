@@ -12,6 +12,10 @@ body {
   font-family: var(--font-sans);
 }
 
+.eyebrow { @apply text-xs font-medium text-zinc-400 uppercase tracking-[.2em] mb-4; }
+.section-title { @apply text-3xl md:text-5xl font-semibold tracking-tight max-w-3xl mb-10; }
+.section-copy { @apply text-zinc-600 text-lg leading-relaxed max-w-3xl mb-8; }
+
 ::selection {
   background-color: #18181b;
   color: white;
@@ -158,6 +162,12 @@ body {
 .snap-scroll {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-item { opacity: 1; transform: none; }
 }
 .snap-scroll > * {
   scroll-snap-align: center;

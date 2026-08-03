@@ -1,0 +1,4 @@
+[functions.compute-interest]
+# Public web forms do not have Supabase user JWTs. The function performs strict
+# origin, schema, honeypot, size and rate-limit checks before service-role writes.
+verify_jwt = false

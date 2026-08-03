@@ -60,6 +60,38 @@ npm run preview
 
 The development server runs at `http://localhost:5173` by default.
 
+## Compute Infrastructure Initiative
+
+The `/compute-infrastructure` hash route is the public validation page for the proposed modular AI compute facility. It is linked from the homepage, header and footer. Editable candidate regions, service categories, project updates and development-gate statuses live in `src/data/computeInfrastructure.ts`; page and legal copy live in `src/pages/ComputeInfrastructure.tsx`; and the two independently tagged lead forms live in `src/components/ComputeInterestForm.tsx`.
+
+The broader Europe research programme is available at `/#/infrastructure/europe`, with linked country indexes and ten candidate evidence pages generated from `src/data/infrastructureCandidates.ts`. Content maintenance, evidence-state rules, map-key controls, candidate-tagging integration and next research actions are documented in [`docs/europe-infrastructure-research.md`](docs/europe-infrastructure-research.md).
+
+Funding methodology and candidate-specific transparency pages begin at `/#/infrastructure/funding`. They contain no active offer or monetary data. The disabled authorized-provider adapter, reporting boundaries, activation prerequisites and rollback process are documented in [`docs/funding-transparency.md`](docs/funding-transparency.md).
+
+### Form delivery
+
+The static site submits to the repository's Supabase Edge Function through `VITE_COMPUTE_INTEREST_ENDPOINT`. The function validates strict `capacity_interest` and `investor_partner_interest` payloads, rate-limits requests and writes through a server-only service role into separate RLS-protected tables. Complete deployment, migration, secrets, operator-review, testing and rollback instructions are in [`docs/compute-interest-backend.md`](docs/compute-interest-backend.md).
+
+Without the variable, each form displays a prominent “Registration opening soon” notice, renders disabled fields for preview, disables submission and links to the site's existing email contact. It never accepts input or simulates storage. No analytics provider exists in this repository, so no new provider or lead-data tracking was introduced.
+
+```bash
+# Local example; point this only at a production-reviewed adapter
+VITE_COMPUTE_INTEREST_ENDPOINT=https://YOUR_PROJECT.supabase.co/functions/v1/compute-interest npm run dev
+```
+
+`ENABLE_COMPUTE_RESERVATION_PAYMENTS` is intentionally absent/false. There is no payment UI. Before accepting any reservation deposit or investment, define the service and contracting entity, obtain legal and regulatory review, publish contractual and refund terms, establish tax/privacy treatment, classify the transaction, and implement an audited payment flow. Investment acceptance must use an appropriately regulated process rather than these interest forms.
+
+### Operations and deployment
+
+- Update milestones and candidate regions only after evidence is internally verified; do not mark a gate completed speculatively.
+- The current GitHub Pages-compatible `HashRouter` exposes the route as `/#/compute-infrastructure`. Search engines do not treat fragments as separate sitemap URLs. Move to `BrowserRouter` with an SPA rewrite (or prerender the route) before expecting independent route indexing.
+- The legal notice is in the funding section and form-specific confirmation copy is in `ComputeInterestForm.tsx`. Coordinate changes with the Privacy Policy.
+- Production checks remain `npm run lint` and `npm run build`. The build performs the TypeScript project check before bundling.
+
+### Implementation audit
+
+The repository is a client-only React 19/TypeScript application using Vite, Tailwind CSS v4, React Router `HashRouter`, reusable layout components and IntersectionObserver reveal hooks. It deploys as static files (documented for GitHub Pages), has no existing backend, form service, analytics integration, test runner or formatter script, and exposes only build and ESLint quality gates. Metadata was previously global in `index.html`; the compute page updates route-specific title, description, canonical and Open Graph copy at runtime. The implementation therefore preserves the static architecture and supplies a fail-safe endpoint adapter rather than inventing storage or placing secrets in the browser.
+
 ### Adding a New Project
 
 1. Edit `src/data/projects.ts` and add a new entry to the `projects` array:

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.albedo-industries.com/</loc></url>
+  <!-- HashRouter routes cannot be represented as distinct sitemap URLs; migrate to
+       server-rewritten history routing before adding the compute route here. -->
+</urlset>

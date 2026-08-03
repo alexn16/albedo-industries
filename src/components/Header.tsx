@@ -45,6 +45,9 @@ export default function Header() {
           <NavLink to="/projects" className={linkClass}>
             Projects
           </NavLink>
+          <NavLink to="/infrastructure/europe" className={linkClass}>
+            Europe research
+          </NavLink>
           <NavLink to="/updates" className={linkClass}>
             Updates
           </NavLink>
@@ -118,6 +121,13 @@ export default function Header() {
             onClick={() => setMobileMenuOpen(false)}
           >
             Projects
+          </NavLink>
+          <NavLink
+            to="/infrastructure/europe"
+            className="block transition-colors text-zinc-500 hover:text-zinc-900"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Europe research
           </NavLink>
           <NavLink
             to="/updates"
