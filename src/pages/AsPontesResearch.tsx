@@ -4,6 +4,7 @@ import CandidateMap from '../components/CandidateMap'
 import ComputeInterestForm from '../components/ComputeInterestForm'
 import { EvidenceBadge, ResearchIndicators } from '../components/ResearchIndicators'
 import { candidateByRoute } from '../data/infrastructureCandidates'
+import type { EvidenceState } from '../data/infrastructureCandidates'
 
 const candidate = candidateByRoute.get('/infrastructure/spain/as-pontes')!
 const tag = { id: candidate.id, slug: candidate.slug, name: candidate.name, country: candidate.country, countryCode: candidate.countryCode }
@@ -16,7 +17,7 @@ const evidence = [
   ['Demand-side grid capacity', 'No project-specific large-load capacity has been confirmed', 'evidence_required' as const],
   ['Fibre diversity', 'No site-specific physical route evidence has been obtained', 'evidence_required' as const],
   ['Site control', 'No parcel or land right has been secured', 'evidence_required' as const],
-]
+] satisfies Array<[string, string, EvidenceState]>
 
 const unknowns = [
   'Firm demand-side capacity and an indicative connection timeline',
@@ -68,7 +69,7 @@ export default function AsPontesResearch() {
         <p className="mt-6 max-w-3xl border-l border-amber-300 pl-4 text-sm text-zinc-300">No site, parcel, grid capacity, permit, financing, customer commitment or construction programme has been secured.</p>
         <div className="mt-10 max-w-3xl"><ResearchIndicators candidate={candidate}/></div>
         <div className="mt-8 flex flex-wrap gap-3">
-          <a href="/reports/atlas-as-pontes-research-report-v1.pdf" download className="inline-flex min-h-11 items-center rounded-full bg-white px-5 text-sm font-medium text-zinc-950">Download full research report</a>
+          <a href="/research/as-pontes-evidence-review.pdf" download="As Pontes Full Research Report — Gate 1.pdf" className="inline-flex min-h-11 items-center rounded-full bg-white px-5 text-sm font-medium text-zinc-950">Download full research report</a>
           <a href="#next-actions" className="inline-flex min-h-11 items-center rounded-full border border-zinc-700 px-5 text-sm">View next actions</a>
         </div>
         <p className="mt-5 text-xs text-zinc-500">Research version 1 · reviewed 4 August 2026</p>
