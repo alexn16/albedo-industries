@@ -1,8 +1,8 @@
 export const asPontesPublication = {
   title: 'As Pontes: evidence review for AI infrastructure', edition: 'Research note 01', published: '2026-08-04',
-  pdf: '/research/as-pontes-evidence-review.pdf',
-  downloadName: 'As Pontes Full Research Report — Gate 1.pdf',
-  conclusion: 'As Pontes has a verified energy and industrial-transition context, but the public evidence reviewed does not establish an available data-centre site or a viable demand connection. The candidate therefore remains at Gate 0.',
+  pdf: '/media/albedo-industries/atlas-as-pontes-gate-1-research-report.pdf',
+  downloadName: 'Atlas As Pontes Gate 1 Research Report.pdf',
+  conclusion: 'As Pontes has a verified energy and industrial-transition context, but the public evidence reviewed does not establish an available data-centre site or a viable demand connection. The candidate therefore remains at Gate 1 research.',
   verifiedFacts: [
     { label: 'Generation legacy', value: 'Spain authorised the definitive closure of the four As Pontes coal units (1,403.5 MW in total) in August 2023.', source: 'AP-01' },
     { label: 'Industrial transition', value: 'As Pontes is included in the Ferrolterra Just Transition Agreement area, where public bodies coordinate post-coal economic diversification.', source: 'AP-02' },

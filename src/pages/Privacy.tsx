@@ -95,7 +95,7 @@ export default function Privacy() {
                 preferred future instrument and stage, and whether you request notification of a regulated offer.
                 These answers remain non-binding and are not an investor-classification decision. We retain these registrations only while they are needed for assessment,
                 follow-up or applicable legal obligations, then delete or anonymize them. You may ask us to access,
-                correct or delete this information by contacting privacy@albedo.industries.
+                correct or delete this information by contacting alex@albedo-industries.com.
               </p>
             </div>
 
@@ -167,7 +167,7 @@ export default function Privacy() {
                 </li>
               </ul>
               <p className="text-zinc-600 leading-relaxed mt-4">
-                To exercise these rights, contact us at privacy@albedo.industries.
+                To exercise these rights, contact us at alex@albedo-industries.com.
               </p>
             </div>
 
@@ -206,7 +206,7 @@ export default function Privacy() {
                 For privacy-related questions or concerns, contact us at:
               </p>
               <p className="text-zinc-900 mt-2">
-                privacy@albedo.industries
+                alex@albedo-industries.com
               </p>
             </div>
           </div>

@@ -177,7 +177,7 @@ export default function Home() {
           <div className="max-w-2xl">
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">Build infrastructure with ALBEDO</h2>
             <p className="text-lg text-zinc-400 leading-relaxed mb-8">Start with a FastSoftware Sprint for an internal tool, or talk to us about parking access, EV charging control, vehicle security or local AI compute pilots.</p>
-            <a href="mailto:partnerships@albedo.industries?subject=ALBEDO Infrastructure Inquiry" className="inline-flex items-center justify-center px-6 py-3 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Start a conversation</a>
+            <a href="mailto:alex@albedo-industries.com?subject=ALBEDO Infrastructure Inquiry" className="inline-flex items-center justify-center px-6 py-3 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Start a conversation</a>
           </div>
         </div>
       </section>
