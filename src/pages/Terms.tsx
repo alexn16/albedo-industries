@@ -232,7 +232,7 @@ export default function Terms() {
                 For questions about these Terms, contact us at:
               </p>
               <p className="text-zinc-900 mt-2">
-                legal@albedo.industries
+                alex@albedo-industries.com
               </p>
             </div>
           </div>

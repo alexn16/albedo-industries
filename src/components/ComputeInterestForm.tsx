@@ -8,7 +8,7 @@ const partnerTypes = ['Infrastructure fund', 'Angel or private investor', 'Famil
 const interestAreas = ['Project financing', 'Site development', 'Energy', 'Equipment', 'Construction', 'Operations', 'Customer introductions', 'Other']
 const interestStrengths = ['General interest', 'Active requirement', 'Budget under review', 'Prepared to discuss an LOI', 'Existing procurement process']
 const localRelationships = ['Landowner', 'Utility or energy partner', 'Fibre carrier', 'Engineering partner', 'EPC', 'Equipment supplier', 'Local authority', 'Capital partner', 'Other']
-const contactUrl = 'mailto:albparking@gmail.com?subject=ALBEDO%20Compute%20Infrastructure%20interest'
+const contactUrl = 'mailto:alex@albedo-industries.com?subject=ALBEDO%20Compute%20Infrastructure%20interest'
 
 export default function ComputeInterestForm({ kind, candidate, fundingInterest = false }: { kind: Kind; candidate?: { id: string; slug: string; name: string; country: string; countryCode: string }; fundingInterest?: boolean }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
@@ -37,7 +37,7 @@ export default function ComputeInterestForm({ kind, candidate, fundingInterest =
           willingToDiscussLoi: data.willingToDiscussLoi === 'Yes',
           notifyIfOfferOpens: data.notifyIfOfferOpens === 'Yes',
           leadType: kind === 'capacity' ? 'capacity_interest' : 'investor_partner_interest',
-          sourcePage: '/compute-infrastructure',
+          sourcePage: candidate ? `/infrastructure/${candidate.country.toLowerCase()}/${candidate.slug}` : '/compute-infrastructure',
           submittedAt: new Date().toISOString(),
         }),
       })
