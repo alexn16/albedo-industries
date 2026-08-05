@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 
-const generalMailto = 'mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks.'
-const fastSoftwareMailto = 'mailto:albparking@gmail.com?subject=FastSoftware%20Sprint%20request&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20discuss%20a%20FastSoftware%20Sprint%20for%20one%20internal%20workflow.%0A%0AThe%20process%20I%20want%20to%20improve%20is%3A%0A%0ACompany%20%2F%20team%3A%0A%0APreferred%20contact%20time%3A%0A%0AThanks.'
+const generalMailto = 'mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks.'
+const fastSoftwareMailto = 'mailto:alex@albedo-industries.com?subject=FastSoftware%20Sprint%20request&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20discuss%20a%20FastSoftware%20Sprint%20for%20one%20internal%20workflow.%0A%0AThe%20process%20I%20want%20to%20improve%20is%3A%0A%0ACompany%20%2F%20team%3A%0A%0APreferred%20contact%20time%3A%0A%0AThanks.'
 
 const pathways = [
   {
@@ -39,7 +39,7 @@ export default function Support() {
           <div className="rounded-2xl border border-zinc-200 bg-zinc-50/70 p-5">
             <p className="text-sm text-zinc-500 mb-2">Current contact email</p>
             <a href={generalMailto} className="text-lg font-medium text-zinc-900 hover:text-zinc-600 transition-colors">
-              albparking@gmail.com
+              alex@albedo-industries.com
             </a>
             <p className="text-sm text-zinc-500 mt-3">
               Dedicated ALBEDO Industries contact channels are being prepared. For now, use this email for FastSoftware, ALB Parking, partnerships and general inquiries.

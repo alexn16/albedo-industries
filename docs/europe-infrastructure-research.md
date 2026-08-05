@@ -25,21 +25,17 @@ To update a candidate:
 
 ## Maps
 
-Every page always renders a map panel. Without `VITE_GOOGLE_MAPS_EMBED_API_KEY`, it uses an Atlas schematic and an external Google Maps search link. With the variable, it uses Google Maps Embed API place search for the configured municipality or region. Coordinates and labels are regional or municipal context—not site or parcel claims.
+Candidate pages use a Google Maps embed URL built from the reviewed candidate coordinates and precision. The previous implementation depended on `VITE_GOOGLE_MAPS_EMBED_API_KEY`; production did not consistently provide a correctly restricted key, so visitors could see an empty map container. Atlas no longer requires a client-side Google Maps API key for the public map panel.
 
-Before enabling Google Maps:
+Map behaviour now follows these rules:
 
-1. Create a dedicated browser key restricted to the **Maps Embed API**.
-2. Apply HTTP referrer restrictions for `https://www.albedo-industries.com/*` and `https://albedo-industries.com/*`; use a separate restricted key for localhost.
-3. Configure budget and quota alerts in Google Cloud.
-4. Never reuse a server key, scrape map content or transfer Google map data into Atlas.
+1. Render a loading state while the iframe initializes.
+2. Use coordinates, not parcel names, unless parcel precision is explicitly verified.
+3. Set zoom from the published precision: region, municipality, site or parcel.
+4. Show the precision label, coordinates and limitation text below the map.
+5. If the provider fails, show a designed fallback with the location, coordinates, precision and a button to open Google Maps.
 
-Build checks:
-
-```bash
-npm run build
-VITE_GOOGLE_MAPS_EMBED_API_KEY=restricted-test-key npm run build
-```
+The map is contextual. It must not imply site control, land availability or a verified parcel.
 
 ## Candidate-tagged registrations
 

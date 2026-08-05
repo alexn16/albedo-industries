@@ -168,7 +168,7 @@ export default function Security() {
                 to know about it. Please report security issues to:
               </p>
               <p className="text-zinc-900 mb-4">
-                security@albedo.industries
+                alex@albedo-industries.com
               </p>
               <p className="text-zinc-600 leading-relaxed">
                 We ask that you give us reasonable time to investigate and address the issue
@@ -212,7 +212,7 @@ export default function Security() {
               <p className="text-zinc-600 leading-relaxed">
                 If you have questions about our security practices or want more detail about
                 how we protect data for a specific product, reach out to us at
-                security@albedo.industries. We're happy to discuss.
+                alex@albedo-industries.com. We're happy to discuss.
               </p>
             </div>
           </div>

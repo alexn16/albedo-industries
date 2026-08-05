@@ -1,8 +1,8 @@
 import type { EvidenceState, InfrastructureCandidate } from '../data/infrastructureCandidates'
 
-const labels: Record<EvidenceState, string> = { verified:'Verified', hypothesis:'Hypothesis', evidence_required:'Evidence required', decision_pending:'Decision pending' }
+const labels: Record<'en' | 'es', Record<EvidenceState, string>> = { en: { verified:'Verified', hypothesis:'Hypothesis', evidence_required:'Evidence required', decision_pending:'Decision pending' }, es: { verified:'Comprobado', hypothesis:'Hipótesis', evidence_required:'Pendiente', decision_pending:'Decisión pendiente' } }
 const styles: Record<EvidenceState, string> = { verified:'bg-emerald-50 text-emerald-800 border-emerald-200', hypothesis:'bg-blue-50 text-blue-800 border-blue-200', evidence_required:'bg-amber-50 text-amber-900 border-amber-200', decision_pending:'bg-zinc-100 text-zinc-700 border-zinc-200' }
-export function EvidenceBadge({ state }: { state: EvidenceState }) { return <span className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-medium ${styles[state]}`}>{labels[state]}</span> }
+export function EvidenceBadge({ state, locale = 'en' }: { state: EvidenceState; locale?: 'en' | 'es' }) { return <span className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-medium ${styles[state]}`}>{labels[locale][state]}</span> }
 
 export function ResearchIndicators({ candidate, compact=false }: { candidate: InfrastructureCandidate; compact?: boolean }) {
   const supported=candidate.categories.filter(item=>item.sourceIds.length>0).length

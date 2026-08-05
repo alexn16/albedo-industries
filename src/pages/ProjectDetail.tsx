@@ -6,7 +6,7 @@ import GermetShowcase from '../components/GermetShowcase'
 import AlbParkingShowcase from '../components/AlbParkingShowcase'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
-const generalMailto = 'mailto:albparking@gmail.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks.'
+const generalMailto = 'mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks.'
 
 function RevealSection({
   children,
