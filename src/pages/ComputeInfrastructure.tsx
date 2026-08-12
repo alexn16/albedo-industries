@@ -17,6 +17,7 @@ const audiences = [
 ]
 
 export default function ComputeInfrastructure() {
+  const registrationOpen=Boolean((import.meta.env.VITE_COMPUTE_INTEREST_ENDPOINT as string|undefined)?.trim())
   useEffect(() => {
     const title = document.title
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content')
