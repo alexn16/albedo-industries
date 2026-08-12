@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import ComputeInterestForm from '../components/ComputeInterestForm'
 import { developmentGates, projectUpdates, regions, services } from '../data/computeInfrastructure'
 
@@ -16,6 +17,7 @@ const audiences = [
 ]
 
 export default function ComputeInfrastructure() {
+  const registrationOpen=Boolean((import.meta.env.VITE_COMPUTE_INTEREST_ENDPOINT as string|undefined)?.trim())
   useEffect(() => {
     const title = document.title
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content')
@@ -37,7 +39,7 @@ export default function ComputeInfrastructure() {
       <p className="uppercase tracking-[.22em] text-xs text-zinc-500 mb-5">Albedo Compute Infrastructure · Northern Spain</p>
       <h1 className="text-4xl md:text-7xl font-semibold tracking-tight max-w-4xl">Infrastructure for the next generation of AI.</h1>
       <p className="mt-7 text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">Albedo Industries is evaluating a modular compute facility designed to combine reliable power, efficient infrastructure and phased expansion. The first deployment will proceed only when the location, energy route, demand and financing satisfy defined project gates.</p>
-      <div className="flex flex-wrap gap-3 mt-10"><a href="#capacity-interest" className="rounded-lg bg-white text-zinc-950 px-6 py-3 text-sm font-medium">Register capacity interest</a><a href="#partner-interest" className="rounded-lg border border-zinc-700 px-6 py-3 text-sm font-medium">Register investor or partner interest</a></div>
+      <div className="flex flex-wrap gap-3 mt-10"><Link to={{hash:'#capacity-interest'}} className="rounded-lg bg-white text-zinc-950 px-6 py-3 text-sm font-medium">{registrationOpen?'Register capacity interest':'Capacity registration opening soon'}</Link><Link to={{hash:'#partner-interest'}} className="rounded-lg border border-zinc-700 px-6 py-3 text-sm font-medium">{registrationOpen?'Register investor or partner interest':'Partner registration opening soon'}</Link></div>
     </div></section>
 
     <Section eyebrow="Why this project" title="Scale infrastructure after demand—not ahead of it."><div className="grid md:grid-cols-2 gap-5">{['AI workloads are increasing demand for computing infrastructure.','Power availability, deployment time and capital intensity constrain new facilities.','Traditional projects can require large commitments before demand is demonstrated.','A smaller first phase allows later blocks to be triggered by verified demand.'].map((x,i)=><div className="border-t border-zinc-300 pt-4 text-zinc-600" key={x}><span className="text-xs text-zinc-400">0{i+1}</span><p className="mt-2">{x}</p></div>)}</div></Section>

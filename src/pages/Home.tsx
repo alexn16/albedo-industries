@@ -77,6 +77,7 @@ export default function Home() {
   const systemsRef = useStaggerReveal<HTMLDivElement>()
   const modelRef = useScrollReveal<HTMLElement>()
   const ctaRef = useScrollReveal<HTMLElement>()
+  const registrationOpen=Boolean((import.meta.env.VITE_COMPUTE_INTEREST_ENDPOINT as string|undefined)?.trim())
 
   return (
     <div>
@@ -94,7 +95,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center animate-fade-in animation-delay-200">
             <Link to="/infrastructure/europe" className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Explore Atlas Europe</Link>
-            <a href="#divisions" className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Explore Albedo</a>
+            <Link to={{pathname:'/',hash:'#divisions'}} className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Explore Albedo</Link>
           </div>
         </div>
       </section>
@@ -109,7 +110,7 @@ export default function Home() {
           </div>
           <div>
             <ul className="space-y-3 text-sm text-zinc-300 mb-8"><li>01 — Shared Atlas evidence method</li><li>02 — Transparent development gates</li><li>03 — Candidate-tagged demand research</li></ul>
-            <div className="flex flex-wrap gap-3"><Link to="/infrastructure/europe" className="rounded-lg bg-white text-zinc-950 px-5 py-3 text-sm font-medium">Explore European candidates</Link><Link to="/compute-infrastructure#capacity-interest" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">Register capacity demand</Link><Link to="/infrastructure/europe#candidates" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">Contribute a site or partnership</Link></div>
+            <div className="flex flex-wrap gap-3"><Link to="/infrastructure/europe" className="rounded-lg bg-white text-zinc-950 px-5 py-3 text-sm font-medium">Explore European candidates</Link><Link to="/compute-infrastructure#capacity-interest" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">{registrationOpen?'Register capacity demand':'Capacity registration opening soon'}</Link><Link to="/infrastructure/europe#candidates" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">{registrationOpen?'Contribute a site or partnership':'Partnership contact and status'}</Link></div>
           </div>
         </div>
       </section>

@@ -108,12 +108,12 @@ export default function FastSoftware() {
             >
               Request a FastSoftware Sprint
             </a>
-            <a
-              href="#use-cases"
+            <Link
+              to={{hash:'#use-cases'}}
               className="inline-flex items-center justify-center px-6 py-3 border border-zinc-200 rounded-lg text-sm font-medium hover:border-zinc-300 hover:bg-zinc-50 transition-all"
             >
               Explore use cases
-            </a>
+            </Link>
           </div>
         </div>
       </section>
