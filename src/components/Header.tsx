@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useAtlasShellLanguage } from '../hooks/useAtlasShellLanguage'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
   const isHome = location.pathname === '/'
+  const locale=useAtlasShellLanguage()
+  const t={en:['About','Projects','Europe research','Updates','Support','Contact','Toggle menu'],es:['Empresa','Proyectos','Investigación en Europa','Novedades','Ayuda','Contacto','Abrir o cerrar el menú'],pt:['Empresa','Projetos','Investigação na Europa','Atualizações','Apoio','Contacto','Abrir ou fechar o menu'],fi:['Yritys','Hankkeet','Euroopan tutkimus','Päivitykset','Tuki','Yhteystiedot','Avaa tai sulje valikko']}[locale]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -37,22 +40,22 @@ export default function Header() {
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-8 text-sm">
           <NavLink to="/about" className={linkClass}>
-            About
+            {t[0]}
           </NavLink>
           <NavLink to="/fastsoftware" className={linkClass}>
             FastSoftware
           </NavLink>
           <NavLink to="/projects" className={linkClass}>
-            Projects
+            {t[1]}
           </NavLink>
           <NavLink to="/infrastructure/europe" className={linkClass}>
-            Europe research
+            {t[2]}
           </NavLink>
           <NavLink to="/updates" className={linkClass}>
-            Updates
+            {t[3]}
           </NavLink>
           <NavLink to="/support" className={linkClass}>
-            Support
+            {t[4]}
           </NavLink>
           <a
             href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks."
@@ -62,7 +65,7 @@ export default function Header() {
                 : 'bg-zinc-900 text-white hover:bg-zinc-800'
             }`}
           >
-            Contact
+            {t[5]}
           </a>
         </div>
 
@@ -70,7 +73,7 @@ export default function Header() {
         <button
           className={`md:hidden p-2 -mr-2 ${heroOverlay ? 'text-white' : ''}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
+          aria-label={t[6]}
           aria-expanded={mobileMenuOpen}
         >
           <svg
@@ -106,7 +109,7 @@ export default function Header() {
             className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
-            About
+            {t[0]}
           </NavLink>
           <NavLink
             to="/fastsoftware"
@@ -120,34 +123,34 @@ export default function Header() {
             className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Projects
+            {t[1]}
           </NavLink>
           <NavLink
             to="/infrastructure/europe"
             className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Europe research
+            {t[2]}
           </NavLink>
           <NavLink
             to="/updates"
             className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Updates
+            {t[3]}
           </NavLink>
           <NavLink
             to="/support"
             className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Support
+            {t[4]}
           </NavLink>
           <a
             href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks."
             className="block w-full text-center px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
           >
-            Contact
+            {t[5]}
           </a>
         </div>
       )}

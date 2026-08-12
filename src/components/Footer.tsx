@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
+import { useAtlasShellLanguage } from '../hooks/useAtlasShellLanguage'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const locale=useAtlasShellLanguage()
+  const t={en:['Intelligent infrastructure for software, mobility and compute.','Company','About','Projects','Compute infrastructure','Europe research','Funding transparency','Updates','Products','Legal','Privacy Policy','Terms of Service','Security','Contact','Temporary contact while dedicated ALBEDO channels are being prepared.','All rights reserved.','Building quietly, shipping steadily.'],es:['Infraestructura inteligente para software, movilidad y computación.','Empresa','Acerca de','Proyectos','Infraestructura de computación','Investigación en Europa','Transparencia financiera','Novedades','Productos','Avisos legales','Política de privacidad','Condiciones del servicio','Seguridad','Contacto','Contacto temporal mientras se preparan los canales específicos de ALBEDO.','Todos los derechos reservados.','Construimos con discreción y entregamos con constancia.'],pt:['Infraestruturas inteligentes para software, mobilidade e computação.','Empresa','Sobre nós','Projetos','Infraestruturas de computação','Investigação na Europa','Transparência financeira','Atualizações','Produtos','Informação legal','Política de privacidade','Termos de serviço','Segurança','Contacto','Contacto temporário enquanto são preparados os canais próprios da ALBEDO.','Todos os direitos reservados.','Construímos com discrição e entregamos com consistência.'],fi:['Älykästä infrastruktuuria ohjelmistoille, liikkuvuudelle ja laskennalle.','Yritys','Tietoa meistä','Hankkeet','Laskentainfrastruktuuri','Euroopan tutkimus','Rahoituksen läpinäkyvyys','Päivitykset','Tuotteet','Oikeudelliset tiedot','Tietosuojakäytäntö','Käyttöehdot','Tietoturva','Yhteystiedot','Väliaikainen yhteystieto ALBEDOn omien kanavien valmistelun ajaksi.','Kaikki oikeudet pidätetään.','Rakennamme harkiten ja toimitamme johdonmukaisesti.']}[locale]
 
   return (
     <footer className="border-t border-zinc-200 mt-auto bg-zinc-950 text-zinc-400">
@@ -12,24 +15,24 @@ export default function Footer() {
               ALBEDO
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
-              Intelligent infrastructure for software, mobility and compute.
+              {t[0]}
             </p>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium mb-4 text-zinc-300">Company</h4>
+            <h4 className="text-sm font-medium mb-4 text-zinc-300">{t[1]}</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link to="/projects" className="hover:text-white transition-colors">Projects</Link></li>
-              <li><Link to="/compute-infrastructure" className="hover:text-white transition-colors">Compute infrastructure</Link></li>
-              <li><Link to="/infrastructure/europe" className="hover:text-white transition-colors">Europe research</Link></li>
-              <li><Link to="/infrastructure/funding" className="hover:text-white transition-colors">Funding transparency</Link></li>
-              <li><Link to="/updates" className="hover:text-white transition-colors">Updates</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">{t[2]}</Link></li>
+              <li><Link to="/projects" className="hover:text-white transition-colors">{t[3]}</Link></li>
+              <li><Link to="/compute-infrastructure" className="hover:text-white transition-colors">{t[4]}</Link></li>
+              <li><Link to="/infrastructure/europe" className="hover:text-white transition-colors">{t[5]}</Link></li>
+              <li><Link to="/infrastructure/funding" className="hover:text-white transition-colors">{t[6]}</Link></li>
+              <li><Link to="/updates" className="hover:text-white transition-colors">{t[7]}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium mb-4 text-zinc-300">Products</h4>
+            <h4 className="text-sm font-medium mb-4 text-zinc-300">{t[8]}</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/fastsoftware" className="hover:text-white transition-colors">FastSoftware</Link></li>
               <li><Link to="/projects/alb-parking" className="hover:text-white transition-colors">ALB Parking</Link></li>
@@ -44,31 +47,31 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-medium mb-4 text-zinc-300">Legal</h4>
+            <h4 className="text-sm font-medium mb-4 text-zinc-300">{t[9]}</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link to="/security" className="hover:text-white transition-colors">Security</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition-colors">{t[10]}</Link></li>
+              <li><Link to="/terms" className="hover:text-white transition-colors">{t[11]}</Link></li>
+              <li><Link to="/security" className="hover:text-white transition-colors">{t[12]}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium mb-4 text-zinc-300">Contact</h4>
+            <h4 className="text-sm font-medium mb-4 text-zinc-300">{t[13]}</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks." className="hover:text-white transition-colors">alex@albedo-industries.com</a></li>
-              <li className="text-xs leading-relaxed text-zinc-500">Temporary contact while dedicated ALBEDO channels are being prepared.</li>
+              <li><a href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0A{t[1]}%20%2F%20project%3A%0A%0AThanks." className="hover:text-white transition-colors">alex@albedo-industries.com</a></li>
+              <li className="text-xs leading-relaxed text-zinc-500">{t[14]}</li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-zinc-500">
-          <p>&copy; {currentYear} ALBEDO Industries. All rights reserved.</p>
+          <p>&copy; {currentYear} ALBEDO Industries. {t[15]}</p>
           <div className="flex items-center gap-6">
-            <a href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks." className="hover:text-zinc-300 transition-colors">
+            <a href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0A{t[1]}%20%2F%20project%3A%0A%0AThanks." className="hover:text-zinc-300 transition-colors">
               alex@albedo-industries.com
             </a>
             <span className="hidden md:inline text-zinc-600">|</span>
-            <span className="hidden md:inline text-zinc-600">Building quietly, shipping steadily.</span>
+            <span className="hidden md:inline text-zinc-600">{t[16]}</span>
           </div>
         </div>
       </div>
