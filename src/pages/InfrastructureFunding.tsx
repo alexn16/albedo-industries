@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import ComputeInterestForm from '../components/ComputeInterestForm'
 import { FundingGates, FundingLedger, FundingRisks, FundingStatusPanel, LegalPlaceholders, UseOfFunds } from '../components/FundingTransparency'
 import { candidateByRoute, infrastructureCandidates } from '../data/infrastructureCandidates'
+import { useAtlasMetadata } from '../hooks/useAtlasMetadata'
 
 export default function InfrastructureFunding(){
   const {pathname}=useLocation(); const candidateRoute=pathname.endsWith('/funding')?pathname.slice(0,-8):''; const candidate=candidateByRoute.get(candidateRoute); const isCentral=pathname==='/infrastructure/funding'
+  useAtlasMetadata({name:candidate?`${candidate.name} Funding`:'Infrastructure Funding',country:candidate?.country??'Europe',description:candidate?`Funding transparency for the ${candidate.name} Project Atlas research candidate. No investment offering is currently open.`:'Project Atlas funding methodology, safeguards and transparent development gates. No investment offering is currently open.',route:pathname})
   useEffect(()=>{const old=document.title;document.title=candidate?`${candidate.name} Funding Transparency | Albedo Industries`:'AI Infrastructure Funding Transparency | Albedo Industries';return()=>{document.title=old}},[candidate])
   if(!isCentral&&!candidate)return <section className="max-w-5xl mx-auto px-6 py-32"><p className="eyebrow">Funding record not found</p><h1 className="text-4xl font-semibold">This candidate funding page does not exist.</h1><Link className="mt-8 inline-flex underline underline-offset-4" to="/infrastructure/funding">Funding methodology</Link></section>
   const providerEnabled=import.meta.env.VITE_CROWDFUNDING_PROVIDER_ENABLED==='true';const providerName=(import.meta.env.VITE_CROWDFUNDING_PROVIDER_NAME as string|undefined)?.trim();const providerUrl=(import.meta.env.VITE_CROWDFUNDING_PROVIDER_PROJECT_URL as string|undefined)?.trim();const providerCandidateId=(import.meta.env.VITE_CROWDFUNDING_PROVIDER_CANDIDATE_ID as string|undefined)?.trim();const providerReady=providerEnabled&&Boolean(providerName)&&Boolean(providerUrl?.startsWith('https://'))&&Boolean(providerCandidateId)&&(!candidate||providerCandidateId===candidate.id)

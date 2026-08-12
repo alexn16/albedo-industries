@@ -94,7 +94,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center animate-fade-in animation-delay-200">
             <Link to="/infrastructure/europe" className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Explore Atlas Europe</Link>
-            <a href="#divisions" className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Explore Albedo</a>
+            <Link to={{pathname:'/',hash:'#divisions'}} className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Explore Albedo</Link>
           </div>
         </div>
       </section>
