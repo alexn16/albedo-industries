@@ -77,8 +77,6 @@ export default function Home() {
   const systemsRef = useStaggerReveal<HTMLDivElement>()
   const modelRef = useScrollReveal<HTMLElement>()
   const ctaRef = useScrollReveal<HTMLElement>()
-  const registrationOpen=Boolean((import.meta.env.VITE_COMPUTE_INTEREST_ENDPOINT as string|undefined)?.trim())
-
   return (
     <div>
       <section className="hero-video-section relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
@@ -91,10 +89,10 @@ export default function Home() {
             Intelligent infrastructure for software, mobility and compute.
           </h1>
           <p className="text-base md:text-lg text-zinc-300 leading-relaxed max-w-3xl mx-auto animate-fade-in animation-delay-100">
-            Albedo builds practical software and mobility systems. Atlas applies the same operating discipline to researching where European AI infrastructure could be viable—and why a candidate may fail.
+            Albedo builds practical software and mobility systems, and independently originates and validates selected international locations for AI infrastructure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10 justify-center animate-fade-in animation-delay-200">
-            <Link to="/infrastructure/europe" className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Explore Atlas Europe</Link>
+            <Link to="/infrastructure/atlas" className="inline-flex items-center justify-center px-7 py-3.5 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Explore Project Atlas</Link>
             <Link to={{pathname:'/',hash:'#divisions'}} className="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white rounded-lg text-sm font-medium hover:bg-white/10 transition-all">Explore Albedo</Link>
           </div>
         </div>
@@ -103,14 +101,12 @@ export default function Home() {
       <section className="border-t border-zinc-100 bg-zinc-950 text-white">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-[1.3fr_.7fr] gap-12 items-end">
           <div>
-            <span className="inline-flex rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300 mb-6">Research and demand validation</span>
-            <p className="text-xs font-medium uppercase tracking-[.2em] text-zinc-500 mb-4">European AI Infrastructure Research and Development</p>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-6">Researching where Europe should build its next AI infrastructure.</h2>
-            <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl">Albedo Industries is evaluating candidate locations across Europe through a transparent, evidence-led process. Each opportunity is tested against power, connectivity, land, regulation, construction and verified demand before it can advance.</p>
+            <p className="text-xs font-medium uppercase tracking-[.2em] text-amber-200 mb-4">PROJECT ATLAS · AI INFRASTRUCTURE</p>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-6">Finding viable locations for the next generation of AI infrastructure.</h2>
+            <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl">Atlas researches power, land, connectivity and development conditions across selected international locations. The strongest candidates advance through evidence-led validation with local partners, operators and investors.</p>
           </div>
           <div>
-            <ul className="space-y-3 text-sm text-zinc-300 mb-8"><li>01 — Shared Atlas evidence method</li><li>02 — Transparent development gates</li><li>03 — Candidate-tagged demand research</li></ul>
-            <div className="flex flex-wrap gap-3"><Link to="/infrastructure/europe" className="rounded-lg bg-white text-zinc-950 px-5 py-3 text-sm font-medium">Explore European candidates</Link><Link to="/compute-infrastructure#capacity-interest" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">{registrationOpen?'Register capacity demand':'Capacity registration opening soon'}</Link><Link to="/infrastructure/europe#candidates" className="rounded-lg border border-zinc-700 px-5 py-3 text-sm font-medium hover:border-zinc-500">{registrationOpen?'Contribute a site or partnership':'Partnership contact and status'}</Link></div>
+            <div className="flex flex-col gap-3"><Link to="/infrastructure/atlas" className="rounded-lg bg-white text-center text-zinc-950 px-5 py-3 text-sm font-medium">Explore Project Atlas</Link><Link to="/infrastructure/atlas/partners" className="rounded-lg border border-zinc-700 px-5 py-3 text-center text-sm font-medium hover:border-zinc-500">Discuss investment or partnership</Link></div>
           </div>
         </div>
       </section>
@@ -118,11 +114,11 @@ export default function Home() {
       <section className="border-t border-zinc-200 bg-white">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[.2em] text-zinc-400 mb-4">Funding methodology</p>
-            <h2 className="text-2xl md:text-4xl font-semibold tracking-tight">Open development. Transparent funding.</h2>
-            <p className="mt-5 text-zinc-600 leading-relaxed">Each Albedo infrastructure opportunity is developed through defined research, technical, commercial and financing gates. If a project progresses to regulated community funding, its target, use of funds, risks and financial reporting will be published transparently.</p>
+            <p className="text-xs font-medium uppercase tracking-[.2em] text-zinc-400 mb-4">Investment &amp; partnerships</p>
+            <h2 className="text-2xl md:text-4xl font-semibold tracking-tight">Capital follows evidence.</h2>
+            <p className="mt-5 text-zinc-600 leading-relaxed">Atlas is speaking with operators, investors and infrastructure partners who can help validate selected locations. No investment offer is currently open.</p>
           </div>
-          <Link to="/infrastructure/funding" className="shrink-0 rounded-lg bg-zinc-950 px-5 py-3 text-sm font-medium text-white">Explore funding transparency</Link>
+          <Link to="/infrastructure/atlas/partners" className="shrink-0 rounded-lg bg-zinc-950 px-5 py-3 text-sm font-medium text-white">Discuss a partnership</Link>
         </div>
       </section>
 
