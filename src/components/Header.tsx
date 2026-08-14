@@ -8,7 +8,7 @@ export default function Header() {
   const location = useLocation()
   const isHome = location.pathname === '/'
   const locale=useAtlasShellLanguage()
-  const t={en:['About','Projects','Europe research','Updates','Support','Contact','Toggle menu'],es:['Empresa','Proyectos','Investigación en Europa','Novedades','Ayuda','Contacto','Abrir o cerrar el menú'],pt:['Empresa','Projetos','Investigação na Europa','Atualizações','Apoio','Contacto','Abrir ou fechar o menu'],fi:['Yritys','Hankkeet','Euroopan tutkimus','Päivitykset','Tuki','Yhteystiedot','Avaa tai sulje valikko']}[locale]
+  const t={en:['About','Projects','Project Atlas','Updates','Support','Contact','Toggle menu'],es:['Empresa','Proyectos','Project Atlas','Novedades','Ayuda','Contacto','Abrir o cerrar el menú'],pt:['Empresa','Projetos','Project Atlas','Atualizações','Apoio','Contacto','Abrir ou fechar o menu'],fi:['Yritys','Hankkeet','Project Atlas','Päivitykset','Tuki','Yhteystiedot','Avaa tai sulje valikko']}[locale]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -48,7 +48,7 @@ export default function Header() {
           <NavLink to="/projects" className={linkClass}>
             {t[1]}
           </NavLink>
-          <NavLink to="/infrastructure/europe" className={linkClass}>
+          <NavLink to="/infrastructure/atlas" className={linkClass}>
             {t[2]}
           </NavLink>
           <NavLink to="/updates" className={linkClass}>
@@ -126,7 +126,7 @@ export default function Header() {
             {t[1]}
           </NavLink>
           <NavLink
-            to="/infrastructure/europe"
+            to="/infrastructure/atlas"
             className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
