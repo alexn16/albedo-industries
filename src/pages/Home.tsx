@@ -1,44 +1,9 @@
 import { Link } from 'react-router-dom'
-import { projects, type Project } from '../data/projects'
-import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal'
 
-const basePath = import.meta.env.BASE_URL || '/'
-
-const divisions = [
-  {
-    title: 'FastSoftware',
-    name: 'Albedo FastSoftware',
-    subtitle: 'Internal tools delivered in weeks, not months.',
-    description:
-      'FastSoftware Sprints turn real company workflows into lightweight ERP tools, purchasing agents, operations dashboards and reporting agents that teams can use quickly.',
-    bullets: ['Lightweight ERP systems', 'Purchasing and reporting agents', 'Stock and operations dashboards', 'Email, order and invoice automation', 'FastSoftware Sprint delivery'],
-    to: '/fastsoftware',
-  },
-  {
-    title: 'Mobility Infrastructure',
-    name: 'ALB Mobility Infrastructure',
-    subtitle: 'Smart parking, EV charging, access and vehicle security.',
-    description:
-      'ALB Parking handles reservations, access control, camera verification and dashboards for private spaces, communities and small parking operators. EV Guardian adds charging and vehicle-security monitoring.',
-    bullets: ['Parking reservations and rental', 'Access control and camera verification', 'Owner and community dashboards', 'EV socket and consumption monitoring', 'Vehicle security mobile alerts'],
-    to: '/projects/alb-parking',
-  },
-  {
-    title: 'Albedo Nodes',
-    name: 'Albedo Nodes',
-    subtitle: 'Local AI boxes and future distributed compute.',
-    description:
-      'We are developing compact local AI boxes for private agents, document processing, storage and edge compute. Later, node owners may connect unused capacity to a future distributed compute network.',
-    bullets: ['Local AI boxes', 'Private company agents', 'Document processing and storage', 'Office and edge compute', 'Future node capacity marketplace'],
-    to: '/projects/albedo-nodes',
-  },
-]
-
-const divisionGroups = [
-  { title: 'FastSoftware', description: 'Commercially available sprints for internal tools, ERP-style systems and practical AI agents.', slugs: ['fastsoftware', 'foreman', 'germet', 'aperta', 'alphaclaim'] },
-  { title: 'Mobility Infrastructure', description: 'Smart parking, EV charging, access control and vehicle security.', slugs: ['alb-parking'] },
-  { title: 'Future infrastructure', description: 'Local AI boxes and distributed compute research.', slugs: ['albedo-nodes'] },
-  { title: 'Consumer / experiments', description: 'Focused consumer systems and product explorations.', slugs: ['ardyn-fitness', 'beatflow'] },
+const activities=[
+  {title:'FastSoftware',body:'Focused internal tools, operational systems and practical AI agents delivered around real company workflows.',to:'/fastsoftware'},
+  {title:'Mobility Infrastructure',body:'Parking, access, EV charging and vehicle-security systems for operators, communities and private sites.',to:'/projects/alb-parking'},
+  {title:'Local AI & Compute',body:'Private local AI systems and distributed-compute research for controlled workloads and company data.',to:'/projects/albedo-nodes'},
 ]
 
 function DivisionCard({ division }: { division: (typeof divisions)[number] }) {
@@ -134,50 +99,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">Current systems and products</h2>
-              <p className="text-lg text-zinc-600 max-w-2xl">Products are organized by the infrastructure line they support, so the portfolio reads as an operating map instead of a list of apps.</p>
-            </div>
-            <Link to="/projects" className="hidden sm:inline text-sm text-zinc-400 hover:text-zinc-900 transition-colors">View all</Link>
-          </div>
-          <div ref={systemsRef} className="grid md:grid-cols-2 gap-6">
-            {divisionGroups.map((group) => {
-              const groupProjects = group.slugs.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean) as Project[]
-              return (
-                <div key={group.title} className="reveal-item rounded-xl border border-zinc-200 bg-white p-6">
-                  <h3 className="text-lg font-semibold mb-2">{group.title}</h3>
-                  <p className="text-sm text-zinc-500 mb-5">{group.description}</p>
-                  <div className="space-y-3">{groupProjects.map((project) => <ProductPill key={project.slug} project={project} />)}</div>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+  <section className="bg-zinc-950 text-white"><div className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-[1.35fr_.65fr] md:items-end md:py-20"><div><p className="text-xs font-semibold tracking-[.2em] text-amber-200">PROJECT ATLAS · AI INFRASTRUCTURE</p><h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-5xl">Finding viable locations for the next generation of AI infrastructure.</h2><p className="mt-5 max-w-2xl text-lg leading-relaxed text-zinc-300">Project Atlas originates and validates selected international opportunities through evidence on power, land, connectivity, permitting and demand.</p></div><div className="flex flex-col gap-3"><Link to="/infrastructure/atlas" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-zinc-950 hover:bg-zinc-100">Explore Project Atlas</Link><Link to="/infrastructure/atlas/partners" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-center text-sm font-semibold hover:bg-white/10">Discuss investment or partnership</Link></div></div></section>
 
-      <section ref={modelRef} className="reveal border-t border-zinc-100">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-12">How we work</h2>
-          <div className="grid md:grid-cols-3 gap-12 md:gap-8">
-            <div><h3 className="text-lg font-medium mb-3">Build deployable systems</h3><p className="text-zinc-600 leading-relaxed">We start from operational bottlenecks and turn them into tools, hardware-connected workflows or local compute deployments.</p></div>
-            <div><h3 className="text-lg font-medium mb-3">Ship iteratively</h3><p className="text-zinc-600 leading-relaxed">We favor useful deployments, measured workflows and continuous refinement over long speculative software cycles.</p></div>
-            <div><h3 className="text-lg font-medium mb-3">Connect physical and digital assets</h3><p className="text-zinc-600 leading-relaxed">Parking spaces, EV chargers, access systems, company data and compute capacity become controllable infrastructure.</p></div>
-          </div>
-        </div>
-      </section>
+  <section className="border-t border-zinc-200"><div className="mx-auto max-w-5xl px-6 py-16 md:py-20"><div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Other Albedo activities</p><h2 className="max-w-2xl text-3xl font-semibold tracking-tight md:text-4xl">Focused systems for software, mobility and local compute.</h2></div><Link to="/projects" className="text-sm font-semibold underline decoration-amber-500 underline-offset-4">View the complete portfolio</Link></div><div className="mt-10 grid gap-5 md:grid-cols-3">{activities.map(activity=><Link to={activity.to} className="group rounded-2xl border border-zinc-200 p-6 transition-colors hover:border-zinc-400" key={activity.title}><h3 className="text-xl font-semibold">{activity.title}</h3><p className="mt-3 text-sm leading-relaxed text-zinc-600">{activity.body}</p><span className="mt-6 inline-flex text-sm font-semibold group-hover:translate-x-1 motion-safe:transition-transform">Learn more →</span></Link>)}</div></div></section>
 
-      <section ref={ctaRef} className="reveal border-t border-zinc-100 bg-zinc-950 text-white">
-        <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">Build infrastructure with ALBEDO</h2>
-            <p className="text-lg text-zinc-400 leading-relaxed mb-8">Start with a FastSoftware Sprint for an internal tool, or talk to us about parking access, EV charging control, vehicle security or local AI compute pilots.</p>
-            <a href="mailto:alex@albedo-industries.com?subject=ALBEDO Infrastructure Inquiry" className="inline-flex items-center justify-center px-6 py-3 bg-white text-zinc-900 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors">Start a conversation</a>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
-}
+  <section className="border-t border-zinc-800 bg-zinc-950 text-white"><div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-14 sm:flex-row sm:items-center sm:justify-between"><div><h2 className="text-2xl font-semibold">Start with the opportunity or requirement.</h2><p className="mt-2 max-w-2xl text-sm text-zinc-400">Talk to Albedo about Atlas, operational software, mobility infrastructure or local AI systems.</p></div><a href="mailto:alex@albedo-industries.com?subject=Albedo%20Industries%20conversation" className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-zinc-950">Start a conversation</a></div></section>
+</div>}
