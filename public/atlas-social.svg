@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Project Atlas — ALBEDO Industries</title>
+  <desc id="desc">AI infrastructure origination, research and validation.</desc>
+  <rect width="1200" height="630" fill="#09090b"/>
+  <path d="M0 126h1200M0 252h1200M0 378h1200M0 504h1200M240 0v630M480 0v630M720 0v630M960 0v630" stroke="#27272a"/>
+  <circle cx="1020" cy="126" r="8" fill="#fcd34d"/>
+  <text x="88" y="112" fill="#fcd34d" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">AN ALBEDO INDUSTRIES INITIATIVE</text>
+  <text x="88" y="286" fill="#fff" font-family="Arial,sans-serif" font-size="86" font-weight="700">Project Atlas</text>
+  <text x="88" y="365" fill="#d4d4d8" font-family="Arial,sans-serif" font-size="34">AI infrastructure origination,</text>
+  <text x="88" y="412" fill="#d4d4d8" font-family="Arial,sans-serif" font-size="34">research and validation.</text>
+  <text x="88" y="545" fill="#71717a" font-family="Arial,sans-serif" font-size="22">Europe · Africa · Asia</text>
+</svg>

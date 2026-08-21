@@ -19,6 +19,7 @@ const InfrastructureEurope = lazy(() => import('./pages/InfrastructureEurope'))
 const InfrastructureCountry = lazy(() => import('./pages/InfrastructureCountry'))
 const InfrastructureCandidate = lazy(() => import('./pages/InfrastructureCandidate'))
 const InfrastructureFunding = lazy(() => import('./pages/InfrastructureFunding'))
+const AtlasResearch = lazy(() => import('./pages/AtlasResearch'))
 const AsPontesResearch = lazy(() => import('./pages/AsPontesResearch'))
 const ElBierzoCandidatePage = lazy(() => import('./pages/atlas/ElBierzoCandidatePage'))
 const CanelonesCandidatePage = lazy(() => import('./pages/atlas/CanelonesCandidatePage'))
@@ -44,7 +45,10 @@ function App() {
         <Route path="infrastructure" element={<InfrastructureEurope />} />
         <Route path="infrastructure/europe" element={<InfrastructureEurope />} />
         <Route path="infrastructure/atlas" element={<InfrastructureEurope />} />
+        <Route path="atlas" element={<InfrastructureEurope />} />
         <Route path="infrastructure/atlas/partners" element={<InfrastructureFunding />} />
+        <Route path="atlas/partners" element={<InfrastructureFunding />} />
+        <Route path="atlas/research" element={<AtlasResearch />} />
         <Route path="infrastructure/funding" element={<InfrastructureFunding />} />
         <Route path="infrastructure/spain/as-pontes/research" element={<AsPontesResearch />} />
         <Route path="infrastructure/spain/el-bierzo" element={<ElBierzoCandidatePage />} />

@@ -267,7 +267,7 @@ export default function About() {
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                ALBEDO Industries functions as an intelligent infrastructure company with a long-term builder mentality.
+                ALBEDO Industries is a venture platform with a long-term builder mentality.
                 New products are developed internally, validated with real users, and either
                 grown into standalone offerings or sunset if they don't find meaningful traction.
               </p>
@@ -284,7 +284,7 @@ export default function About() {
               <p>
                 Financially, we aim for profitability at the product level. We're not opposed to
                 outside investment in specific products if it makes strategic sense, but the
-                holding company itself is designed to be self-sustaining through the products
+                broader ALBEDO portfolio is designed to be self-sustaining through the products
                 it operates.
               </p>
             </div>
@@ -339,7 +339,7 @@ export default function About() {
                   alex@albedo-industries.com
                 </a>
                 <p className="text-sm text-zinc-500 mt-4 leading-relaxed">
-                  Temporary contact email while dedicated ALBEDO channels are being prepared. Use this address for FastSoftware, ALB Parking, partnerships, strategic inquiries and general questions.
+                  Project, partnership and general enquiries for FastSoftware, ALB Parking, strategic discussions and other ALBEDO initiatives.
                 </p>
               </div>
             </div>

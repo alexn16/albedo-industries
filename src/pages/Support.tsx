@@ -34,7 +34,7 @@ export default function Support() {
             Support and contact
           </h1>
           <p className="text-xl text-zinc-600 leading-relaxed mb-8">
-            Use the current ALBEDO contact email for FastSoftware, ALB Parking, partnerships and general inquiries while dedicated channels are being prepared.
+            Use the ALBEDO contact email for FastSoftware, ALB Parking, partnerships and general enquiries.
           </p>
           <div className="rounded-2xl border border-zinc-200 bg-zinc-50/70 p-5">
             <p className="text-sm text-zinc-500 mb-2">Current contact email</p>
@@ -42,7 +42,7 @@ export default function Support() {
               alex@albedo-industries.com
             </a>
             <p className="text-sm text-zinc-500 mt-3">
-              Dedicated ALBEDO Industries contact channels are being prepared. For now, use this email for FastSoftware, ALB Parking, partnerships and general inquiries.
+              Use this address for FastSoftware, ALB Parking, partnerships and general enquiries.
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function Support() {
               Contact pathways
             </h2>
             <p className="text-lg text-zinc-600 leading-relaxed">
-              Choose the closest topic. All messages currently route through the same temporary contact email.
+              Choose the closest topic so your message includes the most useful context.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-5">

@@ -52,7 +52,7 @@ const updates: Update[] = [
     date: '2025-12-01',
     title: 'ALBEDO Industries founded',
     category: 'Company',
-    description: 'We officially launched ALBEDO Industries as an independent software holding company. Our thesis: build focused products that solve specific problems, run them as sustainable businesses, and take a long-term view on growth.',
+    description: 'We launched ALBEDO Industries as an independent venture platform. Our thesis: build focused products that solve specific problems, run them as sustainable businesses, and take a long-term view on growth.',
     link: {
       text: 'Read our thesis',
       to: '/about'
