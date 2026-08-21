@@ -270,25 +270,16 @@ export default function About() {
             </div>
             <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
               <p>
-                ALBEDO Industries is a venture platform with a long-term builder mentality.
-                New products are developed internally, validated with real users, and either
-                grown into standalone offerings or sunset if they don't find meaningful traction.
+                ALBEDO Industries is being built as a focused venture platform with a long-term builder mentality. New products and initiatives are developed internally, tested against real operating needs, and advanced only where the work justifies continued investment.
               </p>
               <p>
-                Each product operates with significant autonomy while benefiting from shared
-                infrastructure, design systems, and operational knowledge. This lets small
-                teams move quickly without rebuilding everything from scratch.
+                The operating model is deliberately small and practical. Shared software, design and research foundations reduce duplication while individual initiatives remain distinct in scope and maturity.
               </p>
               <p>
-                We're deliberately small and plan to stay that way. A focused team can maintain
-                quality and move faster than a large organization. We hire carefully, compensate
-                fairly, and expect sustained excellence rather than burnout-inducing sprints.
+                ALBEDO does not rely on presenting organisational scale as a substitute for evidence. Where an initiative requires specialist capability, project-specific counterparties, advisers or technical partners can be engaged as the work progresses.
               </p>
               <p>
-                Financially, we aim for profitability at the product level. We're not opposed to
-                outside investment in specific products if it makes strategic sense, but the
-                broader ALBEDO portfolio is designed to be self-sustaining through the products
-                it operates.
+                The long-term objective is sustainable product-level economics. Outside investment may be considered for specific products or infrastructure opportunities where the structure, evidence and strategic fit justify it; this is an objective rather than a representation that every initiative is already profitable or independently financed.
               </p>
             </div>
           </div>
