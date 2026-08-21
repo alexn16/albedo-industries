@@ -1,5 +1,5 @@
 export type AtlasDevelopmentStage = 'Gate 1' | 'Active Origination' | 'Active Validation'
-export type AtlasEvidenceLevel = 'Public Source' | 'Counterparty Stated' | 'Developer Stated'
+export type AtlasEvidenceLevel = 'Public Source' | 'Counterparty Stated' | 'Developer Stated' | 'Documented' | 'Independently Verified' | 'Atlas-Controlled'
 export type AtlasPipelineLayer = 'Active Pipeline' | 'Development Opportunity'
 
 export interface AtlasPipelineOpportunity {
@@ -36,6 +36,24 @@ export const atlasPipeline: AtlasPipelineOpportunity[] = [
     validation: ['Documentary land review', 'Grid allocation and delivery evidence', 'Technical phasing', 'Atlas participation and control pathway'], nextMilestone: 'Documentary land and grid evidence review', lastReviewed: '21 August 2026',
   },
   {
+    id: 'AF-NA-MAL', market: 'Namibia', name: 'Maltahöhe / Hardap', layer: 'Active Pipeline',
+    stage: 'Active Validation', evidence: 'Developer Stated', scale: '10 MW firm 24/7 initial phase proposed; 100 MW solar concept stated',
+    position: 'The developer states access to approximately 11,400 hectares, exclusive development rights, a planned 100 MW solar project, a nearby 33 kV NamPower line and fibre connectivity. Atlas has not yet reviewed documentary support for these claims or confirmed a project-specific firm-power pathway.',
+    validation: ['Land and development-right documentation', 'Generation and BESS architecture', 'NamPower connection route and capacity', 'Delivery timeline and Atlas participation structure'], nextMilestone: 'Confidential documentary review of land, rights and power architecture', lastReviewed: '21 August 2026',
+  },
+  {
+    id: 'LATAM-UY-01', market: 'Uruguay', name: 'Canelones', layer: 'Active Pipeline',
+    stage: 'Active Origination', evidence: 'Counterparty Stated', scale: '10–25 MW first phase under institutional and utility screening',
+    position: 'Canelones investment officials have identified Ruta 5, Ruta 101 and the Pando / Ruta 8 area as corridors worth evaluating and have offered cross-department coordination. UTE Grandes Clientes has opened a separate preliminary dialogue. No parcel, connection capacity or power reservation is secured.',
+    validation: ['Corridor and parcel shortlist', 'UTE connection feasibility and voltage level', 'Land-control pathway', 'Fibre, permitting and expansion route'], nextMilestone: 'Institutional and UTE meetings to narrow the first viable corridor and connection path', lastReviewed: '21 August 2026', researchRoute: '/infrastructure/uruguay/canelones',
+  },
+  {
+    id: 'AS-TH-01', market: 'Thailand', name: 'Eastern Economic Corridor screening', layer: 'Active Pipeline',
+    stage: 'Active Origination', evidence: 'Counterparty Stated', scale: '10–25 MW requirements submitted for industrial-estate screening',
+    position: 'Thailand BOI has coordinated the enquiry with the Industrial Estate Authority of Thailand and directed Atlas to screen utilities and land across Chonburi, Rayong and Samut Prakan. No industrial estate, parcel or power capacity has been selected or secured.',
+    validation: ['IEAT industrial-estate shortlist', 'Power and water readiness', 'Industrial land availability', 'Fibre, resilience and investment-promotion pathway'], nextMilestone: 'Obtain an IEAT shortlist of estates that justify technical diligence', lastReviewed: '21 August 2026',
+  },
+  {
     id: 'EU-PT-01', market: 'Portugal', name: 'Sines', layer: 'Active Pipeline',
     stage: 'Active Origination', evidence: 'Public Source', scale: 'Scale subject to land and power validation',
     position: 'Institutional engagement and a strong industrial, energy and subsea-connectivity context support continued origination. Atlas has not secured a parcel, power or permits.',
@@ -63,7 +81,8 @@ export const atlasPipeline: AtlasPipelineOpportunity[] = [
 
 export const atlasEvidenceLevels = [
   ['Public Source', 'A published source supports the stated context; it does not establish Atlas control.'],
-  ['Counterparty Stated', 'Information communicated by a relevant counterparty; supporting documents or independent checks may remain outstanding.'],
+  ['Counterparty Stated', 'Information communicated by a relevant institutional, utility, land or infrastructure counterparty; supporting documents or independent checks may remain outstanding.'],
+  ['Developer Stated', 'Information communicated by a site or project developer; supporting project documentation or independent checks may remain outstanding.'],
   ['Documented', 'Supporting documentation has been reviewed for the specific claim.'],
   ['Independently Verified', 'A qualified independent party has tested the specific claim.'],
   ['Atlas-Controlled', 'Atlas has an evidenced contractual or legal right.'],
