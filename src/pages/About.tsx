@@ -115,6 +115,9 @@ export default function About() {
                 Foreman and Germet strengthen the FastSoftware layer. ALB Parking and EV Guardian anchor mobility infrastructure. Albedo Nodes extends the same operating logic into private AI and local compute. Consumer products remain experiments where focused software can still teach useful patterns.
               </p>
               <p>
+                <Link to="/atlas" className="font-medium text-zinc-950 underline decoration-amber-400 underline-offset-4">Project Atlas</Link> extends ALBEDO's infrastructure work into the research-led origination and validation of larger AI and data-centre infrastructure opportunities. Atlas remains a distinct, early-stage initiative within the broader company.
+              </p>
+              <p>
                 Shared foundations still matter: authentication, notifications, dashboards, mobile interfaces, event logs, integrations and agent environments. Each deployment improves the next.
               </p>
             </div>
