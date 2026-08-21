@@ -44,7 +44,9 @@ function App() {
         <Route path="infrastructure" element={<InfrastructureEurope />} />
         <Route path="infrastructure/europe" element={<InfrastructureEurope />} />
         <Route path="infrastructure/atlas" element={<InfrastructureEurope />} />
+        <Route path="atlas" element={<InfrastructureEurope />} />
         <Route path="infrastructure/atlas/partners" element={<InfrastructureFunding />} />
+        <Route path="atlas/partners" element={<InfrastructureFunding />} />
         <Route path="infrastructure/funding" element={<InfrastructureFunding />} />
         <Route path="infrastructure/spain/as-pontes/research" element={<AsPontesResearch />} />
         <Route path="infrastructure/spain/el-bierzo" element={<ElBierzoCandidatePage />} />
