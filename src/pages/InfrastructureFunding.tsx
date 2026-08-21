@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAtlasMetadata } from '../hooks/useAtlasMetadata'
 
 const contact=(intent:string)=>`mailto:alex@albedo-industries.com?subject=${encodeURIComponent(`Project Atlas — ${intent}`)}&body=${encodeURIComponent('Hello Atlas,\n\nOrganization:\nRole / requirements / opportunity:\nRelevant market or project:\nPreferred next step:\n')}`
