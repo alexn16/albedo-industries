@@ -41,7 +41,7 @@ export const atlasPipeline: AtlasPipelineOpportunity[] = [
     validation: ['Credible land pathway', 'Residual grid capacity and connection route', 'Parcel-level fibre diversity', 'Project-specific permitting route'], lastReviewed: '21 August 2026', researchRoute: '/infrastructure/portugal/sines',
   },
   {
-    id: 'AS-IN-SUR', market: 'India', name: 'India opportunity', layer: 'Active Pipeline',
+    id: 'AS-IN-SUR', market: 'India', name: 'Project Surya / Vastra', layer: 'Active Pipeline',
     stage: 'Active Validation', evidence: 'Counterparty Stated', scale: 'Initial phases around 10 MW; larger concept under discussion',
     position: 'Local development dialogue is testing a phased concept. Land, power, permitting, ready-to-build scope and local development responsibilities remain under validation.',
     validation: ['Land pathway', 'Power and grid evidence', 'Permitting and RTB responsibilities', 'Commercial and delivery structure'], lastReviewed: '21 August 2026',

@@ -48,7 +48,6 @@ function App() {
         <Route path="atlas" element={<InfrastructureEurope />} />
         <Route path="infrastructure/atlas/partners" element={<InfrastructureFunding />} />
         <Route path="atlas/partners" element={<InfrastructureFunding />} />
-        <Route path="atlas/research" element={<AtlasResearch />} />
         <Route path="infrastructure/funding" element={<InfrastructureFunding />} />
         <Route path="infrastructure/spain/as-pontes/research" element={<AsPontesResearch />} />
         <Route path="infrastructure/spain/el-bierzo" element={<ElBierzoCandidatePage />} />
