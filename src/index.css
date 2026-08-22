@@ -181,3 +181,7 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+@media (prefers-reduced-motion: no-preference) {
+  .route-loading span { animation: route-progress 1.2s ease-in-out infinite alternate; }
+}
+@keyframes route-progress { from { transform: translateX(-70%); } to { transform: translateX(170%); } }

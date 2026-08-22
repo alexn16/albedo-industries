@@ -1,66 +1,19 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
+import RouteLoading from './components/RouteLoading'
+import RouteErrorBoundary from './components/RouteErrorBoundary'
 import Home from './pages/Home'
-import About from './pages/About'
-import Projects from './pages/Projects'
-import ProjectDetail from './pages/ProjectDetail'
-import Foreman from './pages/Foreman'
-import FastSoftware from './pages/FastSoftware'
-import PurchasingAgentDemo from './pages/PurchasingAgentDemo'
-import Updates from './pages/Updates'
-import Support from './pages/Support'
-import Privacy from './pages/Privacy'
-import Terms from './pages/Terms'
-import Security from './pages/Security'
-
-const ComputeInfrastructure = lazy(() => import('./pages/ComputeInfrastructure'))
-const InfrastructureEurope = lazy(() => import('./pages/InfrastructureEurope'))
-const InfrastructureCountry = lazy(() => import('./pages/InfrastructureCountry'))
-const InfrastructureCandidate = lazy(() => import('./pages/InfrastructureCandidate'))
-const InfrastructureFunding = lazy(() => import('./pages/InfrastructureFunding'))
-const AtlasResearch = lazy(() => import('./pages/AtlasResearch'))
-const AsPontesResearch = lazy(() => import('./pages/AsPontesResearch'))
-const ElBierzoCandidatePage = lazy(() => import('./pages/atlas/ElBierzoCandidatePage'))
-const CanelonesCandidatePage = lazy(() => import('./pages/atlas/CanelonesCandidatePage'))
-
-function App() {
-  return (
-    <Suspense fallback={<div className="mx-auto max-w-5xl px-6 py-24" role="status">Loading page…</div>}>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="projects/:slug" element={<ProjectDetail />} />
-        <Route path="foreman" element={<Foreman />} />
-        <Route path="fastsoftware" element={<FastSoftware />} />
-        <Route path="fastsoftware/purchasing-agent" element={<PurchasingAgentDemo />} />
-        <Route path="updates" element={<Updates />} />
-        <Route path="support" element={<Support />} />
-        <Route path="privacy" element={<Privacy />} />
-        <Route path="terms" element={<Terms />} />
-        <Route path="security" element={<Security />} />
-        <Route path="compute-infrastructure" element={<ComputeInfrastructure />} />
-        <Route path="infrastructure" element={<InfrastructureEurope />} />
-        <Route path="infrastructure/europe" element={<InfrastructureEurope />} />
-        <Route path="infrastructure/atlas" element={<InfrastructureEurope />} />
-        <Route path="atlas" element={<InfrastructureEurope />} />
-        <Route path="infrastructure/atlas/partners" element={<InfrastructureFunding />} />
-        <Route path="atlas/partners" element={<InfrastructureFunding />} />
-        <Route path="atlas/research" element={<AtlasResearch />} />
-        <Route path="infrastructure/atlas/research" element={<AtlasResearch />} />
-        <Route path="infrastructure/funding" element={<InfrastructureFunding />} />
-        <Route path="infrastructure/spain/as-pontes/research" element={<AsPontesResearch />} />
-        <Route path="infrastructure/spain/el-bierzo" element={<ElBierzoCandidatePage />} />
-        <Route path="infrastructure/uruguay/canelones" element={<CanelonesCandidatePage />} />
-        <Route path="infrastructure/:country" element={<InfrastructureCountry />} />
-        <Route path="infrastructure/:country/:slug" element={<InfrastructureCandidate />} />
-        <Route path="infrastructure/:country/:slug/funding" element={<InfrastructureFunding />} />
-      </Route>
-    </Routes>
-    </Suspense>
-  )
-}
-
-export default App
+import { routeModules } from './routes/routeModules'
+const pages = Object.fromEntries(Object.entries(routeModules).map(([key, loader]) => [key, lazy(loader)])) as Record<keyof typeof routeModules, React.LazyExoticComponent<React.ComponentType>>
+export default function App() { const P = pages; return <RouteErrorBoundary><Suspense fallback={<RouteLoading />}><Routes><Route path="/" element={<Layout />}>
+  <Route index element={<Home />} /><Route path="about" element={<P.about />} /><Route path="projects" element={<P.projects />} /><Route path="projects/:slug" element={<P.project />} />
+  <Route path="foreman" element={<P.foreman />} /><Route path="fastsoftware" element={<P.fastSoftware />} /><Route path="fastsoftware/purchasing-agent" element={<P.purchasingAgent />} /><Route path="updates" element={<P.updates />} /><Route path="support" element={<P.support />} />
+  <Route path="privacy" element={<P.privacy />} /><Route path="terms" element={<P.terms />} /><Route path="security" element={<P.security />} /><Route path="compute-infrastructure" element={<P.compute />} />
+  <Route path="infrastructure" element={<P.atlas />} /><Route path="infrastructure/europe" element={<P.atlas />} /><Route path="infrastructure/atlas" element={<P.atlas />} /><Route path="atlas" element={<P.atlas />} />
+  <Route path="infrastructure/atlas/partners" element={<P.partners />} /><Route path="atlas/partners" element={<P.partners />} /><Route path="infrastructure/funding" element={<P.partners />} />
+  <Route path="atlas/research" element={<P.research />} /><Route path="infrastructure/atlas/research" element={<P.research />} />
+  <Route path="infrastructure/spain/as-pontes/research" element={<P.asPontesResearch />} /><Route path="infrastructure/spain/el-bierzo" element={<P.elBierzo />} /><Route path="infrastructure/uruguay/canelones" element={<P.canelones />} />
+  <Route path="infrastructure/portugal/sines" element={<P.sines />} /><Route path="infrastructure/spain/as-pontes" element={<P.asPontes />} /><Route path="infrastructure/finland/kouvola-kotka" element={<P.kouvolaKotka />} />
+  <Route path="infrastructure/:country" element={<P.country />} /><Route path="infrastructure/:country/:slug" element={<P.candidate />} /><Route path="infrastructure/:country/:slug/funding" element={<P.partners />} />
+</Route></Routes></Suspense></RouteErrorBoundary> }
