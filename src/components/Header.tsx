@@ -48,7 +48,7 @@ export default function Header() {
           <NavLink to="/projects" className={linkClass}>
             {t[1]}
           </NavLink>
-          <NavLink to="/infrastructure/atlas" className={linkClass}>
+          <NavLink to="/atlas" className={linkClass}>
             {t[2]}
           </NavLink>
           <NavLink to="/updates" className={linkClass}>
@@ -126,7 +126,7 @@ export default function Header() {
             {t[1]}
           </NavLink>
           <NavLink
-            to="/infrastructure/atlas"
+            to="/atlas"
             className="block transition-colors text-zinc-500 hover:text-zinc-900"
             onClick={() => setMobileMenuOpen(false)}
           >
