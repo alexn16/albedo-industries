@@ -24,7 +24,8 @@ for(const {file,text} of sources){
       const asset=join(root,'public',destination);if(!existsSync(asset))failures.push(`${file}: missing asset ${destination}`)
     }
     if(destination.startsWith('/')){
-      const [pathname,hash]=destination.split('#')
+      const [pathAndQuery,hash]=destination.split('#')
+      const [pathname]=pathAndQuery.split('?')
       const matchesRoute=routes.has(pathname)||[...routes].some(route=>{const pattern='^'+route.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/:[^/]+/g,'[^/]+')+'$';return new RegExp(pattern).test(pathname)})
       if(!matchesRoute&&!pathname.includes('${')&&!pathname.endsWith('/funding'))failures.push(`${file}: no static or registered route for ${pathname}`)
       if(hash&&!ids.has(hash))failures.push(`${file}: missing anchor #${hash}`)
@@ -40,6 +41,12 @@ for(const match of allSource.matchAll(/dossierUrl:\s*['"](\/media\/[^'"]+\.pdf)[
 const duplicateIds=[...ids].filter(id=>[...allSource.matchAll(new RegExp(`\\bid=["']${id}["']`,'g'))].length>1)
 // Repeated IDs in mutually exclusive/localised candidate components are valid; report only within one file.
 for(const {file,text} of sources)for(const id of ids){const count=[...text.matchAll(new RegExp(`<(?:section|div)[^>]*\\sid=["']${id}["']`,'g'))].length;if(count>1)failures.push(`${file}: duplicate id="${id}" (${count})`)}
+const atlasSource=readFileSync(join(root,'src/pages/InfrastructureEurope.tsx'),'utf8')
+const atlasSections=['overview','pipeline','validation','research','evidence','partners','leadership']
+for(const id of atlasSections){
+  if(!new RegExp(`(?:<Section|<section)\\s+id=["']${id}["']`).test(atlasSource))failures.push(`Project Atlas: missing semantic section id="${id}"`)
+  if(!atlasSource.includes(`['${id[0].toUpperCase()+id.slice(1)}','${id}']`))failures.push(`Project Atlas: missing navigation item for ${id}`)
+}
 console.log(`Checked ${checked.length} literal links, ${routes.size} routes, ${ids.size} section IDs and registry PDFs.`)
 if(duplicateIds.length)console.log(`Cross-component repeated IDs (expected on mutually exclusive pages): ${duplicateIds.join(', ')}`)
 if(failures.length){console.error(failures.join('\n'));process.exit(1)}
