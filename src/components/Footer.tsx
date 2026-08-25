@@ -27,8 +27,8 @@ export default function Footer() {
               <li><Link to="/about" className="hover:text-white transition-colors">{t[2]}</Link></li>
               <li><Link to="/projects" className="hover:text-white transition-colors">{t[3]}</Link></li>
               <li><Link to="/compute-infrastructure" className="hover:text-white transition-colors">{t[4]}</Link></li>
-              <li><Link to="/infrastructure/atlas" className="hover:text-white transition-colors">{t[5]}</Link></li>
-              <li><Link to="/infrastructure/atlas/partners" className="hover:text-white transition-colors">{t[6]}</Link></li>
+              <li><Link to="/atlas" className="hover:text-white transition-colors">{t[5]}</Link></li>
+              <li><Link to="/atlas/partners" className="hover:text-white transition-colors">{t[6]}</Link></li>
               <li><Link to="/updates" className="hover:text-white transition-colors">{t[7]}</Link></li>
             </ul>
           </div>
