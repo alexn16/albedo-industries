@@ -90,7 +90,7 @@ function AtlasHero() {
   },[])
 
   return <section className="relative isolate flex min-h-[100svh] overflow-hidden bg-zinc-950 text-white">
-    {!reduceMotion && <video className="pointer-events-none absolute inset-0 h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" aria-hidden="true"><source src="/media/ALBEDO - INDUSTRIES/herovideo.mp4" type="video/mp4" /></video>}
+    {!reduceMotion && <video className="pointer-events-none absolute inset-0 h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" aria-hidden="true"><source src="/media/ALBEDO - INDUSTRIES/weryai_5bb6aefbba19268f1e7c90c34015e82f.mp4" type="video/mp4" /></video>}
     <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" aria-hidden="true" />
     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" aria-hidden="true" />
     <AtlasHeroContent />
