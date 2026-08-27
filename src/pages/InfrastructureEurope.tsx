@@ -9,6 +9,7 @@ import { atlasSectionIds, resolveAtlasSection } from '../routes/atlasSections'
 const contact = 'mailto:alex@albedo-industries.com?subject=Project%20Atlas%20conversation'
 
 export default function InfrastructureEurope({country}:{country?:string}) {
+  const isAtlasLanding=useLocation().pathname==='/atlas'
   useAtlasMetadata({
     name: country ? `${country} Atlas Research` : 'Project Atlas', country: country ?? 'International',
     title: country ? undefined : 'Project Atlas — AI Infrastructure Origination | ALBEDO Industries',
@@ -20,13 +21,7 @@ export default function InfrastructureEurope({country}:{country?:string}) {
 
   return <div>
     {!country && <AtlasNav />}
-    <section className="bg-zinc-950 text-white"><div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-      <p className="eyebrow text-amber-200">PROJECT ATLAS · AN ALBEDO INDUSTRIES INITIATIVE</p>
-      <h1 className="max-w-5xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-7xl">Originating and advancing AI infrastructure opportunities.</h1>
-      <p className="mt-7 max-w-3xl text-lg leading-relaxed text-zinc-300">AI infrastructure origination and development across selected international markets. Evidence-led, early stage, and explicit about what is not yet controlled.</p>
-      <div className="mt-9 flex flex-col gap-3 sm:flex-row"><Link to="/atlas?section=pipeline" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-zinc-950">Explore the pipeline</Link><Link to="/atlas?section=research" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-semibold">Explore research</Link><Link to="/atlas/partners" {...intentPrefetch('partners')} className="inline-flex min-h-12 items-center justify-center rounded-full border border-amber-300/50 px-6 text-sm font-semibold text-amber-100">Discuss an opportunity</Link></div>
-      <p className="mt-8 max-w-3xl border-l border-amber-300 pl-4 text-sm leading-relaxed text-zinc-400">Atlas is an infrastructure origination, research and validation initiative—not an operator, utility, fund or claim of control over every listed site. Power, land, permits, financing and demand are not described as secured without supporting evidence.</p>
-    </div></section>
+    {isAtlasLanding ? <AtlasHero /> : <section className="bg-zinc-950 text-white"><AtlasHeroContent /></section>}
 
     <Section id="overview" eyebrow="How Atlas creates value" title="Research becomes an opportunity only when the evidence earns it.">
       <p className="section-copy">Atlas typically tests first phases around 10–25 MW while prioritising credible pathways to larger scale. Work progresses through research, origination, validation, structuring, site control or development, and capital or operator alignment.</p>
@@ -82,6 +77,33 @@ export default function InfrastructureEurope({country}:{country?:string}) {
       <div className="grid gap-8 md:grid-cols-2"><div><h3 className="text-xl font-semibold">Alex Velasco</h3><p className="mt-1 text-sm font-medium text-zinc-500">Founder, ALBEDO Industries / Project Atlas</p><p className="mt-4 leading-relaxed text-zinc-600">Alex is building Atlas as a research-led infrastructure origination initiative. Project-specific work involves relevant local counterparties and technical specialists as opportunities progress; Atlas does not present itself as a large operating organisation.</p><a href="mailto:alex@albedo-industries.com" className="mt-5 inline-flex font-semibold underline decoration-amber-400 underline-offset-4">alex@albedo-industries.com</a></div><div><h3 className="font-semibold">An ALBEDO Industries initiative</h3><p className="mt-3 text-sm leading-relaxed text-zinc-600">ALBEDO remains a broader company working across software, mobility, infrastructure and AI. Project-specific legal and ownership structures may be established where an opportunity advances to contractual development or investment; none is implied before then.</p><Link to="/about" className="mt-5 inline-flex font-semibold underline decoration-amber-400 underline-offset-4">About ALBEDO Industries →</Link></div></div>
     </Section>
     <section className="bg-zinc-950 text-white"><div className="mx-auto max-w-6xl px-6 py-20"><h2 className="max-w-3xl text-3xl font-semibold md:text-5xl">Request the private detail when there is a credible fit.</h2><p className="mt-5 max-w-2xl text-zinc-400">Atlas shares deeper pipeline, diligence and project-specific information selectively after an initial conversation.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to="/atlas/partners" {...intentPrefetch('partners')} className="rounded-full bg-white px-6 py-3 text-center text-sm font-semibold text-zinc-950">Discuss a partnership</Link><a href={contact} className="rounded-full border border-white/30 px-6 py-3 text-center text-sm font-semibold">Contact Project Atlas</a></div></div></section>
+  </div>
+}
+
+function AtlasHero() {
+  const [reduceMotion,setReduceMotion]=useState(()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  useEffect(()=>{
+    const query=window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update=()=>setReduceMotion(query.matches)
+    query.addEventListener('change',update)
+    return()=>query.removeEventListener('change',update)
+  },[])
+
+  return <section className="relative isolate flex min-h-[100svh] overflow-hidden bg-zinc-950 text-white">
+    {!reduceMotion && <video className="pointer-events-none absolute inset-0 h-full w-full object-cover" autoPlay loop muted playsInline preload="metadata" aria-hidden="true"><source src="/media/ALBEDO - INDUSTRIES/herovideo.mp4" type="video/mp4" /></video>}
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/20" aria-hidden="true" />
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" aria-hidden="true" />
+    <AtlasHeroContent />
+  </section>
+}
+
+function AtlasHeroContent() {
+  return <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col justify-center px-6 py-20 md:py-28">
+    <p className="eyebrow text-amber-200">PROJECT ATLAS · AN ALBEDO INDUSTRIES INITIATIVE</p>
+    <h1 className="max-w-5xl text-4xl font-semibold tracking-tight sm:text-5xl md:text-7xl">Originating and advancing AI infrastructure opportunities.</h1>
+    <p className="mt-7 max-w-3xl text-lg leading-relaxed text-zinc-300">AI infrastructure origination and development across selected international markets. Evidence-led, early stage, and explicit about what is not yet controlled.</p>
+    <div className="mt-9 flex flex-col gap-3 sm:flex-row"><Link to="/atlas?section=pipeline" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-zinc-950">Explore the pipeline</Link><Link to="/atlas?section=research" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-semibold">Explore research</Link><Link to="/atlas/partners" {...intentPrefetch('partners')} className="inline-flex min-h-12 items-center justify-center rounded-full border border-amber-300/50 px-6 text-sm font-semibold text-amber-100">Discuss an opportunity</Link></div>
+    <p className="mt-8 max-w-3xl border-l border-amber-300 pl-4 text-sm leading-relaxed text-zinc-400">Atlas is an infrastructure origination, research and validation initiative—not an operator, utility, fund or claim of control over every listed site. Power, land, permits, financing and demand are not described as secured without supporting evidence.</p>
   </div>
 }
 
