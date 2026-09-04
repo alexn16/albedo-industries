@@ -10,6 +10,7 @@ export default function App() { const P = pages; return <RouteErrorBoundary><Sus
   <Route index element={<Home />} /><Route path="about" element={<P.about />} /><Route path="projects" element={<P.projects />} /><Route path="projects/:slug" element={<P.project />} />
   <Route path="foreman" element={<P.foreman />} /><Route path="fastsoftware" element={<P.fastSoftware />} /><Route path="fastsoftware/purchasing-agent" element={<P.purchasingAgent />} /><Route path="updates" element={<P.updates />} /><Route path="support" element={<P.support />} />
   <Route path="privacy" element={<P.privacy />} /><Route path="terms" element={<P.terms />} /><Route path="security" element={<P.security />} /><Route path="compute-infrastructure" element={<P.compute />} />
+  <Route path="display" element={<P.display />} /><Route path="display/invest" element={<P.displayInvest />} />
   <Route path="infrastructure" element={<P.atlas />} /><Route path="infrastructure/europe" element={<P.atlas />} /><Route path="infrastructure/atlas" element={<P.atlas />} /><Route path="atlas" element={<P.atlas />} />
   <Route path="infrastructure/atlas/partners" element={<P.partners />} /><Route path="atlas/partners" element={<P.partners />} /><Route path="infrastructure/funding" element={<P.partners />} />
   <Route path="atlas/research" element={<P.research />} /><Route path="infrastructure/atlas/research" element={<P.research />} />
