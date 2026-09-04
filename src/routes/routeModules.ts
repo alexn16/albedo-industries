@@ -6,6 +6,7 @@ export const routeModules = {
   partners: () => import('../pages/InfrastructureFunding'), research: () => import('../pages/AtlasResearch'), asPontesResearch: () => import('../pages/AsPontesResearch'),
   elBierzo: () => import('../pages/atlas/ElBierzoCandidatePage'), canelones: () => import('../pages/atlas/CanelonesCandidatePage'), sines: () => import('../pages/atlas/SinesCandidatePage'),
   asPontes: () => import('../pages/atlas/AsPontesCandidatePage'), kouvolaKotka: () => import('../pages/atlas/KouvolaKotkaCandidatePage'),
+  display: () => import('../pages/AlbedoDisplay'), displayInvest: () => import('../pages/AlbedoDisplayInvest'),
 } as const
 export type RouteModule = keyof typeof routeModules
 export function prefetchRoute(route: RouteModule) {
