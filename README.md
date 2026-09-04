@@ -70,6 +70,18 @@ Funding methodology and candidate-specific transparency pages begin at `/#/infra
 
 ### Form delivery
 
+The Albedo Display pilot form posts JSON to `VITE_DISPLAY_PILOT_ENDPOINT` when an
+operator-reviewed endpoint is configured. Without it (or if delivery fails), the
+form clearly states that nothing was sent and offers a pre-filled email fallback.
+The adapter expects a successful HTTP 2xx response and sends the fields documented
+in `src/pages/AlbedoDisplay.tsx`. The hidden `website` field is a basic honeypot;
+the receiving endpoint must still validate input, rate-limit requests, protect
+stored personal data and apply an appropriate retention policy.
+
+```bash
+VITE_DISPLAY_PILOT_ENDPOINT=https://YOUR_REVIEWED_ENDPOINT.example/pilot npm run dev
+```
+
 The static site submits to the repository's Supabase Edge Function through `VITE_COMPUTE_INTEREST_ENDPOINT`. The function validates strict `capacity_interest` and `investor_partner_interest` payloads, rate-limits requests and writes through a server-only service role into separate RLS-protected tables. Complete deployment, migration, secrets, operator-review, testing and rollback instructions are in [`docs/compute-interest-backend.md`](docs/compute-interest-backend.md).
 
 Without the variable, each form displays a prominent “Registration opening soon” notice, renders disabled fields for preview, disables submission and links to the site's existing email contact. It never accepts input or simulates storage. No analytics provider exists in this repository, so no new provider or lead-data tracking was introduced.
