@@ -6,6 +6,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const isDisplay = location.pathname === '/display' || location.pathname === '/display/invest'
   const isHome = location.pathname === '/'
   const locale=useAtlasShellLanguage()
   const t={en:['About','Projects','Project Atlas','Updates','Support','Contact','Toggle menu'],es:['Empresa','Proyectos','Project Atlas','Novedades','Ayuda','Contacto','Abrir o cerrar el menú'],pt:['Empresa','Projetos','Project Atlas','Atualizações','Apoio','Contacto','Abrir ou fechar o menu'],fi:['Yritys','Hankkeet','Project Atlas','Päivitykset','Tuki','Yhteystiedot','Avaa tai sulje valikko']}[locale]
@@ -16,6 +17,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileMenuOpen(false)
+    }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', close)
+    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', close) }
+  }, [mobileMenuOpen])
+
   // On the home page with video hero, use white text when not scrolled
   const heroOverlay = isHome && !scrolled
 
@@ -23,6 +34,8 @@ export default function Header() {
     heroOverlay
       ? `transition-colors ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}`
       : `transition-colors ${isActive ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`
+
+  if (isDisplay) return null
 
   return (
     <header
@@ -75,6 +88,7 @@ export default function Header() {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={t[6]}
           aria-expanded={mobileMenuOpen}
+          aria-controls="site-mobile-menu"
         >
           <svg
             className="w-5 h-5"
@@ -103,7 +117,7 @@ export default function Header() {
 
       {/* Mobile navigation — animated slide-down */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-100 px-6 py-4 space-y-4 bg-white/95 backdrop-blur-lg mobile-menu-enter">
+        <div id="site-mobile-menu" className="md:hidden border-t border-zinc-100 px-6 py-4 space-y-4 bg-white/95 backdrop-blur-lg mobile-menu-enter">
           <NavLink
             to="/about"
             className="block transition-colors text-zinc-500 hover:text-zinc-900"

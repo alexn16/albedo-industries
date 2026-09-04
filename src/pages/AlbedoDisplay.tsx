@@ -1,42 +1,134 @@
+import { useEffect, useRef, useState } from 'react'
+import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import DisplayAssetFigure from '../components/display/DisplayAssetFigure'
 import { displayAssets } from '../data/albedoDisplayAssets'
 
-const contact = (topic:string) => `mailto:alex@albedo-industries.com?subject=${encodeURIComponent(`Albedo Display — ${topic}`)}`
-const useCases = [
-  ['Personal productivity','Phone notifications; smart displays','A next action can remain visible without unlocking a phone. A tablet may be excessive for one calm surface.','Individual / employer'],
-  ['Hospitality','Printed cards; tablets; signage','Guest or room information changes, but rarely needs a full tablet.','Operator / property manager'],
-  ['Office operations','TV dashboards; labels; chat','Room state, instructions or one KPI can stay at the point of work.','Facilities / operations'],
-  ['Education','Whiteboards; paper; tablets','A teacher-controlled instruction surface could reduce shared-device cost.','School / training provider'],
-  ['Retail & service','Paper signs; ESL; digital signage','Small dynamic messages may sit between shelf labels and costly signage.','Store / service operator'],
-]
-const roadmap = [
-  ['0','Component validation','€200–€500','Panel refreshes reliably; measured power and BLE transfer support V0.'],
-  ['1','Working Bluetooth prototype','€500–€2,000','Five target users complete setup and update a useful screen.'],
-  ['2','Industrial-looking prototype','€2,000–€5,000','Supplier-backed BOM and 10 design-partner commitments.'],
-  ['3','10–50 unit pilot','€5,000–€20,000','Paid deployment demonstrates repeated use and acceptable reliability.'],
-  ['4','Custom PCB + manufacturing validation','€20,000–€50,000+','Quotes, compliance plan and margin justify a build.'],
-]
-const risks=['A usable display may cost too much.','A cheap tablet may solve the job better.','Phone dependency and BLE onboarding may create friction.','AI-generated layouts may add little practical value.','Low hardware margins may not support the business.','Manufacturing could require more capital than planned.','Demand may fragment across incompatible niches.','Consumers may not need another device.']
-function Status({children}:{children:React.ReactNode}){return <span className="ad-status">{children}</span>}
-function Section({id,kicker,title,children,dark=false}:{id:string;kicker:string;title:string;children:React.ReactNode;dark?:boolean}){return <section id={id} className={`ad-section ${dark?'ad-dark':''}`}><div className="ad-wrap"><p className="ad-kicker">{kicker}</p><h2>{title}</h2>{children}</div></section>}
-export default function AlbedoDisplay(){
- return <article className="ad-page">
-  <div className="ad-projectbar"><span>ALBEDO DISPLAY</span><span className="ad-projectbar__right">Independent project within Albedo Industries · <Link to="/display/invest">Investor brief ↗</Link></span></div>
-  <header className="ad-hero"><div className="ad-wrap"><div className="ad-hero__intro"><div><Status>Concept / component validation stage</Status><p className="ad-kicker">ALBEDO DISPLAY</p><h1>The cheapest possible physical interface for AI.</h1></div><div><p className="ad-lede">A simple 4–5 inch display controlled by your phone and AI, designed to remove the expensive parts of conventional smart hardware.</p><div className="ad-flow"><b>Phone / AI</b><span>→ Bluetooth →</span><b>Display</b></div><div className="ad-actions"><a href="#evidence">See the current evidence</a><a className="secondary" href={contact('investment or pilot')}>Discuss investment / pilot</a></div></div></div><DisplayAssetFigure asset={displayAssets.v0Concept} className="ad-hero__asset" showNotes /></div></header>
-  <Section id="thesis" kicker="01 / THE THESIS" title="Remove the computer from the smart display."><div className="ad-two"><div><h3>Conventional smart hardware adds</h3><p>Processor, operating system, battery, speakers, microphone, camera, touch, cloud setup and complex electronics.</p></div><div><h3>The phone already provides</h3><p>Internet, AI, microphone, keyboard, identity, processing and connectivity. The endpoint may only need a display, BLE, a simple MCU and power.</p></div></div><div className="ad-callout"><b>Hypothesis being validated</b><p>The intelligence stays on the phone/cloud, allowing the physical AI interface to remain extremely simple and inexpensive. This is not yet proven to be useful, differentiated or manufacturable at the target cost.</p></div></Section>
-  <Section id="works" kicker="02 / SYSTEM" title="The device is a physical output layer." dark><div className="ad-architecture">{['User','AI / ChatGPT','Smartphone','BLE','ESP32-class controller','4–5 inch display'].map((x,i)=><div key={x}><span>{String(i+1).padStart(2,'0')}</span><b>{x}</b>{i<5&&<i>↓</i>}</div>)}</div><p className="ad-widecopy">The phone converts intent into a constrained display description: text, hierarchy, positions, icons, simple graphics, visual states and alerts. V0 tests template + data payloads first; bitmap transfer remains a fallback for layout flexibility.</p></Section>
-  <Section id="matter" kicker="03 / BEHAVIOUR" title="Persistent information without another expensive computer."><p className="ad-intro">Phones are excellent for interaction, but poor for information that should remain visible. The project tests whether a calm, dedicated surface improves action and awareness enough to justify another device.</p><div className="ad-tags">{['Next task','Calendar','Room status','Guest information','Production KPI','Classroom instruction','Household status','Operational alert'].map(x=><span key={x}>{x}</span>)}</div></Section>
-  <Section id="evidence" kicker="04 / CURRENT EVIDENCE" title="A concept, not yet a product."><div className="ad-evidence"><div className="ad-evidence__reference"><p className="ad-intro">The current visual above is an industrial-design and hardware-architecture hypothesis. Its dimensions, screen technology, enclosure, electronics and displayed BOM are preliminary.</p><a href={displayAssets.v0Concept.src} target="_blank" rel="noreferrer">Review the full concept image ↗</a><ol className="ad-progression"><li className="current">Concept <b>Today</b></li><li>Components</li><li>Working Bluetooth prototype</li><li>Physical enclosure</li><li>Custom PCB</li><li>Pilot units</li><li>Manufacturing validation</li></ol></div><div className="ad-ledger"><div><Status>Selected for testing</Status><h3>Screen candidate</h3><p>4.3-inch 480×272 SPI TFT module. Exact panel and lifecycle remain open.</p></div><div><Status>Selected for testing</Status><h3>Controller candidate</h3><p>ESP32-S3 for the first colour prototype; test ESP32-C3 only if display throughput and RAM remain sufficient.</p></div><div><Status>Concept</Status><h3>Software</h3><p>Android test harness → versioned JSON/template payload → BLE chunks → local renderer.</p></div></div></div><div className="ad-two ad-known"><div><h3>What we know</h3><ul><li>BLE and ESP32-class controllers are technically capable of structured, low-frequency updates.</li><li>A phone can provide the AI and internet layer.</li><li>Off-the-shelf display modules allow a low-cost feasibility prototype.</li></ul></div><div><h3>What we still need to validate</h3><ul><li>Cheapest usable panel and real volume quote</li><li>User value, latency and onboarding</li><li>Power, enclosure and industrial design</li><li>Willingness to pay and best first market</li></ul></div></div></Section>
-  <Section id="economics" kicker="05 / HARDWARE ECONOMICS" title="The target is not the cost."><div className="ad-target"><span>Aspirational volume BOM</span><strong>US$10–15</strong><em>TARGET · NOT CONFIRMED</em></div><div className="ad-tablewrap"><table><thead><tr><th>Cost basis</th><th>Prototype</th><th>100 units</th><th>1,000 units</th><th>10,000 units</th></tr></thead><tbody><tr><td>Current architecture</td><td>$35–70</td><td>$22–40</td><td>$15–28</td><td>$11–22</td></tr><tr><td>Evidence class</td><td>Public retail modules</td><td>Planning estimate</td><td>Planning estimate</td><td>Planning estimate</td></tr><tr><td>Confidence</td><td>Medium</td><td>Low</td><td>Low</td><td>Very low</td></tr></tbody></table></div><p className="ad-note">Ranges include display, MCU/PCB, USB-C power, enclosure and assembly, but exclude tooling, certification, freight, duties, yield, warranty and software. Supplier quotes are required before any manufacturing claim.</p></Section>
-  <Section id="uses" kicker="06 / USE-CASE HYPOTHESES" title="Five jobs worth testing—not five markets we claim to own.">{useCases.map((u,i)=><div className="ad-use" key={u[0]}><b>0{i+1}</b><h3>{u[0]}</h3><div><small>CURRENT ALTERNATIVE</small><p>{u[1]}</p></div><div><small>WHY TEST IT</small><p>{u[2]}</p></div><div><small>POTENTIAL PAYER</small><p>{u[3]}</p></div><Status>Unvalidated</Status></div>)}</Section>
-  <Section id="landscape" kicker="07 / LANDSCAPE" title="The market may already solve this problem." dark><div className="ad-tablewrap"><table><thead><tr><th>Category / example</th><th>What it proves</th><th>Open question for Albedo</th></tr></thead><tbody><tr><td>TRMNL / e-paper dashboards</td><td>Demand for calm, persistent information</td><td>Can colour and lower price outweigh battery life?</td></tr><tr><td>Tidbyt / LaMetric</td><td>People buy compact connected displays</td><td>Is phone-controlled AI materially more useful?</td></tr><tr><td>Seeed / ESP32 display kits</td><td>Hardware is readily prototyped</td><td>Is there value beyond assembled commodity parts?</td></tr><tr><td>Smart displays / cheap tablets</td><td>Broad capability at falling prices</td><td>Can radical simplicity win on TCO or placement?</td></tr><tr><td>Electronic shelf labels</td><td>Low-power fleets can reach scale</td><td>Can Albedo match fleet economics without scale?</td></tr></tbody></table></div><p className="ad-widecopy">The current differentiation thesis is weak until a specific workflow values AI-generated layouts, phone-side intelligence and materially lower endpoint cost. Software workflow, distribution and fleet operations—not commodity hardware—would need to create defensibility.</p></Section>
-  <Section id="models" kicker="08 / BUSINESS MODEL" title="Keep the model open until the payer is clear."><div className="ad-models">{[['Consumer hardware','Simple; margin-sensitive','High'],['Hardware + service','Recurring value must be proven','High'],['B2B + fleet SaaS','Best potential workflow lock-in','Medium'],['OEM reference design','Lower capital; partner dependence','Lower'],['Paid pilot','Strong validation signal','Low'],['Strategic subsidy','Could unlock scale; uncertain access','Medium']].map(x=><div key={x[0]}><h3>{x[0]}</h3><p>{x[1]}</p><small>CAPITAL INTENSITY · {x[2]}</small></div>)}</div></Section>
-  <Section id="roadmap" kicker="09 / LEAN ROADMAP" title="Each cheque must retire a specific risk.">{roadmap.map(x=><div className="ad-phase" key={x[0]}><b>PHASE {x[0]}</b><h3>{x[1]}</h3><strong>{x[2]}</strong><p><small>GO / NO-GO</small>{x[3]}</p></div>)}<p className="ad-note">All budgets are planning assumptions, not supplier-validated forecasts.</p></Section>
-  <Section id="capital" kicker="10 / CAPITAL" title="Finance technical and market validation—not premature scale." dark><div className="ad-unlocks">{[['€2k','Working prototype'],['€10k','Industrial prototype + supplier validation'],['€25k','Pilot units + software'],['€50k','Custom electronics + manufacturing validation']].map(x=><div key={x[0]}><strong>{x[0]}</strong><span>{x[1]}</span><small>PLANNING ASSUMPTION</small></div>)}</div><p className="ad-widecopy">Preferred order: founder-funded component work → paid design partner or pilot → supplier support → selective grant or accelerator → external equity only when retention, willingness to pay and credible unit economics exist.</p></Section>
-  <Section id="partner" kicker="11 / PARTNER WITH US" title="Three practical ways to test the thesis."><div className="ad-partners"><a href={contact('investment')}><span>INVEST</span><h3>Fund a defined validation milestone.</h3><p>For investors in hardware, ambient computing, IoT and AI interfaces.</p><b>Start a conversation →</b></a><a href={contact('pilot')}><span>PILOT</span><h3>Bring one persistent-information workflow.</h3><p>For organisations prepared to measure use, friction and willingness to pay.</p><b>Propose a use case →</b></a><a href={contact('manufacturing')}><span>BUILD</span><h3>Help test cost and manufacturability.</h3><p>For display, PCB, component and ODM/OEM partners.</p><b>Share capability →</b></a></div></Section>
-  <Section id="team" kicker="12 / PROJECT" title="Independent by design."><p className="ad-intro">Albedo Display is an independently structured project within Albedo Industries. Its website, evidence, assets, outreach and financing work are separated from Project Atlas and other initiatives. It should remain inside Albedo Industries until evidence supports a standalone company.</p></Section>
-  <Section id="risks" kicker="13 / DOWNSIDE" title="Reasons to stop." dark><div className="ad-risks">{risks.map((x,i)=><div key={x}><span>{String(i+1).padStart(2,'0')}</span><p>{x}</p></div>)}</div></Section>
-  <Section id="contact" kicker="14 / CONTACT" title="Bring evidence, a use case or a manufacturing path."><div className="ad-contact">{['Investment','Pilot','Manufacturing','General'].map(x=><a key={x} href={contact(x)}><span>{x}</span><b>alex@albedo-industries.com ↗</b></a>)}</div><p className="ad-note">No public data room is available. Relevant materials can be shared selectively as evidence develops.</p></Section>
- </article>
+const pilotEmail = 'alex@albedo-industries.com'
+
+type PilotFields = {
+  name: string
+  email: string
+  organisation: string
+  role: string
+  useCase: string
+  quantity: string
+  timeline: string
+  notes: string
+  website: string
+}
+
+const emptyFields: PilotFields = { name: '', email: '', organisation: '', role: '', useCase: '', quantity: '', timeline: '', notes: '', website: '' }
+
+function useDisplayMetadata() {
+  useEffect(() => {
+    const title = 'Albedo Display — A phone-powered display for persistent information'
+    const description = 'Albedo Display is a phone-powered concept for calm, persistent workplace information. Apply to help test the first operational pilot.'
+    const canonical = 'https://www.albedo-industries.com/#/display'
+    const image = 'https://www.albedo-industries.com/media/albedo-display/v0-concept.svg'
+    const upsert = (selector: string, attributes: Record<string, string>) => {
+      let element = document.head.querySelector(selector) as HTMLMetaElement | HTMLLinkElement | null
+      if (!element) { element = document.createElement(attributes.rel ? 'link' : 'meta'); document.head.appendChild(element) }
+      Object.entries(attributes).forEach(([key, value]) => element?.setAttribute(key, value))
+    }
+    document.title = title
+    upsert('meta[name="description"]', { name: 'description', content: description })
+    upsert('link[rel="canonical"]', { rel: 'canonical', href: canonical })
+    upsert('meta[property="og:title"]', { property: 'og:title', content: title })
+    upsert('meta[property="og:description"]', { property: 'og:description', content: description })
+    upsert('meta[property="og:url"]', { property: 'og:url', content: canonical })
+    upsert('meta[property="og:image"]', { property: 'og:image', content: image })
+    upsert('meta[name="twitter:title"]', { name: 'twitter:title', content: title })
+    upsert('meta[name="twitter:description"]', { name: 'twitter:description', content: description })
+    upsert('meta[name="twitter:image"]', { name: 'twitter:image', content: image })
+    const jsonLd = document.createElement('script')
+    jsonLd.type = 'application/ld+json'; jsonLd.dataset.displayMetadata = 'true'
+    jsonLd.text = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Product', name: 'Albedo Display', description, brand: { '@type': 'Organization', name: 'Albedo Industries', url: 'https://www.albedo-industries.com/' }, url: canonical })
+    document.head.appendChild(jsonLd)
+    return () => {
+      jsonLd.remove()
+      document.title = 'ALBEDO Industries — Intelligent infrastructure for software, mobility and compute'
+      upsert('meta[name="description"]', { name: 'description', content: 'ALBEDO Industries develops practical software, mobility and local-compute systems and originates selected international opportunities for AI infrastructure.' })
+      upsert('link[rel="canonical"]', { rel: 'canonical', href: 'https://www.albedo-industries.com/' })
+      upsert('meta[property="og:title"]', { property: 'og:title', content: 'ALBEDO Industries' })
+      upsert('meta[property="og:description"]', { property: 'og:description', content: 'Software, mobility, local compute and evidence-led origination of selected AI infrastructure opportunities.' })
+      upsert('meta[property="og:url"]', { property: 'og:url', content: 'https://www.albedo-industries.com/' })
+      upsert('meta[property="og:image"]', { property: 'og:image', content: 'https://www.albedo-industries.com/favicon.svg' })
+    }
+  }, [])
+}
+
+function PilotForm() {
+  const [fields, setFields] = useState<PilotFields>(emptyFields)
+  const [errors, setErrors] = useState<Partial<Record<keyof PilotFields, string>>>({})
+  const [state, setState] = useState<'idle' | 'sending' | 'success' | 'fallback'>('idle')
+  const summaryRef = useRef<HTMLDivElement>(null)
+  const set = (field: keyof PilotFields, value: string) => setFields(current => ({ ...current, [field]: value }))
+  const validate = () => {
+    const next: typeof errors = {}
+    if (!fields.name.trim()) next.name = 'Enter your name.'
+    if (!/^\S+@\S+\.\S+$/.test(fields.email)) next.email = 'Enter a valid work email.'
+    if (!fields.organisation.trim()) next.organisation = 'Enter your organisation.'
+    if (!fields.role.trim()) next.role = 'Enter your role.'
+    if (!fields.useCase.trim()) next.useCase = 'Describe the information you need to keep visible.'
+    if (!fields.quantity) next.quantity = 'Choose an expected quantity.'
+    if (!fields.timeline) next.timeline = 'Choose a target timeline.'
+    return next
+  }
+  const mailto = () => {
+    const subject = encodeURIComponent(`Albedo Display pilot — ${fields.organisation || fields.name}`)
+    const body = encodeURIComponent(`Name: ${fields.name}\nWork email: ${fields.email}\nOrganisation: ${fields.organisation}\nRole: ${fields.role}\nUse case: ${fields.useCase}\nExpected quantity: ${fields.quantity}\nTimeline: ${fields.timeline}\nNotes: ${fields.notes}`)
+    return `mailto:${pilotEmail}?subject=${subject}&body=${body}`
+  }
+  const submit = async (event: FormEvent) => {
+    event.preventDefault()
+    if (fields.website) return
+    const next = validate(); setErrors(next)
+    if (Object.keys(next).length) { requestAnimationFrame(() => summaryRef.current?.focus()); return }
+    const endpoint = import.meta.env.VITE_DISPLAY_PILOT_ENDPOINT as string | undefined
+    if (!endpoint) { setState('fallback'); return }
+    setState('sending')
+    try {
+      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...fields, website: undefined }) })
+      if (!response.ok) throw new Error('Submission failed')
+      setState('success'); setFields(emptyFields)
+    } catch { setState('fallback') }
+  }
+  if (state === 'success') return <div className="ad-formstate" role="status" tabIndex={-1}><p className="ad-kicker">APPLICATION RECEIVED</p><h3>Thank you. We will review the fit and reply by email.</h3></div>
+  return <form className="ad-pilotform" onSubmit={submit} noValidate>
+    {Object.keys(errors).length > 0 && <div className="ad-errors" ref={summaryRef} role="alert" tabIndex={-1}><b>Please check the highlighted fields.</b><p>{Object.values(errors)[0]}</p></div>}
+    {state === 'fallback' && <div className="ad-errors" role="status"><b>The online form is not connected.</b><p>Your details have not been sent. <a href={mailto()}>Open a pre-filled email instead</a>.</p></div>}
+    <div className="ad-honeypot" aria-hidden="true"><label>Website<input tabIndex={-1} autoComplete="off" value={fields.website} onChange={e => set('website', e.target.value)} /></label></div>
+    <Field label="Name" id="pilot-name" error={errors.name}><input id="pilot-name" autoComplete="name" value={fields.name} onChange={e => set('name', e.target.value)} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'pilot-name-error' : undefined} /></Field>
+    <Field label="Work email" id="pilot-email" error={errors.email}><input id="pilot-email" type="email" autoComplete="email" value={fields.email} onChange={e => set('email', e.target.value)} aria-invalid={!!errors.email} aria-describedby={errors.email ? 'pilot-email-error' : undefined} /></Field>
+    <Field label="Organisation" id="pilot-organisation" error={errors.organisation}><input id="pilot-organisation" autoComplete="organization" value={fields.organisation} onChange={e => set('organisation', e.target.value)} aria-invalid={!!errors.organisation} aria-describedby={errors.organisation ? 'pilot-organisation-error' : undefined} /></Field>
+    <Field label="Role" id="pilot-role" error={errors.role}><input id="pilot-role" autoComplete="organization-title" value={fields.role} onChange={e => set('role', e.target.value)} aria-invalid={!!errors.role} aria-describedby={errors.role ? 'pilot-role-error' : undefined} /></Field>
+    <Field label="Use case" id="pilot-use" error={errors.useCase} wide><textarea id="pilot-use" rows={3} placeholder="What should remain visible, and where?" value={fields.useCase} onChange={e => set('useCase', e.target.value)} aria-invalid={!!errors.useCase} aria-describedby={errors.useCase ? 'pilot-use-error' : undefined} /></Field>
+    <Field label="Expected quantity" id="pilot-quantity" error={errors.quantity}><select id="pilot-quantity" value={fields.quantity} onChange={e => set('quantity', e.target.value)} aria-invalid={!!errors.quantity} aria-describedby={errors.quantity ? 'pilot-quantity-error' : undefined}><option value="">Select a range</option><option>1–5</option><option>6–20</option><option>21–50</option><option>More than 50</option><option>Not sure yet</option></select></Field>
+    <Field label="Target timeline" id="pilot-timeline" error={errors.timeline}><select id="pilot-timeline" value={fields.timeline} onChange={e => set('timeline', e.target.value)} aria-invalid={!!errors.timeline} aria-describedby={errors.timeline ? 'pilot-timeline-error' : undefined}><option value="">Select timing</option><option>Within 3 months</option><option>3–6 months</option><option>6–12 months</option><option>Exploring only</option></select></Field>
+    <Field label="Notes (optional)" id="pilot-notes" wide><textarea id="pilot-notes" rows={3} value={fields.notes} onChange={e => set('notes', e.target.value)} /></Field>
+    <div className="ad-formfooter"><p>By applying, you agree that Albedo Industries may use these details to respond to your enquiry. Read our <Link to="/privacy">privacy notice</Link>.</p><button disabled={state === 'sending'}>{state === 'sending' ? 'Sending…' : 'Apply for a pilot'}</button></div>
+  </form>
+}
+
+function Field({ label, id, error, wide, children }: { label: string, id: string, error?: string, wide?: boolean, children: React.ReactNode }) {
+  return <div className={`ad-field${wide ? ' ad-field--wide' : ''}`}><label htmlFor={id}>{label}</label>{children}{error && <span id={`${id}-error`} className="ad-field__error">{error}</span>}</div>
+}
+
+function Section({ id, kicker, title, children, dark = false }: { id: string, kicker: string, title: string, children: React.ReactNode, dark?: boolean }) {
+  return <section id={id} className={`ad-section ${dark ? 'ad-dark' : ''}`}><div className="ad-wrap"><p className="ad-kicker">{kicker}</p><h2>{title}</h2>{children}</div></section>
+}
+
+export default function AlbedoDisplay() {
+  useDisplayMetadata()
+  return <article className="ad-page ad-landing">
+    <nav className="ad-productnav" aria-label="Albedo Display"><Link className="ad-productnav__brand" to="/display">ALBEDO DISPLAY</Link><div><a href="#works">How it works</a><a href="#evidence">Evidence</a><a href="#pilot">Pilot</a><a href="#faq">FAQ</a></div><span><Link to="/display/invest">Investor brief</Link><Link to="/">Albedo Industries</Link></span></nav>
+    <header className="ad-hero"><div className="ad-wrap ad-hero__grid"><div><span className="ad-status">Concept · component validation</span><p className="ad-kicker">PHONE-POWERED · PERSISTENT · FOCUSED</p><h1>A simple display for information that should stay visible.</h1><p className="ad-lede">Albedo Display is a proposed small screen for workplace instructions and status. Your phone creates the update, Bluetooth sends it, and the display keeps it in view.</p><div className="ad-actions"><a href="#pilot">Apply for a pilot</a><a className="secondary" href="#works">See how it works</a></div><p className="ad-hero__secondary">Exploring the project? <Link to="/display/invest">Read the investor brief</Link>.</p></div><div className="ad-screen-demo" aria-label="Example display states"><div className="ad-screen"><small>ROOM 2 · READY</small><strong>Guest arrival</strong><p>Welcome pack on desk</p><span>14:30</span></div><div className="ad-screen-tabs"><span>Room status</span><span>Next task</span><span>Operational alert</span></div><p>Illustrative interface states — not a working prototype.</p></div></div></header>
+    <Section id="evidence" kicker="01 / CURRENT STATUS" title="The concept is ready for its first physical test."><div className="ad-proofgrid"><div><span className="ad-status">DOCUMENTED · 04 SEP 2026</span><h3>Architecture and payload plan</h3><p>A phone-to-Bluetooth-to-display architecture, component shortlist and prototype plan are documented. They have not yet been demonstrated on a physical device.</p><b>Next: assemble and measure the first component build.</b></div><div><span className="ad-status">SELECTED FOR TESTING · 04 SEP 2026</span><h3>Prototype components</h3><p>A 4.3-inch screen and ESP32-S3-class controller are candidates for testing, not production selections.</p><b>Next: record refresh, transfer and power results.</b></div><div><span className="ad-status">NOT YET EVIDENCED</span><h3>Demand and manufacturing</h3><p>There are no validated pilots, supplier quotes or production claims. A design partner will help define the first useful workflow.</p><b>Next: agree one measurable pilot brief.</b></div></div><details className="ad-limitations"><summary>What remains uncertain</summary><p>User value, onboarding, screen choice, power, enclosure, unit economics and manufacturability remain open. Detailed assumptions, cost ranges and stop conditions live in the <Link to="/display/invest">investor brief</Link>.</p></details></Section>
+    <Section id="works" kicker="02 / HOW IT WORKS" title="One update. Three simple steps." dark><div className="ad-steps">{[['01','Choose','A person or approved phone service prepares a short, useful update.'],['02','Send','The phone formats it and transfers it locally over Bluetooth.'],['03','Keep visible','The dedicated screen holds the current instruction or status at the point of work.']].map(step => <div key={step[0]}><span>{step[0]}</span><h3>{step[1]}</h3><p>{step[2]}</p></div>)}</div><p className="ad-widecopy">The proposed V0 has no camera, microphone or local AI. The phone supplies interaction and connectivity; the endpoint is intended only to render constrained information.</p></Section>
+    <Section id="use-case" kicker="03 / FIRST WORKFLOW" title="Start with operational handovers."><div className="ad-usecase"><div><p className="ad-intro">The first test focuses on a shared workplace where one changing instruction needs to remain visible without a TV, tablet or printed replacement.</p><h3>What a pilot should learn</h3><ul><li>Do people notice and act on the displayed state?</li><li>Can an operator update it without training or friction?</li><li>Does the screen replace an existing workaround?</li></ul></div><div className="ad-statecards">{[['NEXT TASK','Prepare Room 2','Due 14:00'],['ROOM STATUS','Ready for guest','Checked 13:42'],['ACTION NEEDED','Restock towels','Owner · Housekeeping']].map(item => <div key={item[0]}><small>{item[0]}</small><strong>{item[1]}</strong><span>{item[2]}</span></div>)}</div></div></Section>
+    <Section id="pilot" kicker="04 / DESIGN-PARTNER PILOT" title="Bring one workflow worth keeping in view."><div className="ad-pilotoffer"><div><p className="ad-intro">We are looking for operations or hospitality teams willing to define a narrow test before hardware decisions are fixed.</p><dl><div><dt>Good fit</dt><dd>One repeated status, task or instruction in a shared physical location.</dd></div><div><dt>You receive</dt><dd>A jointly scoped validation plan and updates on prototype progress.</dd></div><div><dt>We measure</dt><dd>Setup friction, update reliability, repeated use and whether the display replaces a workaround.</dd></div><div><dt>Timing</dt><dd>Set with the design partner after component validation; no deployment date is promised.</dd></div></dl></div><PilotForm /></div></Section>
+    <Section id="faq" kicker="05 / ROADMAP + FAQ" title="Validate usefulness before scale." dark><div className="ad-roadmap"><div><span>NOW</span><b>Component build</b><p>Assemble, connect and measure.</p></div><div><span>NEXT</span><b>Workflow prototype</b><p>Test setup and useful updates with target users.</p></div><div><span>THEN</span><b>Design-partner pilot</b><p>Proceed only if the evidence supports it.</p></div></div><div className="ad-faq">{[['Does it work without a phone?','The current concept depends on a nearby phone for creating and sending updates. Offline behaviour has not yet been selected.'],['How is it powered?','The V0 architecture proposes USB-C power. Battery operation is outside the current test scope.'],['Does it listen or record?','The proposed display has no camera or microphone. Any phone-side AI or data handling would require a defined product and privacy review.'],['Can I buy one?','Not yet. This is a pre-prototype project seeking design partners, not a product offer.']].map(item => <details key={item[0]}><summary>{item[0]}</summary><p>{item[1]}</p></details>)}</div></Section>
+    <Section id="final" kicker="06 / NEXT STEP" title="Help define the first useful screen."><div className="ad-final"><a href="#pilot">Apply for a pilot</a><p>Investor or manufacturing partner? <Link to="/display/invest">Review the investor brief</Link> or <a href={`mailto:${pilotEmail}?subject=Albedo%20Display%20partner%20enquiry`}>contact the project</a>.</p></div><DisplayAssetFigure asset={displayAssets.v0Concept} showNotes /></Section>
+  </article>
 }

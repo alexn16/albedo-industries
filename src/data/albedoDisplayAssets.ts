@@ -15,8 +15,8 @@ export const displayAssets = {
     date: '2026-09-04',
     status: 'concept',
     caption: 'V0 concept design — current hardware hypothesis',
-    src: '/media/screen/ChatGPT Image 4 sept 2026, 15_15_48.png',
-    technicalNotes: 'Illustrative only. Screen technology, dimensions, enclosure, electronics and BOM remain subject to validation.',
+    src: '/media/albedo-display/v0-concept.svg',
+    technicalNotes: 'Illustrative only. Screen technology, dimensions, enclosure and electronics remain subject to validation.',
   },
   earlierTechnicalStudy: {
     title: 'Earlier V0 technical study',
