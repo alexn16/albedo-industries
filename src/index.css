@@ -222,7 +222,7 @@ body {
 .ad-landing .ad-hero__copy h1{font-size:clamp(3rem,5.3vw,5rem)}
 .ad-hero__product{min-width:0;padding:18px;background:#e5e4dc;border:1px solid #c4c3bb;box-shadow:18px 20px 0 #d9ff43}
 .ad-hero__asset>a{background:#e9e9e4}
-.ad-hero__asset img{width:100%;height:auto;aspect-ratio:1200/820;object-fit:contain}
+.ad-hero__asset img{width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
 .ad-hero__asset figcaption{color:#4e4f49}
 .ad-concept-label{margin:14px 0 0;font-size:12px;font-weight:700;color:#555}
 .ad-hero__product .ad-screen-tabs{margin-top:18px}
@@ -241,6 +241,8 @@ body {
  .ad-productnav__routes{border-top:1px solid #555;margin-top:8px;padding-top:8px}
  .ad-productnav>div a{min-height:48px;width:100%}
 }
+
+.not-found{max-width:760px;min-height:70vh;margin:auto;padding:clamp(70px,12vw,150px) 24px}.not-found>p:first-child{font-size:12px;font-weight:800;letter-spacing:.18em}.not-found h1{font-size:clamp(3rem,8vw,6rem);line-height:1;margin:20px 0}.not-found p{color:#60615c;font-size:18px}.not-found a{display:inline-flex;min-height:44px;align-items:center;margin-top:24px;color:inherit;font-weight:700}
 
 @media(max-width:800px){
  .ad-landing .ad-hero{min-height:0;padding:30px 0 52px;align-items:initial}

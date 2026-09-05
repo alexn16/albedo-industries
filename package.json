@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "audit:links": "node scripts/audit-links.mjs",
+    "audit:display": "node scripts/audit-display-assets.mjs",
     "performance:budget": "node scripts/check-performance-budget.mjs"
   },
   "dependencies": {

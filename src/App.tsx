@@ -4,6 +4,7 @@ import Layout from './components/Layout'
 import RouteLoading from './components/RouteLoading'
 import RouteErrorBoundary from './components/RouteErrorBoundary'
 import Home from './pages/Home'
+import NotFound from './pages/NotFound'
 import { routeModules } from './routes/routeModules'
 const pages = Object.fromEntries(Object.entries(routeModules).map(([key, loader]) => [key, lazy(loader)])) as Record<keyof typeof routeModules, React.LazyExoticComponent<React.ComponentType>>
 export default function App() { const P = pages; return <RouteErrorBoundary><Suspense fallback={<RouteLoading />}><Routes><Route path="/" element={<Layout />}>
@@ -17,4 +18,5 @@ export default function App() { const P = pages; return <RouteErrorBoundary><Sus
   <Route path="infrastructure/spain/as-pontes/research" element={<P.asPontesResearch />} /><Route path="infrastructure/spain/el-bierzo" element={<P.elBierzo />} /><Route path="infrastructure/uruguay/canelones" element={<P.canelones />} />
   <Route path="infrastructure/portugal/sines" element={<P.sines />} /><Route path="infrastructure/spain/as-pontes" element={<P.asPontes />} /><Route path="infrastructure/finland/kouvola-kotka" element={<P.kouvolaKotka />} />
   <Route path="infrastructure/:country" element={<P.country />} /><Route path="infrastructure/:country/:slug" element={<P.candidate />} /><Route path="infrastructure/:country/:slug/funding" element={<P.partners />} />
+  <Route path="*" element={<NotFound />} />
 </Route></Routes></Suspense></RouteErrorBoundary> }
