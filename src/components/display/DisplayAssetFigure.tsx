@@ -10,7 +10,7 @@ type DisplayAssetFigureProps = {
 export default function DisplayAssetFigure({ asset, className = '', showNotes = false, priority = false }: DisplayAssetFigureProps) {
   return (
     <figure className={`ad-asset ${className}`.trim()}>
-      <a href={asset.src} target="_blank" rel="noreferrer" aria-label={`Open full-size ${asset.title}`}>
+      <a href={asset.src} target="_blank" rel="noreferrer" aria-label={`View full-size ${asset.title}`}>
         <img
           src={asset.src}
           alt={asset.alt}
@@ -21,7 +21,7 @@ export default function DisplayAssetFigure({ asset, className = '', showNotes = 
           decoding="async"
           sizes={asset.sizes}
         />
-        <span className="ad-asset__zoom" aria-hidden="true">Open full image ↗</span>
+        <span className="ad-asset__zoom" aria-hidden="true">View full-size concept ↗</span>
       </a>
       <figcaption>
         <span className="ad-status">{asset.status}</span>
