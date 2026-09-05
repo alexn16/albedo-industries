@@ -14,8 +14,8 @@ export default function DisplayAssetFigure({ asset, className = '', showNotes = 
         <img
           src={asset.src}
           alt={asset.alt}
-          width={1200}
-          height={820}
+          width={asset.width ?? 1200}
+          height={asset.height ?? 820}
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
