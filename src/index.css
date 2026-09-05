@@ -257,3 +257,57 @@ body {
  .ad-hero__asset figcaption{align-items:flex-start}
  .ad-hardware{grid-template-columns:1fr;padding:20px;gap:20px}
 }
+
+/* Display final polish: semantic surfaces, durable controls and a quieter figure system. */
+.ad-page{
+ --surface-light:#f3f2ed;--surface-dark:#171815;
+ --text-primary-light:#171815;--text-secondary-light:#555650;
+ --text-primary-dark:#f5f5f0;--text-secondary-dark:#b8b9b3;
+ --accent:#d9ff43;--border-light:#aaa9a2;--border-dark:#555650;
+ --ink:var(--text-primary-light);--paper:var(--surface-light);--acid:var(--accent)
+}
+.ad-landing .ad-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:12px 18px;border:1px solid transparent;color:var(--text-primary-dark);background:var(--surface-dark);font-size:13px;font-weight:700;line-height:1.2;text-decoration:none;cursor:pointer}
+.ad-landing .ad-button:link,.ad-landing .ad-button:visited{color:var(--text-primary-dark);background:var(--surface-dark)}
+.ad-landing .ad-button:hover{color:var(--surface-dark);background:var(--accent);text-decoration:none}
+.ad-landing .ad-button:active{color:var(--text-primary-dark);background:#343630}
+.ad-landing .ad-button:disabled{color:#f5f5f0;background:#62645e;cursor:not-allowed;opacity:1}
+.ad-landing .ad-button--secondary,.ad-landing .ad-button--secondary:link,.ad-landing .ad-button--secondary:visited{color:var(--text-primary-light);background:transparent;border-color:var(--border-light)}
+.ad-landing .ad-button--secondary:hover{color:var(--text-primary-dark);background:var(--surface-dark);border-color:var(--surface-dark)}
+.ad-landing .ad-button--secondary:active{color:var(--text-primary-dark);background:#343630}
+.ad-status{font-size:12px;line-height:1.25;letter-spacing:.08em}
+.ad-kicker{font-size:12px;letter-spacing:.12em}
+.ad-landing .ad-hero__grid{grid-template-columns:minmax(0,52fr) minmax(0,48fr);gap:48px}
+.ad-landing .ad-hero__copy h1{max-width:720px;font-size:clamp(3rem,4.7vw,4.55rem);line-height:1.02}
+.ad-landing .ad-section{padding:92px 0}
+.ad-landing .ad-section h2{font-size:clamp(2.25rem,4vw,3.5rem);line-height:1.04;margin-bottom:42px}
+.ad-dark{background:var(--surface-dark);color:var(--text-primary-dark);border-color:var(--border-dark)}
+.ad-dark .ad-kicker,.ad-dark .ad-widecopy,.ad-steps p,.ad-roadmap p,.ad-faq p{color:var(--text-secondary-dark)}
+.ad-hero__secondary,.ad-proofgrid p,.ad-usecase li,.ad-pilotoffer dd,.ad-final p,.ad-hardware>div>p:last-child{color:var(--text-secondary-light)}
+.ad-proofgrid>div{display:flex;flex-direction:column;padding:26px}
+.ad-proofgrid>div>b{margin-top:auto;padding-top:22px}
+.ad-steps>div{position:relative;padding:28px}
+.ad-steps h3{margin:34px 0 12px}
+.ad-hero__product{padding:12px;border-color:var(--border-light);box-shadow:7px 8px 0 var(--accent)}
+.ad-hardware{border-color:var(--border-light);padding:24px;box-shadow:5px 6px 0 var(--accent)}
+.ad-asset>a{border-color:var(--border-light)}
+.ad-asset__zoom{opacity:1;min-height:44px;display:flex;align-items:center;padding:10px 13px;background:rgba(23,24,21,.94);color:var(--text-primary-dark);font-size:12px}
+.ad-asset figcaption{align-items:flex-start;display:grid;grid-template-columns:auto 1fr;font-size:14px;line-height:1.45;color:var(--text-secondary-light)}
+.ad-asset figcaption>span:last-child{display:grid;gap:2px}
+.ad-asset figcaption small{color:var(--text-secondary-light);font-size:12px}
+.ad-screen-tabs span{font-size:12px}
+.ad-module-title{font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin:0 0 16px;color:var(--text-secondary-dark)}
+.ad-module-title:nth-of-type(2){margin-top:42px}
+.ad-faq{margin-top:0;border-bottom:1px solid var(--border-dark)}
+.ad-limitations summary::after,.ad-faq summary::after{content:'+';margin-left:auto;padding-left:16px;font-size:20px;color:var(--accent)}
+.ad-limitations[open] summary::after,.ad-faq details[open] summary::after{content:'−'}
+@media(max-width:800px){
+ .ad-landing .ad-section{padding:62px 0}
+ .ad-landing .ad-section h2{font-size:clamp(2.25rem,10vw,3.25rem);margin-bottom:32px}
+ .ad-landing .ad-hero__copy h1{font-size:clamp(2.45rem,11vw,3.45rem)}
+ .ad-status,.ad-kicker,.ad-screen-tabs span{font-size:12px}
+ .ad-actions{display:grid;grid-template-columns:1fr}
+ .ad-landing .ad-button{width:100%}
+ .ad-hero__product{box-shadow:5px 6px 0 var(--accent)}
+ .ad-hardware{box-shadow:4px 5px 0 var(--accent)}
+ .ad-asset figcaption{grid-template-columns:1fr}
+}
