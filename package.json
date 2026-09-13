@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/prerender.mjs",
+    "build": "tsc -b && vite build && node --import ./scripts/register-typescript-loader.mjs scripts/prerender.mjs",
     "typecheck": "tsc -b --pretty false",
     "qa": "npm run typecheck && npm run lint && npm run audit:links && npm run audit:media && npm run audit:atlas-public && npm run audit:atlas-maps && npm run audit:orbital-research && npm run audit:orbital-experiment && npm run audit:display && npm run build && npm run performance:budget && npm run audit:seo-runtime",
     "lint": "eslint .",
