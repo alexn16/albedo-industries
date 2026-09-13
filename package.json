@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/prerender.mjs",
     "typecheck": "tsc -b --pretty false",
-    "qa": "npm run typecheck && npm run lint && npm run audit:links && npm run audit:media && npm run audit:atlas-public && npm run audit:orbital-research && npm run audit:orbital-experiment && npm run audit:display && npm run build && npm run performance:budget && npm run audit:seo-runtime",
+    "qa": "npm run typecheck && npm run lint && npm run audit:links && npm run audit:media && npm run audit:atlas-public && npm run audit:atlas-maps && npm run audit:orbital-research && npm run audit:orbital-experiment && npm run audit:display && npm run build && npm run performance:budget && npm run audit:seo-runtime",
     "lint": "eslint .",
     "preview": "vite preview",
     "audit:links": "node scripts/audit-links.mjs",
@@ -17,7 +17,8 @@
     "audit:orbital-research": "node --import ./scripts/register-typescript-loader.mjs scripts/audit-orbital-research.mjs",
     "audit:orbital-experiment": "node --import ./scripts/register-typescript-loader.mjs scripts/audit-orbital-experiment.mjs",
     "audit:media": "node scripts/audit-media.mjs",
-    "audit:seo-runtime": "node scripts/runtime-smoke.mjs"
+    "audit:seo-runtime": "node scripts/runtime-smoke.mjs",
+    "audit:atlas-maps": "node scripts/audit-atlas-maps.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",
