@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { projects } from '../data/projects'
 import MarketBrief from '../components/MarketBrief'
@@ -26,6 +27,16 @@ function RevealSection({
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
   const project = projects.find((p) => p.slug === slug)
+
+  useEffect(()=>{
+    if(!project || project.dedicatedPage)return
+    const title=`${project.name} — ${project.status} Project | ALBEDO Track Record`
+    const description=`${project.name} is a ${project.status.toLowerCase()} ${project.category} project: ${project.tagline} Review what was designed or built and the capability it demonstrates.`
+    const canonical=`https://www.albedo-industries.com/projects/${project.slug}`
+    document.title=title
+    const values:[string,string][]=[['meta[name="description"]',description],['link[rel="canonical"]',canonical],['meta[property="og:title"]',title],['meta[property="og:description"]',description],['meta[property="og:url"]',canonical],['meta[name="twitter:title"]',title],['meta[name="twitter:description"]',description]]
+    values.forEach(([selector,value])=>document.querySelector(selector)?.setAttribute(selector.startsWith('link')?'href':'content',value))
+  },[project])
 
   if (!project) {
     return <Navigate to="/projects" replace />
@@ -82,6 +93,7 @@ export default function ProjectDetail() {
           <p className="text-lg text-zinc-500 animate-fade-in animation-delay-300">
             {project.positioning}
           </p>
+          <p className="mt-6 border-l-2 border-amber-400 pl-4 text-sm leading-relaxed text-zinc-600">Track-record entry · Stage: {project.status}. This page documents a system, experiment or product direction; it does not claim customers, revenue, adoption or production deployment.</p>
 
           {/* Disclaimer for Alphaclaim */}
           {project.disclaimer && (
@@ -219,7 +231,7 @@ export default function ProjectDetail() {
           <div className="grid md:grid-cols-3 gap-12">
             <div>
               <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-                Our Solution
+                What was built or designed
               </h2>
             </div>
             <div className="md:col-span-2">

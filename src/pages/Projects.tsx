@@ -145,10 +145,10 @@ export default function Projects() {
       <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
         <div ref={heroRef} className="reveal max-w-3xl">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6 animate-fade-in text-gradient">
-            Products organized by division
+            Built & researched
           </h1>
           <p className="text-xl text-zinc-600 leading-relaxed animate-fade-in animation-delay-100">
-            Systems inside each infrastructure line: FastSoftware for company operations, Mobility Infrastructure for parking and EV environments, Albedo Nodes for local AI compute, plus selected consumer experiments.
+            Selected systems, experiments and products that built ALBEDO’s operating capabilities. These records are secondary to Project Atlas and retain explicit stage labels; inclusion does not imply customers, revenue, adoption or production deployment.
           </p>
         </div>
       </section>

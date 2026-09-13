@@ -24,7 +24,7 @@ export function useAtlasMetadata({name,country,description,route,title}:{name:st
     const structured=document.createElement('script')
     structured.type='application/ld+json'
     structured.dataset.atlasMetadata='true'
-    structured.text=JSON.stringify({'@context':'https://schema.org','@type':'WebPage',name:pageTitle,description,url:canonical,isPartOf:{'@type':'WebSite',name:'ALBEDO Industries',url:'https://www.albedo-industries.com/'},about:{'@type':'Project',name:'Project Atlas',description:'AI and data-centre infrastructure research, origination and validation initiative of ALBEDO Industries.'}})
+    structured.text=JSON.stringify({'@context':'https://schema.org','@type':'TechArticle',name:pageTitle,description,url:canonical,isPartOf:{'@type':'WebSite',name:'ALBEDO Industries',url:'https://www.albedo-industries.com/'},about:{'@type':'Project',name:'Project Atlas',description:'AI and data-centre infrastructure research, origination and validation initiative of ALBEDO Industries.'}})
     document.head.appendChild(structured)
     return()=>{structured.remove();document.title=oldTitle;values.forEach(([selector],i)=>{if(old[i])document.querySelector(selector)?.setAttribute(selector.startsWith('link')?'href':'content',old[i]!)})}
   },[name,country,description,route,title])
