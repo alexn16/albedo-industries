@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && node scripts/prerender.mjs",
+    "typecheck": "tsc -b --pretty false",
+    "qa": "npm run typecheck && npm run lint && npm run audit:links && npm run audit:media && npm run audit:atlas-public && npm run audit:orbital-research && npm run audit:orbital-experiment && npm run audit:display && npm run build && npm run performance:budget && npm run audit:seo-runtime",
     "lint": "eslint .",
     "preview": "vite preview",
     "audit:links": "node scripts/audit-links.mjs",
@@ -14,7 +16,8 @@
     "audit:atlas-public": "node scripts/audit-atlas-public.mjs",
     "audit:orbital-research": "node scripts/audit-orbital-research.mjs",
     "audit:orbital-experiment": "node scripts/audit-orbital-experiment.mjs",
-    "audit:media": "node scripts/audit-media.mjs"
+    "audit:media": "node scripts/audit-media.mjs",
+    "audit:seo-runtime": "node scripts/runtime-smoke.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

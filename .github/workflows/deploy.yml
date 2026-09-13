@@ -28,8 +28,28 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build
+      - name: TypeScript validation
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Internal links
+        run: npm run audit:links
+      - name: Media
+        run: npm run audit:media
+      - name: Atlas public evidence
+        run: npm run audit:atlas-public
+      - name: Orbital research
+        run: npm run audit:orbital-research
+      - name: Orbital experiment
+        run: npm run audit:orbital-experiment
+      - name: Display assets
+        run: npm run audit:display
+      - name: Build and prerender
         run: npm run build
+      - name: Performance budget
+        run: npm run performance:budget
+      - name: Runtime SEO smoke test
+        run: npm run audit:seo-runtime
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
