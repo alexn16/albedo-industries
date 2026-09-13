@@ -24,7 +24,7 @@ export default function ComputeInfrastructure() {
     const oldCanonical = canonical?.href
     document.title = 'Albedo Compute Infrastructure — Modular AI Data Center Project'
     document.querySelector('meta[name="description"]')?.setAttribute('content', 'Albedo Industries is evaluating a modular, energy-first AI compute facility in northern Spain, developed through verified demand and phased deployment.')
-    canonical?.setAttribute('href', 'https://www.albedo-industries.com/#/compute-infrastructure')
+    canonical?.setAttribute('href', 'https://www.albedo-industries.com/compute-infrastructure')
     const ogTitle = document.querySelector('meta[property="og:title"]')
     const ogDescription = document.querySelector('meta[property="og:description"]')
     const oldOgTitle = ogTitle?.getAttribute('content'); const oldOgDescription = ogDescription?.getAttribute('content')

@@ -1,4 +1,9 @@
+# Public pages are available to search engines and AI search retrieval.
 User-agent: *
+Allow: /
+
+# OAI-SearchBot powers OpenAI search discovery; it receives the same public content as users.
+User-agent: OAI-SearchBot
 Allow: /
 
 Sitemap: https://www.albedo-industries.com/sitemap.xml

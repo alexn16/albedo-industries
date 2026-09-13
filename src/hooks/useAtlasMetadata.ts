@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 export function useAtlasMetadata({name,country,description,route,title}:{name:string;country:string;description:string;route:string;title?:string}){
   useEffect(()=>{
     const pageTitle=title??`Project Atlas — ${name}, ${country} | Albedo Industries`
-    const canonical=`https://www.albedo-industries.com/#${route}`
+    const canonical=`https://www.albedo-industries.com${route}`
     const image='https://www.albedo-industries.com/atlas-social.svg'
     const values:[string,string][]=[
       ['meta[name="description"]',description],

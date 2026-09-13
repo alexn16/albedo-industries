@@ -54,7 +54,7 @@ export const projects: Project[] = [
     positioning: 'FastSoftware Sprints build operational systems for companies: lightweight ERPs, purchasing agents, stock dashboards, email and order automation, invoice review and reporting agents.',
     category: 'B2B',
     division: 'FastSoftware',
-    status: 'Live',
+    status: 'Building',
     dedicatedPage: '/fastsoftware',
     capabilities: ['FastSoftware Sprints', 'Lightweight ERP tools', 'Purchasing agents', 'Stock and operations dashboards', 'Invoice and document review', 'Reporting agents'],
     keyFeatures: ['Internal tools delivered in weeks, not months', 'Purchasing agents for supplier follow-up and order preparation', 'Stock and operations dashboards for daily decisions', 'Email, order, invoice and document review automation', 'Reporting agents that prepare summaries with human review'],
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     positioning: 'ALB Parking manages parking rental, reservations, controlled entry, camera verification and owner or community dashboards for private spaces, companies and small parking operators.',
     category: 'B2B',
     division: 'Mobility Infrastructure',
-    status: 'Live',
+    status: 'Building',
     capabilities: [
       'Parking space rental',
       'Reservations and access control',
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     businessModel: 'Commission on each booking transaction, shared between ALB and spot owners. Premium features for spot owners include analytics and dynamic pricing. Enterprise partnerships for building operators with multiple locations.',
     distribution: 'Supply-side partnerships with property managers and building operators. Demand-side growth through commuter communities and navigation app integrations. City-level expansion with local operator relationships.',
     roadmap: {
-      now: 'Core booking and access control live in initial markets. Expanding building partnerships. Onboarding spot owners.',
+      now: 'Core booking and access-control workflows are in development; no live deployment is claimed.',
       next: 'Charging Wall integration at select locations. Navigation app deep links. Monthly parking subscriptions.',
       later: 'Predictive demand optimization. Multi-city expansion. Fleet management features.',
     },
@@ -188,9 +188,9 @@ export const projects: Project[] = [
       'Project managers needing real-time visibility without chasing updates',
     ],
     businessModel: 'Per-seat SaaS subscription with modular pricing. Start with Core, add modules as needs grow. Starter tier for small teams (up to 5 users). Team tier for growing companies (6-25 users). Enterprise tier with custom integration and support.',
-    distribution: 'Direct outreach to construction companies through industry networks. Partnerships with material suppliers and equipment rental companies. Trade show presence. Referral program with existing pilot customers.',
+    distribution: 'Direct outreach and workflow discovery with construction operators and relevant industry networks.',
     roadmap: {
-      now: 'Foreman Core and PDA in pilot with 15 construction teams. Core job management, material tracking, and warehouse operations.',
+      now: 'Foreman Core and PDA are in active development around job management, material tracking and warehouse operations; no deployment count is claimed.',
       next: 'Email integration and CNC optimization modules. Expanded supplier management. Mobile improvements based on pilot feedback.',
       later: 'Full AI integration across modules. Subcontractor portal. Integration with accounting systems. Multi-company collaboration features.',
     },
@@ -226,7 +226,7 @@ export const projects: Project[] = [
     businessModel: 'Per-seat subscription. Core is the foundation module. Can be used standalone or combined with other Foreman modules.',
     distribution: 'Direct sales to construction companies. Often the entry point before adopting additional modules.',
     roadmap: {
-      now: 'In pilot with 15 construction teams. Core project and budget tracking operational.',
+      now: 'Core project and budget workflows are in active development; no external deployment count is claimed.',
       next: 'Enhanced reporting, supplier performance metrics.',
       later: 'Integration with accounting systems, multi-company views.',
     },
@@ -260,7 +260,7 @@ export const projects: Project[] = [
       'Onboarding new team members with full project context',
     ],
     businessModel: 'Add-on module to Foreman Core. Per-seat pricing.',
-    distribution: 'Offered to existing Foreman customers. Can also be adopted as a standalone email organization tool.',
+    distribution: 'Planned as a Foreman module; standalone workflow validation may also be considered.',
     roadmap: {
       now: 'Development in progress. Email linking architecture complete.',
       next: 'Integration with major email providers. Automatic thread classification.',
@@ -298,7 +298,7 @@ export const projects: Project[] = [
     businessModel: 'Module pricing based on production volume. Can be used standalone or integrated with Foreman Core.',
     distribution: 'Direct sales to fabrication shops. Partnerships with CNC machine vendors.',
     roadmap: {
-      now: 'Core optimization algorithms developed. Pilot integrations in progress.',
+      now: 'Core optimization algorithms are in development; integration behavior remains to be validated.',
       next: 'Support for complex shapes and grain direction constraints.',
       later: 'Machine-specific export formats, automated job scheduling.',
     },
@@ -334,7 +334,7 @@ export const projects: Project[] = [
     businessModel: 'Per-device subscription. Often bundled with Foreman Core for operations teams.',
     distribution: 'Offered alongside Foreman Core deployments. Can be adopted separately for warehouse-only use.',
     roadmap: {
-      now: 'In pilot with warehouse operations. Core scanning and inventory features operational.',
+      now: 'Core scanning and inventory workflows are in active development.',
       next: 'Improved offline sync, voice input for hands-free operation.',
       later: 'Integration with third-party warehouse management systems.',
     },
@@ -415,7 +415,7 @@ export const projects: Project[] = [
     businessModel: 'SaaS subscription with tiered pricing based on features and locations. Base tier covers menu and queue. Growth tier adds reservations and events. Add-ons include premium templates and supplier marketplace access.',
     distribution: 'Local partnerships with restaurant associations and food service distributors. Pilot programs in select neighborhoods. Content marketing focused on restaurant operations. Referral incentives for existing customers.',
     roadmap: {
-      now: 'Core menu display, queue management, and basic reservations in pilot with 8 restaurants.',
+      now: 'Core menu display, queue management and reservation workflows are in development; no restaurant pilot count is claimed.',
       next: 'Event booking, venue rentals, and supplier directory MVP.',
       later: 'Multi-location management, inventory integration, and supplier ordering automation.',
     },
@@ -483,7 +483,7 @@ export const projects: Project[] = [
     businessModel: 'Subscription tiers. Free tier receives daily email summaries. Paid tier adds real-time alerts, expanded watchlists, and historical brief archives. No ads, no sponsored content.',
     distribution: 'Newsletter-style loop: valuable free content builds audience, premium features convert engaged readers. Community building in investor forums. API integrations with trading platforms as a later phase.',
     roadmap: {
-      now: 'Core brief generation and delivery system. Web dashboard for watchlists. Email delivery in pilot.',
+      now: 'Core brief generation and watchlist dashboard are in development.',
       next: 'Mobile app with push notifications. Expanded market coverage. Alert customization.',
       later: 'API access for developers. Portfolio integration. International market coverage.',
     },
@@ -525,7 +525,7 @@ export const projects: Project[] = [
     businessModel: 'SaaS subscription based on purchasing volume and number of users. Base tier for small brands. Enterprise tier with advanced analytics, custom integrations, and dedicated support. Implementation services for complex supply chain migrations.',
     distribution: 'Direct sales to mid-size apparel brands. Partnerships with sourcing consultants and trade organizations. Industry event presence. Content marketing focused on supply chain transparency.',
     roadmap: {
-      now: 'Core component modeling and supplier comparison. Contract template library. Initial pilot with apparel brands.',
+      now: 'Core component modelling, supplier comparison and contract-template workflows are in development.',
       next: 'Order tracking and delivery management. Integration with common ERP systems. Expanded supplier database.',
       later: 'Predictive lead time analysis. Sustainability and compliance tracking. Multi-brand supplier network effects.',
     },

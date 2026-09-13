@@ -6,10 +6,9 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const isDisplay = location.pathname === '/display' || location.pathname === '/display/invest'
-  const isHome = location.pathname === '/'
+  const hasVideoHero = location.pathname === '/' || location.pathname === '/atlas' || location.pathname.startsWith('/infrastructure')
   const locale=useAtlasShellLanguage()
-  const t={en:['About','Projects','Project Atlas','Updates','Support','Contact','Toggle menu'],es:['Empresa','Proyectos','Project Atlas','Novedades','Ayuda','Contacto','Abrir o cerrar el menú'],pt:['Empresa','Projetos','Project Atlas','Atualizações','Apoio','Contacto','Abrir ou fechar o menu'],fi:['Yritys','Hankkeet','Project Atlas','Päivitykset','Tuki','Yhteystiedot','Avaa tai sulje valikko']}[locale]
+  const t={en:['About','Investor / Partners','Toggle menu'],es:['Empresa','Inversores / Socios','Abrir o cerrar el menú'],pt:['Empresa','Investidores / Parceiros','Abrir ou fechar o menu'],fi:['Yritys','Sijoittajat / Kumppanit','Avaa tai sulje valikko']}[locale]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -28,14 +27,13 @@ export default function Header() {
   }, [mobileMenuOpen])
 
   // On the home page with video hero, use white text when not scrolled
-  const heroOverlay = isHome && !scrolled
+  const heroOverlay = hasVideoHero && !scrolled
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     heroOverlay
       ? `transition-colors ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}`
       : `transition-colors ${isActive ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`
 
-  if (isDisplay) return null
 
   return (
     <header
@@ -51,42 +49,20 @@ export default function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex items-center gap-8 text-sm">
-          <NavLink to="/about" className={linkClass}>
-            {t[0]}
-          </NavLink>
-          <NavLink to="/fastsoftware" className={linkClass}>
-            FastSoftware
-          </NavLink>
-          <NavLink to="/projects" className={linkClass}>
-            {t[1]}
-          </NavLink>
-          <NavLink to="/atlas" className={linkClass}>
-            {t[2]}
-          </NavLink>
-          <NavLink to="/updates" className={linkClass}>
-            {t[3]}
-          </NavLink>
-          <NavLink to="/support" className={linkClass}>
-            {t[4]}
-          </NavLink>
-          <a
-            href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks."
-            className={`ml-4 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              heroOverlay
-                ? 'bg-white text-zinc-900 hover:bg-zinc-100'
-                : 'bg-zinc-900 text-white hover:bg-zinc-800'
-            }`}
-          >
-            {t[5]}
-          </a>
+        <div className="hidden md:flex items-center gap-7 text-sm">
+          <NavLink to="/atlas" className={linkClass}>Project Atlas</NavLink>
+          <NavLink to="/orbital" className={linkClass}>Orbital</NavLink>
+          <NavLink to="/display" className={linkClass}>Albedo Display</NavLink>
+          <NavLink to="/fastsoftware" className={linkClass}>FastSoftware</NavLink>
+          <NavLink to="/about" className={linkClass}>{t[0]}</NavLink>
+          <NavLink to="/atlas/partners" className={`ml-3 px-4 py-2 font-semibold ${heroOverlay?'bg-white text-zinc-950':'bg-zinc-950 text-white'}`}>{t[1]}</NavLink>
         </div>
 
         {/* Mobile menu button */}
         <button
           className={`md:hidden p-2 -mr-2 ${heroOverlay ? 'text-white' : ''}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={t[6]}
+          aria-label={t[2]}
           aria-expanded={mobileMenuOpen}
           aria-controls="site-mobile-menu"
         >
@@ -117,55 +93,9 @@ export default function Header() {
 
       {/* Mobile navigation — animated slide-down */}
       {mobileMenuOpen && (
-        <div id="site-mobile-menu" className="md:hidden border-t border-zinc-100 px-6 py-4 space-y-4 bg-white/95 backdrop-blur-lg mobile-menu-enter">
-          <NavLink
-            to="/about"
-            className="block transition-colors text-zinc-500 hover:text-zinc-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {t[0]}
-          </NavLink>
-          <NavLink
-            to="/fastsoftware"
-            className="block transition-colors text-zinc-500 hover:text-zinc-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            FastSoftware
-          </NavLink>
-          <NavLink
-            to="/projects"
-            className="block transition-colors text-zinc-500 hover:text-zinc-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {t[1]}
-          </NavLink>
-          <NavLink
-            to="/atlas"
-            className="block transition-colors text-zinc-500 hover:text-zinc-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {t[2]}
-          </NavLink>
-          <NavLink
-            to="/updates"
-            className="block transition-colors text-zinc-500 hover:text-zinc-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {t[3]}
-          </NavLink>
-          <NavLink
-            to="/support"
-            className="block transition-colors text-zinc-500 hover:text-zinc-900"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            {t[4]}
-          </NavLink>
-          <a
-            href="mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks."
-            className="block w-full text-center px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-medium hover:bg-zinc-800 transition-colors"
-          >
-            {t[5]}
-          </a>
+        <div id="site-mobile-menu" className="md:hidden border-t border-zinc-100 bg-white/95 px-6 py-5 backdrop-blur-lg mobile-menu-enter">
+          <div className="space-y-1">{[['Project Atlas','/atlas'],['Orbital','/orbital'],['Albedo Display','/display'],['FastSoftware','/fastsoftware'],[t[0],'/about']].map(([label,to])=><NavLink key={to} to={to} className="block min-h-11 py-3 text-zinc-700" onClick={()=>setMobileMenuOpen(false)}>{label}</NavLink>)}</div>
+          <NavLink to="/atlas/partners" className="mt-4 flex min-h-12 items-center justify-center bg-zinc-950 px-4 text-sm font-semibold text-white" onClick={()=>setMobileMenuOpen(false)}>{t[1]}</NavLink>
         </div>
       )}
     </header>
