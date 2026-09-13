@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { atlasResearchRecords } from '../data/atlasResearchIndex'
 import { useAtlasMetadata } from '../hooks/useAtlasMetadata'
+import { atlasCandidateRegistry } from '../data/atlasCandidates'
+import { AtlasFootprintMap, type AtlasMapStatus } from '../components/atlas/AtlasLocationMap'
 
 export default function AtlasResearch() {
   const closed=atlasResearchRecords.filter(record=>/closed/i.test(record.status))
@@ -19,6 +21,7 @@ export default function AtlasResearch() {
       <p className="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-300">Atlas studies power systems, grid infrastructure, land, fibre, cooling, permitting and execution constraints before an opportunity enters active development.</p>
       <p className="mt-6 max-w-3xl border-l border-amber-300 pl-4 text-sm leading-relaxed text-zinc-400">Positive, paused and closed studies remain available. A published study is evidence of research—not site control, allocated power or a development commitment.</p>
     </div></section>
+    <section className="border-t border-zinc-200 bg-zinc-50"><div className="mx-auto max-w-6xl px-6 py-16 md:py-24"><p className="eyebrow">Research geography</p><h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">The wider Atlas research universe</h2><p className="mt-5 max-w-3xl text-zinc-600">Status styling separates active development work from screening and archived studies. Every marker is geographic context only.</p><div className="mt-9"><AtlasFootprintMap locations={atlasCandidateRegistry} statusFor={location=>(/closed/i.test(location.researchStatus)?'closed':/active validation|continue validation/i.test(location.researchStatus)?'active':'research') as AtlasMapStatus}/></div></div></section>
     <section className="border-t border-zinc-200"><div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className="flex flex-col gap-3 border-b border-zinc-200 pb-8 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Published evidence</p><h2 className="text-3xl font-semibold tracking-tight md:text-5xl">Status-separated research</h2></div><p className="max-w-md text-sm leading-relaxed text-zinc-500">Each candidate page retains its evidence, risks, open questions, Gate decision, sources and available dossier.</p></div>
       <ResearchGroup title="Active Development Opportunities" note="Selected records with active validation or a stated continue decision. Evidence gaps remain explicit." records={active}/><ResearchGroup title="Research Universe" note="Locations under preliminary study. Publication is not selection." records={universe}/><ResearchGroup title="Archived / Closed Research" note="Paused or rejected origination retained as evidence of stop/go discipline." records={closed}/>
