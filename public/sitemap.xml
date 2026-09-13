@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.albedo-industries.com/</loc></url>
-  <!-- HashRouter routes cannot be represented as distinct sitemap URLs; migrate to
-       server-rewritten history routing before adding the compute route here. -->
+  <url><loc>https://www.albedo-industries.com/atlas</loc></url>
+  <url><loc>https://www.albedo-industries.com/atlas/partners</loc></url>
+  <url><loc>https://www.albedo-industries.com/atlas/research</loc></url>
+  <url><loc>https://www.albedo-industries.com/orbital</loc></url>
+  <url><loc>https://www.albedo-industries.com/orbital/research</loc></url>
+  <url><loc>https://www.albedo-industries.com/orbital/experiment-01</loc></url>
+  <url><loc>https://www.albedo-industries.com/display</loc></url>
+  <url><loc>https://www.albedo-industries.com/display/invest</loc></url>
+  <url><loc>https://www.albedo-industries.com/fastsoftware</loc></url>
+  <url><loc>https://www.albedo-industries.com/fastsoftware/purchasing-agent</loc></url>
+  <url><loc>https://www.albedo-industries.com/foreman</loc></url>
+  <url><loc>https://www.albedo-industries.com/about</loc></url>
+  <url><loc>https://www.albedo-industries.com/infrastructure/spain/el-bierzo</loc></url>
+  <url><loc>https://www.albedo-industries.com/infrastructure/uruguay/canelones</loc></url>
+  <url><loc>https://www.albedo-industries.com/infrastructure/portugal/sines</loc></url>
+  <url><loc>https://www.albedo-industries.com/infrastructure/spain/as-pontes</loc></url>
+  <url><loc>https://www.albedo-industries.com/infrastructure/spain/as-pontes/research</loc></url>
+  <url><loc>https://www.albedo-industries.com/infrastructure/finland/kouvola-kotka</loc></url>
 </urlset>

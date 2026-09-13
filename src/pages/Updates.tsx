@@ -14,9 +14,9 @@ interface Update {
 const updates: Update[] = [
   {
     date: '2026-01-15',
-    title: 'Foreman enters pilot program',
+    title: 'Foreman development update',
     category: 'Product',
-    description: 'Foreman, our construction job management tool, is now in active pilot with 15 construction teams. Early feedback is helping us refine the offline-first experience and photo documentation features.',
+    description: 'Foreman, the construction job-management project, is in active development. Current work focuses on the offline-first experience and photo-documentation workflows.',
     link: {
       text: 'Learn about Foreman',
       to: '/projects/foreman'

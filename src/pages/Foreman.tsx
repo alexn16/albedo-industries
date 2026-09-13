@@ -525,8 +525,8 @@ export default function Foreman() {
                 <div className="border-l-2 border-green-400 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Now</h3>
                   <p className="text-zinc-600">
-                    Foreman Core and PDA in pilot with 15 construction teams. Core job management,
-                    material tracking, and warehouse operations. Gathering feedback on workflows
+                    Foreman Core and PDA are in active development around job management,
+                    material tracking, and warehouse operations; no deployment count is claimed. Gathering feedback on workflows
                     and priorities.
                   </p>
                 </div>

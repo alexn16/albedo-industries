@@ -34,9 +34,9 @@ export default function Projects() {
   const getStageDescription = (status: string) => {
     switch (status) {
       case 'Live':
-        return 'In market, serving users'
+        return 'Existing product record'
       case 'Building':
-        return 'Active development, early pilots'
+        return 'Active development; deployment not implied'
       case 'Concept':
         return 'Research and validation'
       default:
@@ -291,8 +291,7 @@ export default function Projects() {
             <div className="border-l-2 border-green-400 pl-4">
               <h3 className="font-medium text-zinc-900 mb-2">Live</h3>
               <p className="text-sm text-zinc-600">
-                Product is in market, serving real users. Revenue-generating or on clear path
-                to sustainability. Active maintenance and feature development.
+                Existing product record. Commercial adoption, revenue and production deployment are not implied by this label.
               </p>
             </div>
             <div className="border-l-2 border-blue-400 pl-4">

@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 import { ScrollToSection } from './SectionLink'
+import Seo from './Seo'
 
 export default function Layout() {
   const location = useLocation()
@@ -13,6 +14,7 @@ export default function Layout() {
   }
   return (
     <div className="min-h-screen flex flex-col">
+      <Seo />
       <a className="skip-link" href={`#${location.pathname}${location.search}`} onClick={skip}>Skip to main content</a>
       <ScrollToSection />
       <Header />
