@@ -8,7 +8,7 @@ export default function Header() {
   const location = useLocation()
   const hasVideoHero = location.pathname === '/' || location.pathname === '/atlas' || location.pathname.startsWith('/infrastructure')
   const locale=useAtlasShellLanguage()
-  const t={en:['About','Investor / Partners','Toggle menu'],es:['Empresa','Inversores / Socios','Abrir o cerrar el menú'],pt:['Empresa','Investidores / Parceiros','Abrir ou fechar o menu'],fi:['Yritys','Sijoittajat / Kumppanit','Avaa tai sulje valikko']}[locale]
+  const t={en:['About','Partners','Toggle menu'],es:['Empresa','Socios','Abrir o cerrar el menú'],pt:['Empresa','Parceiros','Abrir ou fechar o menu'],fi:['Yritys','Kumppanit','Avaa tai sulje valikko']}[locale]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -50,10 +50,10 @@ export default function Header() {
 
         {/* Desktop navigation */}
         <div className="hidden md:flex items-center gap-7 text-sm">
-          <NavLink to="/atlas" className={linkClass}>Project Atlas</NavLink>
+          <NavLink to="/atlas" className={linkClass}>Atlas</NavLink>
           <NavLink to="/orbital" className={linkClass}>Orbital</NavLink>
-          <NavLink to="/display" className={linkClass}>Albedo Display</NavLink>
-          <NavLink to="/fastsoftware" className={linkClass}>FastSoftware</NavLink>
+          <NavLink to="/display" className={linkClass}>Display</NavLink>
+          <NavLink to="/fastsoftware" className={linkClass}>Software</NavLink>
           <NavLink to="/about" className={linkClass}>{t[0]}</NavLink>
           <NavLink to="/atlas/partners" className={`ml-3 px-4 py-2 font-semibold ${heroOverlay?'bg-white text-zinc-950':'bg-zinc-950 text-white'}`}>{t[1]}</NavLink>
         </div>
@@ -94,7 +94,7 @@ export default function Header() {
       {/* Mobile navigation — animated slide-down */}
       {mobileMenuOpen && (
         <div id="site-mobile-menu" className="md:hidden border-t border-zinc-100 bg-white/95 px-6 py-5 backdrop-blur-lg mobile-menu-enter">
-          <div className="space-y-1">{[['Project Atlas','/atlas'],['Orbital','/orbital'],['Albedo Display','/display'],['FastSoftware','/fastsoftware'],[t[0],'/about']].map(([label,to])=><NavLink key={to} to={to} className="block min-h-11 py-3 text-zinc-700" onClick={()=>setMobileMenuOpen(false)}>{label}</NavLink>)}</div>
+          <div className="space-y-1">{[['Atlas','/atlas'],['Orbital','/orbital'],['Display','/display'],['Software','/fastsoftware'],[t[0],'/about']].map(([label,to])=><NavLink key={to} to={to} className="block min-h-11 py-3 text-zinc-700" onClick={()=>setMobileMenuOpen(false)}>{label}</NavLink>)}</div>
           <NavLink to="/atlas/partners" className="mt-4 flex min-h-12 items-center justify-center bg-zinc-950 px-4 text-sm font-semibold text-white" onClick={()=>setMobileMenuOpen(false)}>{t[1]}</NavLink>
         </div>
       )}

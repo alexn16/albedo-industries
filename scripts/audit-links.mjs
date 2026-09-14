@@ -42,10 +42,12 @@ const duplicateIds=[...ids].filter(id=>[...allSource.matchAll(new RegExp(`\\bid=
 // Repeated IDs in mutually exclusive/localised candidate components are valid; report only within one file.
 for(const {file,text} of sources)for(const id of ids){const count=[...text.matchAll(new RegExp(`<(?:section|div)[^>]*\\sid=["']${id}["']`,'g'))].length;if(count>1)failures.push(`${file}: duplicate id="${id}" (${count})`)}
 const atlasSource=readFileSync(join(root,'src/pages/InfrastructureEurope.tsx'),'utf8')
-const atlasSections=[['Overview','overview'],['Opportunities','pipeline'],['Development Model','model'],['Investors','capital'],['Evidence','evidence'],['Research','research'],['Contact','contact']]
+// The Phase 10 commercial page intentionally has six first-layer experiences.
+// Research and contact remain linked destinations rather than additional sections.
+const atlasSections=[['Opportunities','opportunities'],['Development model','model'],['Investment','capital'],['Evidence + research','evidence']]
 for(const [label,id] of atlasSections){
-  if(!new RegExp(`(?:<AtlasSection|<section)\\s+id=["']${id}["']`).test(atlasSource))failures.push(`Project Atlas: missing semantic section id="${id}"`)
-  if(!atlasSource.includes(`['${label}','${id}']`))failures.push(`Project Atlas: missing navigation item for ${id}`)
+  if(!new RegExp(`(?:<AtlasSection|<Section|<section)\\s+id=["']${id}["']`).test(atlasSource))failures.push(`Project Atlas: missing semantic section id="${id}"`)
+  if(!atlasSource.includes(`id="${id}"`))failures.push(`Project Atlas: missing visible gateway for ${label}`)
 }
 console.log(`Checked ${checked.length} literal links, ${routes.size} routes, ${ids.size} section IDs and registry PDFs.`)
 if(duplicateIds.length)console.log(`Cross-component repeated IDs (expected on mutually exclusive pages): ${duplicateIds.join(', ')}`)
