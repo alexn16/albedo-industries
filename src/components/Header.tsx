@@ -6,7 +6,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const hasVideoHero = location.pathname === '/' || location.pathname === '/atlas' || location.pathname.startsWith('/infrastructure')
+  const hasVideoHero = location.pathname === '/' || location.pathname.startsWith('/atlas') || location.pathname.startsWith('/infrastructure')
   const locale=useAtlasShellLanguage()
   const t={en:['About','Partners','Toggle menu'],es:['Empresa','Socios','Abrir o cerrar el menú'],pt:['Empresa','Parceiros','Abrir ou fechar o menu'],fi:['Yritys','Kumppanit','Avaa tai sulje valikko']}[locale]
 
@@ -49,8 +49,9 @@ export default function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex items-center gap-7 text-sm">
+        <div className="hidden lg:flex items-center gap-5 text-sm">
           <NavLink to="/atlas" className={linkClass}>Atlas</NavLink>
+          <NavLink to="/atlas/foundation" className={linkClass}>Atlas Foundation</NavLink>
           <NavLink to="/orbital" className={linkClass}>Orbital</NavLink>
           <NavLink to="/display" className={linkClass}>Display</NavLink>
           <NavLink to="/fastsoftware" className={linkClass}>Software</NavLink>
@@ -60,7 +61,7 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <button
-          className={`md:hidden p-2 -mr-2 ${heroOverlay ? 'text-white' : ''}`}
+          className={`lg:hidden p-2 -mr-2 ${heroOverlay ? 'text-white' : ''}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={t[2]}
           aria-expanded={mobileMenuOpen}
@@ -93,8 +94,8 @@ export default function Header() {
 
       {/* Mobile navigation — animated slide-down */}
       {mobileMenuOpen && (
-        <div id="site-mobile-menu" className="md:hidden border-t border-zinc-100 bg-white/95 px-6 py-5 backdrop-blur-lg mobile-menu-enter">
-          <div className="space-y-1">{[['Atlas','/atlas'],['Orbital','/orbital'],['Display','/display'],['Software','/fastsoftware'],[t[0],'/about']].map(([label,to])=><NavLink key={to} to={to} className="block min-h-11 py-3 text-zinc-700" onClick={()=>setMobileMenuOpen(false)}>{label}</NavLink>)}</div>
+        <div id="site-mobile-menu" className="lg:hidden border-t border-zinc-100 bg-white/95 px-6 py-5 backdrop-blur-lg mobile-menu-enter">
+          <div className="space-y-1">{[['Atlas','/atlas'],['Atlas Foundation','/atlas/foundation'],['Orbital','/orbital'],['Display','/display'],['Software','/fastsoftware'],[t[0],'/about']].map(([label,to])=><NavLink key={to} to={to} className="block min-h-11 py-3 text-zinc-700" onClick={()=>setMobileMenuOpen(false)}>{label}</NavLink>)}</div>
           <NavLink to="/atlas/partners" className="mt-4 flex min-h-12 items-center justify-center bg-zinc-950 px-4 text-sm font-semibold text-white" onClick={()=>setMobileMenuOpen(false)}>{t[1]}</NavLink>
         </div>
       )}

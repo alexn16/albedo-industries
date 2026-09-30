@@ -8,6 +8,9 @@ const image=(name:string)=>`${SITE_URL}/${socialImages[name]}`
 const pages: Record<string, SeoPage> = {
   '/': { title: 'ALBEDO Industries — Data Center & AI Infrastructure Development', description: 'ALBEDO Industries advances early-stage data-center infrastructure through Project Atlas, supported by physical-interface research and operational software.', image:image('albedo-industries') },
   '/atlas': { title: 'Project Atlas — Data Center Development & AI Infrastructure', description: 'Project Atlas originates, validates, structures and advances selected data center sites through evidence-led development gates.', image:image('project-atlas') },
+  '/atlas/foundation': { title: 'Atlas Foundation — Regional Development Through Infrastructure', description: 'Atlas Foundation works alongside Atlas infrastructure projects to build local skills, employment pathways, supplier capacity and long-term regional opportunity.', image:image('project-atlas') },
+  '/atlas/foundation/programme': { title: 'Regional Development Programme | Atlas Foundation', description: 'A proposed Atlas Foundation framework for regional skills, local employment, supplier development and wider economic activity before, during and after an Atlas infrastructure project.', image:image('project-atlas') },
+  '/atlas/foundation/locations': { title: 'Regional Development Plans | Atlas Foundation', description: 'The reusable Atlas Foundation framework for sourced, location-specific workforce, training, procurement and regional economic-development plans.', image:image('project-atlas') },
   '/atlas/partners': { title: 'Data Center Development Capital & Co-Development | Atlas', description: 'Review defined Project Atlas development gates for capital providers, co-developers, operators, site owners and infrastructure partners.', image:image('project-atlas') },
   '/atlas/research': { title: 'Data Center Site Research Library | Project Atlas', description: 'Source-backed Project Atlas research on power, land, fibre, cooling, planning and permitting, including active, under-study and closed records.', image:image('project-atlas') },
   '/orbital': { title: 'Albedo Orbital — Orbital Data Center & Space Compute Research', description: 'Albedo Orbital is pre-development research into autonomous compute, power, thermal, communications and other constraints beyond terrestrial grids.', image:image('albedo-orbital') },
@@ -26,9 +29,10 @@ const pages: Record<string, SeoPage> = {
   '/updates': { title: 'Company Updates | ALBEDO Industries', description: 'Updates from ALBEDO Industries across Project Atlas, research, physical interfaces and operational software.' },
   '/support': { title: 'Contact & Project Enquiries | ALBEDO Industries', description: 'Contact ALBEDO Industries about Project Atlas, infrastructure partnerships, Albedo Display or operational software.' },
 }
-const aliases=new Set(['/infrastructure','/infrastructure/europe','/infrastructure/atlas','/infrastructure/atlas/partners','/infrastructure/funding','/infrastructure/atlas/research'])
+const aliases=new Set(['/infrastructure','/infrastructure/europe','/infrastructure/atlas','/infrastructure/atlas/foundation','/infrastructure/atlas/partners','/infrastructure/funding','/infrastructure/atlas/research'])
 export function seoForPath(pathname: string): SeoPage {
   if (pages[pathname]) return pages[pathname]
+  if (pathname.startsWith('/atlas/foundation/locations/')) return { title: 'Location Development Plan | Atlas Foundation', description: 'A location-specific Atlas Foundation planning framework. Plans are published only with verified regional and project information.', image:image('project-atlas'), noindex:true }
   if(aliases.has(pathname)) return {...pages['/atlas'],noindex:true}
   if (pathname.startsWith('/projects/')) return { title: 'ALBEDO Project Record | Built & Researched', description: 'A development-stage record from the ALBEDO Industries software lab and earlier project archive.' }
   if (pathname.startsWith('/infrastructure/')) return { title: 'Data Center Infrastructure Research | Project Atlas', description: 'Evidence-labelled Project Atlas research; no site, power, permits, financing or customer commitment is implied.', type:'article' }
