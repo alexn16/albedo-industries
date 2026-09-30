@@ -2,7 +2,7 @@ export const routeModules = {
   about: () => import('../pages/About'), projects: () => import('../pages/Projects'), project: () => import('../pages/ProjectDetail'),
   foreman: () => import('../pages/Foreman'), fastSoftware: () => import('../pages/FastSoftware'), purchasingAgent: () => import('../pages/PurchasingAgentDemo'),
   updates: () => import('../pages/Updates'), support: () => import('../pages/Support'), privacy: () => import('../pages/Privacy'), terms: () => import('../pages/Terms'), security: () => import('../pages/Security'),
-  compute: () => import('../pages/ComputeInfrastructure'), atlas: () => import('../pages/InfrastructureEurope'), country: () => import('../pages/InfrastructureCountry'), candidate: () => import('../pages/InfrastructureCandidate'),
+  compute: () => import('../pages/ComputeInfrastructure'), foundation: () => import('../pages/AtlasFoundation'), regionalProgramme: () => import('../pages/AtlasRegionalProgramme'), foundationLocation: () => import('../pages/AtlasFoundationLocation'), atlas: () => import('../pages/InfrastructureEurope'), country: () => import('../pages/InfrastructureCountry'), candidate: () => import('../pages/InfrastructureCandidate'),
   partners: () => import('../pages/InfrastructureFunding'), research: () => import('../pages/AtlasResearch'), asPontesResearch: () => import('../pages/AsPontesResearch'),
   elBierzo: () => import('../pages/atlas/ElBierzoCandidatePage'), canelones: () => import('../pages/atlas/CanelonesCandidatePage'), sines: () => import('../pages/atlas/SinesCandidatePage'),
   asPontes: () => import('../pages/atlas/AsPontesCandidatePage'), kouvolaKotka: () => import('../pages/atlas/KouvolaKotkaCandidatePage'),
