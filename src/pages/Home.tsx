@@ -12,12 +12,12 @@ export default function Home() {
       <HeroVideo src="/media/ALBEDO - INDUSTRIES/weryai_5bb6aefbba19268f1e7c90c34015e82f.mp4" className="object-[60%_50%] sm:object-center" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
       <div className="company-container relative w-full py-24 md:py-32">
-        <p className="company-eyebrow text-amber-200">Independent thinking. Physical progress.</p>
-        <h1 className="company-hero-title max-w-4xl">Building the infrastructure of tomorrow.</h1>
-        <p className="mt-7 max-w-2xl text-lg leading-relaxed text-zinc-200">Albedo Industries develops infrastructure opportunities and explores emerging technologies across data centers, autonomous construction, physical AI interfaces and advanced computing.</p>
+        <p className="company-eyebrow text-amber-200">Infrastructure development · Industrial collaboration</p>
+        <h1 className="company-hero-title max-w-4xl">Building tomorrow’s infrastructure.</h1>
+        <p className="mt-7 max-w-2xl text-lg leading-relaxed text-zinc-200">We identify and evaluate data center development opportunities through Project Atlas, bringing together industrial partners, technical expertise and potential development capital. Our emerging divisions explore how infrastructure could be built and operated.</p>
         <div className="company-actions mt-9">
-          <Link to="/#divisions" className="company-button company-button--light">Explore our projects <ArrowUpRight /></Link>
-          <Link to="/support#partnerships" className="company-button company-button--outline-light">Partner with us</Link>
+          <Link to="/atlas" className="company-button company-button--light">Explore Project Atlas <ArrowUpRight /></Link>
+          <Link to="/#divisions" className="company-button company-button--outline-light">Meet the five divisions</Link>
           <Link to="/support" className="company-text-link text-white">Contact Albedo <span aria-hidden="true">→</span></Link>
         </div>
         <div className="mt-14 border-t border-white/25 pt-5 md:mt-20"><p className="text-sm text-zinc-300"><span className="mr-3 inline-block h-1.5 w-1.5 rounded-full bg-amber-300" />Project Atlas leads our commercial development. Our emerging initiatives advance through research and validation.</p><p className="mt-3 text-xs text-zinc-300">Illustrative infrastructure imagery.</p></div>
@@ -27,13 +27,13 @@ export default function Home() {
     <section className="division-section bg-[#f3f2ed]">
       <div className="company-container grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
         <div><p className="company-eyebrow">Our focus today</p><h2 className="company-heading">Infrastructure starts with a credible opportunity.</h2></div>
-        <div className="lg:pt-8"><p className="text-lg leading-relaxed text-zinc-600">Our principal initiative, Project Atlas, identifies and evaluates potential data center locations. We seek development capital and experienced partners to move suitable opportunities through defined technical and commercial gates.</p><p className="mt-5 leading-relaxed text-zinc-600">Alongside this work, we are exploring how automation, physical interfaces and resilient computing could improve the way infrastructure is built and operated.</p><Link to="/about" className="company-text-link mt-6">About Albedo Industries <span aria-hidden="true">→</span></Link></div>
+        <div className="lg:pt-8"><p className="text-lg leading-relaxed text-zinc-600">Our principal initiative, Project Atlas, identifies and evaluates potential data center locations. We welcome conversations with operators, landowners, investors and development partners to assess a specific site, requirement or next validation gate.</p><p className="mt-5 leading-relaxed text-zinc-600">Alongside this work, we are exploring how automation, physical interfaces and resilient computing could improve the way infrastructure is built and operated.</p><Link to="/about" className="company-text-link mt-6">About Albedo Industries <span aria-hidden="true">→</span></Link></div>
       </div>
     </section>
 
     <section id="divisions" className="division-section">
       <div className="company-container">
-        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="company-eyebrow">Five divisions. One direction.</p><h2 className="company-heading">From opportunity<br />to possibility.</h2></div><p className="max-w-sm text-sm leading-relaxed text-zinc-600">Each initiative has a distinct purpose and development stage. Research and concepts are presented separately from demonstrated capabilities.</p></div>
+        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><p className="company-eyebrow">Five divisions. One direction.</p><h2 className="company-heading">Five initiatives.<br />Clear development stages.</h2></div><p className="max-w-sm text-sm leading-relaxed text-zinc-600">Each initiative has a distinct purpose and development stage. Research and concepts are presented separately from demonstrated capabilities.</p></div>
         <div className="division-grid mt-12">
           {divisions.map((division, index) => <article key={division.id} className={`division-card division-card--${division.id}`}>
             <div className="division-card__visual" aria-hidden="true">

@@ -30,7 +30,7 @@ export default function Foreman() {
         <div className="mb-6 animate-fade-in">
           <Link
             to="/projects"
-            className="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
+            className="inline-flex items-center text-sm text-muted hover:text-zinc-900 transition-colors"
           >
             <svg
               className="w-4 h-4 mr-1"
@@ -53,15 +53,15 @@ export default function Foreman() {
             <span className="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-50 text-blue-700">
               Building
             </span>
-            <span className="text-sm text-zinc-400">B2B</span>
+            <span className="text-sm text-muted">B2B</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-4 animate-fade-in">
             Foreman
           </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed mb-2 animate-fade-in animation-delay-100">
+          <p className="text-xl text-muted leading-relaxed mb-2 animate-fade-in animation-delay-100">
             A construction operating system, not a traditional ERP.
           </p>
-          <p className="text-lg text-zinc-500 animate-fade-in animation-delay-200">
+          <p className="text-lg text-muted animate-fade-in animation-delay-200">
             Built for how construction actually works: projects evolve daily, priorities shift,
             materials move, and teams need clarity in real time.
           </p>
@@ -71,10 +71,10 @@ export default function Foreman() {
       {/* ─── See It In Action ─── */}
       <section className="border-t border-zinc-100 bg-zinc-950">
         <div className="max-w-5xl mx-auto px-6 py-20 md:py-28">
-          <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-4">
+          <h2 className="text-sm font-medium text-muted uppercase tracking-wider mb-4">
             See It In Action
           </h2>
-          <p className="text-zinc-400 mb-10 max-w-2xl">
+          <p className="text-muted mb-10 max-w-2xl">
             Watch how Foreman handles core construction workflows — from purchase orders through invoice processing.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
@@ -97,11 +97,11 @@ export default function Foreman() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 The Problem with ERPs
               </h2>
             </div>
-            <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
+            <div className="md:col-span-2 space-y-6 text-muted leading-relaxed">
               <p>
                 Traditional ERPs were designed for manufacturing and retail. Those are environments where
                 processes repeat predictably and inventory sits in warehouses. Construction
@@ -128,11 +128,11 @@ export default function Foreman() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Projects as Living Systems
               </h2>
             </div>
-            <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
+            <div className="md:col-span-2 space-y-6 text-muted leading-relaxed">
               <p>
                 Foreman models construction projects as living systems, not static plans. Every
                 project has works in progress, each with its own status, materials, and dependencies.
@@ -161,7 +161,7 @@ export default function Foreman() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
               Four integrated modules
             </h2>
-            <p className="text-lg text-zinc-600 leading-relaxed">
+            <p className="text-lg text-muted leading-relaxed">
               Foreman is modular by design. Each module solves a specific problem, but they work
               together. Data flows between them without manual transfer. Decisions in one module
               inform priorities in others.
@@ -179,10 +179,10 @@ export default function Foreman() {
                 01
               </div>
               <h2 className="text-xl font-semibold mb-2">Foreman Core</h2>
-              <p className="text-sm text-zinc-500">The ERP layer</p>
+              <p className="text-sm text-muted">The ERP layer</p>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted leading-relaxed mb-8">
                 The operational backbone. Projects, suppliers, budgets, and works in progress,
                 all visible in one place. Foreman Core replaces the spreadsheets, whiteboards, and
                 disconnected tools that most construction companies rely on.
@@ -190,35 +190,35 @@ export default function Foreman() {
               <div ref={coreCardsRef} className="grid sm:grid-cols-2 gap-6">
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Projects</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Every project with its works, timelines, and status. Drill down from overview
                     to specific tasks in seconds.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Suppliers</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Your supplier relationships, pricing agreements, and delivery history.
                     Compare options when planning new work.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Budgets</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Track costs against budgets at the project and work level. See where
                     you're on track and where overruns are developing.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Works in Progress</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Every active work item with its status, assigned crew, materials needed,
                     and dependencies on other works.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg sm:col-span-2 hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Real-time Visibility</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Dashboards that show what's happening now, not what the plan said would
                     happen. Updated as crews report from the field.
                   </p>
@@ -238,15 +238,15 @@ export default function Foreman() {
                 02
               </div>
               <h2 className="text-xl font-semibold mb-2">Foreman Email</h2>
-              <p className="text-sm text-zinc-500">Communication connected to work</p>
+              <p className="text-sm text-muted">Communication connected to work</p>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted leading-relaxed mb-8">
                 Construction runs on email. Supplier quotes arrive in inboxes. Client change
                 requests come through messages. Crew updates happen over threads. The problem
                 is not email itself. It's that none of this communication connects to your projects.
               </p>
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted leading-relaxed mb-8">
                 Foreman Email bridges the gap between unstructured communication and structured
                 execution. It links email threads to specific projects and works, extracts
                 relevant information, and ensures context isn't lost when conversations happen
@@ -255,13 +255,13 @@ export default function Foreman() {
               <div ref={emailCardsRef} className="space-y-4">
                 <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Project-linked threads</h3>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-sm text-muted">
                       Emails automatically associate with relevant projects based on content,
                       contacts, and subject patterns.
                     </p>
@@ -269,13 +269,13 @@ export default function Foreman() {
                 </div>
                 <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Information extraction</h3>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-sm text-muted">
                       Supplier quotes, delivery dates, and specification changes are identified
                       and surfaced for quick action.
                     </p>
@@ -283,13 +283,13 @@ export default function Foreman() {
                 </div>
                 <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Context preservation</h3>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-sm text-muted">
                       When you open a work item, you can see all related communication.
                       No more searching through inboxes to understand what was agreed.
                     </p>
@@ -298,7 +298,7 @@ export default function Foreman() {
               </div>
 
               <div className="mt-8 p-6 bg-zinc-50 border border-dashed border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 text-center">
+                <p className="text-sm text-muted text-center">
                   Screenshots and demos coming soon.
                 </p>
               </div>
@@ -316,10 +316,10 @@ export default function Foreman() {
                 03
               </div>
               <h2 className="text-xl font-semibold mb-2">Foreman CNC</h2>
-              <p className="text-sm text-zinc-500">Cutting optimization</p>
+              <p className="text-sm text-muted">Cutting optimization</p>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted leading-relaxed mb-8">
                 Material waste is margin loss. When cutting plates, wood, aluminum, or steel,
                 how you arrange cuts determines how much material ends up in the scrap bin.
                 Foreman CNC optimizes cutting layouts to reduce waste and connects production
@@ -328,41 +328,41 @@ export default function Foreman() {
               <div ref={cncCardsRef} className="grid sm:grid-cols-2 gap-6 mb-8">
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Layout optimization</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Algorithms that arrange cuts to minimize waste across plates, sheets,
                     and stock material. Supports complex shapes and grain direction constraints.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Dynamic job reorganization</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     When project priorities change, cutting schedules adjust. Urgent items
                     move up automatically while maintaining material efficiency.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Multi-project batching</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Combine cuts from multiple projects onto the same material sheets.
                     What's waste in one project might be perfect for another.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Production integration</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Connects CNC machines to project schedules. Operators see what to
                     cut next based on real priorities, not stale work orders.
                   </p>
                 </div>
               </div>
-              <p className="text-zinc-600 leading-relaxed">
+              <p className="text-muted leading-relaxed">
                 Typical construction shops operate cutting independently from project management.
                 Foreman CNC closes that gap. When a project becomes urgent, the production
                 floor knows immediately.
               </p>
 
               <div className="mt-8 p-6 bg-zinc-50 border border-dashed border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 text-center">
+                <p className="text-sm text-muted text-center">
                   Screenshots and demos coming soon.
                 </p>
               </div>
@@ -380,10 +380,10 @@ export default function Foreman() {
                 04
               </div>
               <h2 className="text-xl font-semibold mb-2">Foreman PDA</h2>
-              <p className="text-sm text-zinc-500">Warehouse and site mobile</p>
+              <p className="text-sm text-muted">Warehouse and site mobile</p>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted leading-relaxed mb-8">
                 The office has dashboards. The warehouse needs a PDA. Foreman PDA is the mobile
                 interface for workers who handle materials, manage stock, and work on site.
                 It's designed for real conditions: gloved hands, bright sunlight, intermittent
@@ -392,13 +392,13 @@ export default function Foreman() {
               <div ref={pdaCardsRef} className="space-y-4 mb-8">
                 <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Real-time stock visibility</h3>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-sm text-muted">
                       See what's in the warehouse, what's reserved for projects, and what's
                       available. Scan barcodes to update inventory instantly.
                     </p>
@@ -406,13 +406,13 @@ export default function Foreman() {
                 </div>
                 <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Dynamic warehouse organization</h3>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-sm text-muted">
                       The system suggests where to place materials based on upcoming needs.
                       Items for imminent works surface to accessible locations.
                     </p>
@@ -420,13 +420,13 @@ export default function Foreman() {
                 </div>
                 <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Priority-based picking</h3>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-sm text-muted">
                       When workers prepare materials for site delivery, they see items
                       ordered by project urgency. Critical projects appear first.
                     </p>
@@ -434,13 +434,13 @@ export default function Foreman() {
                 </div>
                 <div className="reveal-item flex items-start gap-4 p-4 bg-zinc-50 border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <div className="w-8 h-8 bg-white border border-zinc-200 rounded flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
                     </svg>
                   </div>
                   <div>
                     <h3 className="font-medium mb-1">Offline-capable</h3>
-                    <p className="text-sm text-zinc-500">
+                    <p className="text-sm text-muted">
                       Works without connectivity. Changes sync when connection returns.
                       No lost updates when you're in a basement or on a remote site.
                     </p>
@@ -449,7 +449,7 @@ export default function Foreman() {
               </div>
 
               <div className="mt-8 p-6 bg-zinc-50 border border-dashed border-zinc-200 rounded-lg">
-                <p className="text-sm text-zinc-400 text-center">
+                <p className="text-sm text-muted text-center">
                   Screenshots and demos coming soon.
                 </p>
               </div>
@@ -463,11 +463,11 @@ export default function Foreman() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 AI Integration
               </h2>
             </div>
-            <div className="md:col-span-2 space-y-6 text-zinc-600 leading-relaxed">
+            <div className="md:col-span-2 space-y-6 text-muted leading-relaxed">
               <p className="text-lg">
                 AI runs across all Foreman modules. Not as a replacement for human judgment,
                 but as a layer of assistance that makes information clearer and decisions faster.
@@ -475,28 +475,28 @@ export default function Foreman() {
               <div ref={aiCardsRef} className="grid sm:grid-cols-2 gap-6">
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Understanding assistance</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Summarize long email threads. Explain what changed between document versions.
                     Translate technical specifications into plain language.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Priority highlighting</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Surface what needs attention now. Flag conflicts before they become problems.
                     Identify works at risk of delay based on dependencies.
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Scenario simulation</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Model "what if" questions. What happens if this delivery is delayed?
                     How does moving this crew affect other projects?
                   </p>
                 </div>
                 <div className="reveal-item p-4 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Decision support</h3>
-                  <p className="text-sm text-zinc-500">
+                  <p className="text-sm text-muted">
                     Show tradeoffs clearly. When you have three options, show the implications
                     of each. Let humans decide with better information.
                   </p>
@@ -516,7 +516,7 @@ export default function Foreman() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Current Status
               </h2>
             </div>
@@ -524,7 +524,7 @@ export default function Foreman() {
               <div className="space-y-8">
                 <div className="border-l-2 border-green-400 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Now</h3>
-                  <p className="text-zinc-600">
+                  <p className="text-muted">
                     Foreman Core and PDA are in active development around job management,
                     material tracking, and warehouse operations; no deployment count is claimed. Gathering feedback on workflows
                     and priorities.
@@ -532,14 +532,14 @@ export default function Foreman() {
                 </div>
                 <div className="border-l-2 border-blue-400 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Next</h3>
-                  <p className="text-zinc-600">
+                  <p className="text-muted">
                     Email integration and CNC optimization modules. Expanded supplier management.
                     Mobile improvements based on pilot feedback.
                   </p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Later</h3>
-                  <p className="text-zinc-600">
+                  <p className="text-muted">
                     Full AI integration across modules. Subcontractor portal. Integration with
                     accounting systems. Multi-company collaboration features.
                   </p>
@@ -555,36 +555,36 @@ export default function Foreman() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Pricing
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted leading-relaxed mb-8">
                 Foreman is priced per active user with modules that can be adopted incrementally.
                 Start with Core, add modules as your needs grow.
               </p>
               <div className="grid sm:grid-cols-3 gap-6">
                 <div className="p-6 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Starter</h3>
-                  <p className="text-sm text-zinc-500 mb-4">
+                  <p className="text-sm text-muted mb-4">
                     Solo contractors and small teams up to 5 users
                   </p>
-                  <p className="text-sm text-zinc-400">Core module included</p>
+                  <p className="text-sm text-muted">Core module included</p>
                 </div>
                 <div className="p-6 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Team</h3>
-                  <p className="text-sm text-zinc-500 mb-4">
+                  <p className="text-sm text-muted mb-4">
                     Growing companies with 6-25 users
                   </p>
-                  <p className="text-sm text-zinc-400">All modules available</p>
+                  <p className="text-sm text-muted">All modules available</p>
                 </div>
                 <div className="p-6 bg-white border border-zinc-200 rounded-lg hover:shadow-sm transition-shadow">
                   <h3 className="font-medium mb-2">Enterprise</h3>
-                  <p className="text-sm text-zinc-500 mb-4">
+                  <p className="text-sm text-muted mb-4">
                     Large operations with custom needs
                   </p>
-                  <p className="text-sm text-zinc-400">Custom integration and support</p>
+                  <p className="text-sm text-muted">Custom integration and support</p>
                 </div>
               </div>
             </div>
@@ -598,7 +598,7 @@ export default function Foreman() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 className="text-xl font-medium mb-2">See Foreman in action</h2>
-              <p className="text-zinc-600">
+              <p className="text-muted">
                 Schedule a walkthrough with a construction team that's already using it.
               </p>
             </div>

@@ -54,7 +54,7 @@ export default function ProjectDetail() {
         <div className="mb-6">
           <Link
             to="/projects"
-            className="inline-flex items-center text-sm text-zinc-400 hover:text-zinc-900 transition-colors"
+            className="inline-flex items-center text-sm text-muted hover:text-zinc-900 transition-colors"
           >
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -78,22 +78,22 @@ export default function ProjectDetail() {
                 ? 'bg-green-50 text-green-700'
                 : project.status === 'Building'
                 ? 'bg-blue-50 text-blue-700'
-                : 'bg-zinc-100 text-zinc-600'
+                : 'bg-zinc-100 text-muted'
             }`}>
               {project.status}
             </span>
-            <span className="text-sm text-zinc-400">{project.category}</span>
+            <span className="text-sm text-muted">{project.category}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-4 animate-fade-in animation-delay-100">
             {project.name}
           </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed mb-2 animate-fade-in animation-delay-200">
+          <p className="text-xl text-muted leading-relaxed mb-2 animate-fade-in animation-delay-200">
             {project.tagline}
           </p>
-          <p className="text-lg text-zinc-500 animate-fade-in animation-delay-300">
+          <p className="text-lg text-muted animate-fade-in animation-delay-300">
             {project.positioning}
           </p>
-          <p className="mt-6 border-l-2 border-amber-400 pl-4 text-sm leading-relaxed text-zinc-600">Track-record entry · Stage: {project.status}. This page documents a system, experiment or product direction; it does not claim customers, revenue, adoption or production deployment.</p>
+          <p className="mt-6 border-l-2 border-amber-400 pl-4 text-sm leading-relaxed text-muted">Track-record entry · Stage: {project.status}. This page documents a system, experiment or product direction; it does not claim customers, revenue, adoption or production deployment.</p>
 
           {/* Disclaimer for Alphaclaim */}
           {project.disclaimer && (
@@ -139,7 +139,7 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                   Today's Brief
                 </h2>
               </div>
@@ -157,7 +157,7 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                   Listen
                 </h2>
               </div>
@@ -175,7 +175,7 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                   Platform Demo
                 </h2>
               </div>
@@ -193,11 +193,11 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                   The App
                 </h2>
               </div>
-              <div className="md:col-span-2">
+              <div className="min-w-0 md:col-span-2">
                 <AlbParkingShowcase />
               </div>
             </div>
@@ -212,12 +212,12 @@ export default function ProjectDetail() {
         <div id="memo" className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 The Problem
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed">
+              <p className="text-lg text-muted leading-relaxed">
                 {project.problem}
               </p>
             </div>
@@ -230,12 +230,12 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 What was built or designed
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed">
+              <p className="text-lg text-muted leading-relaxed">
                 {project.solution}
               </p>
             </div>
@@ -249,14 +249,14 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                   Key Features
                 </h2>
               </div>
               <div className="md:col-span-2">
                 <ul className="space-y-4">
                   {project.keyFeatures.map((feature, i) => (
-                    <li key={i} className="flex items-start text-zinc-600">
+                    <li key={i} className="flex items-start text-muted">
                       <svg className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
@@ -275,12 +275,12 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 What Makes It Different
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed">
+              <p className="text-lg text-muted leading-relaxed">
                 {project.differentiator}
               </p>
             </div>
@@ -293,20 +293,20 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Who It's For
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed mb-8">
+              <p className="text-lg text-muted leading-relaxed mb-8">
                 {project.targetUsers}
               </p>
-              <h3 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">
+              <h3 className="text-sm font-medium text-muted uppercase tracking-wider mb-4">
                 Key Use Cases
               </h3>
               <ul className="space-y-3">
                 {project.useCases.map((useCase, i) => (
-                  <li key={i} className="flex items-start text-zinc-600">
+                  <li key={i} className="flex items-start text-muted">
                     <span className="text-zinc-300 mr-3">—</span>
                     <span>{useCase}</span>
                   </li>
@@ -322,12 +322,12 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Business Model
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed">
+              <p className="text-lg text-muted leading-relaxed">
                 {project.businessModel}
               </p>
             </div>
@@ -340,12 +340,12 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Distribution
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed">
+              <p className="text-lg text-muted leading-relaxed">
                 {project.distribution}
               </p>
             </div>
@@ -358,7 +358,7 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Roadmap
               </h2>
             </div>
@@ -366,15 +366,15 @@ export default function ProjectDetail() {
               <div className="space-y-8">
                 <div className="border-l-2 border-green-300 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Now</h3>
-                  <p className="text-zinc-600">{project.roadmap.now}</p>
+                  <p className="text-muted">{project.roadmap.now}</p>
                 </div>
                 <div className="border-l-2 border-blue-300 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Next</h3>
-                  <p className="text-zinc-600">{project.roadmap.next}</p>
+                  <p className="text-muted">{project.roadmap.next}</p>
                 </div>
                 <div className="border-l-2 border-zinc-200 pl-4">
                   <h3 className="font-medium text-zinc-900 mb-2">Later</h3>
-                  <p className="text-zinc-600">{project.roadmap.later}</p>
+                  <p className="text-muted">{project.roadmap.later}</p>
                 </div>
               </div>
             </div>
@@ -388,7 +388,7 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                   Hardware Innovation
                 </h2>
               </div>
@@ -396,10 +396,10 @@ export default function ProjectDetail() {
                 <h3 className="text-xl font-medium text-zinc-900 mb-4">
                   {project.chargingWall.headline}
                 </h3>
-                <p className="text-lg text-zinc-600 leading-relaxed mb-4">
+                <p className="text-lg text-muted leading-relaxed mb-4">
                   {project.chargingWall.description}
                 </p>
-                <p className="text-sm text-zinc-500 italic">
+                <p className="text-sm text-muted italic">
                   {project.chargingWall.note}
                 </p>
               </div>
@@ -413,12 +413,12 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Trust & Security
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed">
+              <p className="text-lg text-muted leading-relaxed">
                 {project.trustAndSafety}
               </p>
             </div>
@@ -432,12 +432,12 @@ export default function ProjectDetail() {
           <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
             <div className="grid md:grid-cols-3 gap-12">
               <div>
-                <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+                <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                   Ethics & Approach
                 </h2>
               </div>
               <div className="md:col-span-2">
-                <p className="text-lg text-zinc-600 leading-relaxed">
+                <p className="text-lg text-muted leading-relaxed">
                   {project.ethicsNote}
                 </p>
               </div>
@@ -451,12 +451,12 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Long-term Vision
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-lg text-zinc-600 leading-relaxed">
+              <p className="text-lg text-muted leading-relaxed">
                 {project.vision}
               </p>
             </div>
@@ -469,7 +469,7 @@ export default function ProjectDetail() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Links & Resources
               </h2>
             </div>
@@ -484,9 +484,9 @@ export default function ProjectDetail() {
                   >
                     <div>
                       <p className="font-medium text-zinc-900">Website</p>
-                      <p className="text-sm text-zinc-500">Visit product site</p>
+                      <p className="text-sm text-muted">Visit product site</p>
                     </div>
-                    <svg className="w-5 h-5 text-zinc-400 group-hover:text-zinc-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-muted group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                   </a>
@@ -497,9 +497,9 @@ export default function ProjectDetail() {
                 >
                   <div>
                     <p className="font-medium text-zinc-900">Request Demo</p>
-                    <p className="text-sm text-zinc-500">Schedule a walkthrough</p>
+                    <p className="text-sm text-muted">Schedule a walkthrough</p>
                   </div>
-                  <svg className="w-5 h-5 text-zinc-400 group-hover:text-zinc-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-muted group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </a>
@@ -509,9 +509,9 @@ export default function ProjectDetail() {
                 >
                   <div>
                     <p className="font-medium text-zinc-900">Investor Deck</p>
-                    <p className="text-sm text-zinc-500">Request detailed materials</p>
+                    <p className="text-sm text-muted">Request detailed materials</p>
                   </div>
-                  <svg className="w-5 h-5 text-zinc-400 group-hover:text-zinc-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-muted group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </a>
@@ -521,9 +521,9 @@ export default function ProjectDetail() {
                 >
                   <div>
                     <p className="font-medium text-zinc-900">Support</p>
-                    <p className="text-sm text-zinc-500">Get help with {project.name}</p>
+                    <p className="text-sm text-muted">Get help with {project.name}</p>
                   </div>
-                  <svg className="w-5 h-5 text-zinc-400 group-hover:text-zinc-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-muted group-hover:text-zinc-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </Link>
@@ -539,7 +539,7 @@ export default function ProjectDetail() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <h2 className="text-xl font-medium mb-2">Questions about {project.name}?</h2>
-              <p className="text-zinc-600">
+              <p className="text-muted">
                 We're happy to discuss this product in more detail.
               </p>
             </div>

@@ -87,7 +87,7 @@ export default function GermetShowcase() {
     <div className="space-y-16">
       {/* Featured video — large, full width */}
       <div ref={featuredRef} className="reveal">
-        <h3 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-6">
+        <h3 className="text-sm font-medium text-muted uppercase tracking-wider mb-6">
           Overview
         </h3>
         <VideoPlayer
@@ -110,7 +110,7 @@ function GroupSection({ group }: { group: VideoGroup }) {
 
   return (
     <div>
-      <h3 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-6">
+      <h3 className="text-sm font-medium text-muted uppercase tracking-wider mb-6">
         {group.label}
       </h3>
       <div

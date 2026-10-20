@@ -32,6 +32,7 @@ const pages: Record<string, SeoPage> = {
 }
 const aliases=new Set(['/infrastructure','/infrastructure/europe','/infrastructure/atlas','/infrastructure/atlas/foundation','/infrastructure/atlas/partners','/infrastructure/funding','/infrastructure/atlas/research'])
 export function seoForPath(pathname: string): SeoPage {
+  pathname = pathname.replace(/\/+$/, '') || '/'
   if (pages[pathname]) return pages[pathname]
   if (pathname.startsWith('/atlas/foundation/locations/')) return { title: 'Location Development Plan | Atlas Foundation', description: 'A location-specific Atlas Foundation planning framework. Plans are published only with verified regional and project information.', image:image('project-atlas'), noindex:true }
   if(aliases.has(pathname)) return {...pages['/atlas'],noindex:true}

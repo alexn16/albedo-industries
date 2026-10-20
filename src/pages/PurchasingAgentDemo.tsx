@@ -78,12 +78,12 @@ export default function PurchasingAgentDemo() {
             <span className="text-xs px-2.5 py-1 rounded-full font-medium bg-blue-50 text-blue-700">
               FastSoftware Demo
             </span>
-            <span className="text-sm text-zinc-400">Purchasing workflow</span>
+            <span className="text-sm text-muted">Purchasing workflow</span>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight mb-6 text-gradient">
             Purchasing Agent Demo
           </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed mb-8">
+          <p className="text-xl text-muted leading-relaxed mb-8">
             A focused FastSoftware workflow for comparing supplier offers, spotting missing data and preparing purchasing decisions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -107,12 +107,12 @@ export default function PurchasingAgentDemo() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Scenario
               </h2>
             </div>
             <div className="md:col-span-2">
-              <p className="text-xl text-zinc-600 leading-relaxed">
+              <p className="text-xl text-muted leading-relaxed">
                 A purchasing team receives supplier offers by email, PDF or Excel. Prices, delivery times, materials and conditions are spread across different documents. The agent helps organize the information into a structured decision view.
               </p>
             </div>
@@ -124,7 +124,7 @@ export default function PurchasingAgentDemo() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="flex items-end justify-between gap-6 mb-10">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider mb-4">
                 Mock Input
               </h2>
               <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
@@ -142,11 +142,11 @@ export default function PurchasingAgentDemo() {
                   </span>
                 </div>
                 <dl className="space-y-3 text-sm">
-                  <div className="flex justify-between gap-4"><dt className="text-zinc-400">Material</dt><dd className="text-zinc-700 text-right">{offer.material}</dd></div>
-                  <div className="flex justify-between gap-4"><dt className="text-zinc-400">Thickness</dt><dd className="text-zinc-700">{offer.thickness}</dd></div>
-                  <div className="flex justify-between gap-4"><dt className="text-zinc-400">Quantity</dt><dd className="text-zinc-700">{offer.quantity}</dd></div>
-                  <div className="flex justify-between gap-4"><dt className="text-zinc-400">Price</dt><dd className="text-zinc-900 font-medium">{offer.price}</dd></div>
-                  <div className="flex justify-between gap-4"><dt className="text-zinc-400">Delivery</dt><dd className="text-zinc-700">{offer.delivery}</dd></div>
+                  <div className="flex justify-between gap-4"><dt className="text-muted">Material</dt><dd className="text-zinc-700 text-right">{offer.material}</dd></div>
+                  <div className="flex justify-between gap-4"><dt className="text-muted">Thickness</dt><dd className="text-zinc-700">{offer.thickness}</dd></div>
+                  <div className="flex justify-between gap-4"><dt className="text-muted">Quantity</dt><dd className="text-zinc-700">{offer.quantity}</dd></div>
+                  <div className="flex justify-between gap-4"><dt className="text-muted">Price</dt><dd className="text-zinc-900 font-medium">{offer.price}</dd></div>
+                  <div className="flex justify-between gap-4"><dt className="text-muted">Delivery</dt><dd className="text-zinc-700">{offer.delivery}</dd></div>
                 </dl>
               </div>
             ))}
@@ -158,27 +158,27 @@ export default function PurchasingAgentDemo() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-muted uppercase tracking-wider">
                 Agent Analysis
               </h2>
             </div>
             <div className="md:col-span-2">
               <div className="grid sm:grid-cols-3 gap-4 mb-8">
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">Best price</p>
+                  <p className="text-xs text-muted uppercase tracking-wider mb-2">Best price</p>
                   <p className="text-zinc-200">Supplier B, but certificate is missing.</p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">Fastest delivery</p>
+                  <p className="text-xs text-muted uppercase tracking-wider mb-2">Fastest delivery</p>
                   <p className="text-zinc-200">Supplier C.</p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-xs text-zinc-500 uppercase tracking-wider mb-2">Lowest risk</p>
+                  <p className="text-xs text-muted uppercase tracking-wider mb-2">Lowest risk</p>
                   <p className="text-zinc-200">Supplier A or Supplier C.</p>
                 </div>
               </div>
               <div className="rounded-xl border border-white/10 bg-white/5 p-6">
-                <p className="text-xs text-zinc-500 uppercase tracking-wider mb-3">Recommended action</p>
+                <p className="text-xs text-muted uppercase tracking-wider mb-3">Recommended action</p>
                 <p className="text-lg text-zinc-200 leading-relaxed">
                   Ask Supplier B for the missing certificate. If delivery is critical, prioritize Supplier C. If balance between price and risk matters, Supplier A is the safest option.
                 </p>
@@ -191,34 +191,34 @@ export default function PurchasingAgentDemo() {
       <section ref={tableRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="max-w-3xl mb-10">
-            <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-medium text-muted uppercase tracking-wider mb-4">
               Decision Dashboard
             </h2>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
               A structured comparison for the purchasing decision.
             </h3>
           </div>
-          <div className="overflow-x-auto border border-zinc-200 rounded-xl bg-white">
+          <div tabIndex={0} role="region" aria-label="Scrollable supplier offer comparison" className="overflow-x-auto border border-zinc-200 rounded-xl bg-white">
             <table className="w-full text-sm">
               <thead className="bg-zinc-50 border-b border-zinc-200">
                 <tr>
-                  <th className="text-left px-4 py-3 font-medium text-zinc-500">Supplier</th>
-                  <th className="text-left px-4 py-3 font-medium text-zinc-500">Price</th>
-                  <th className="text-left px-4 py-3 font-medium text-zinc-500">Delivery</th>
-                  <th className="text-left px-4 py-3 font-medium text-zinc-500">Missing info</th>
-                  <th className="text-left px-4 py-3 font-medium text-zinc-500">Risk</th>
-                  <th className="text-left px-4 py-3 font-medium text-zinc-500">Suggested action</th>
+                  <th className="text-left px-4 py-3 font-medium text-muted">Supplier</th>
+                  <th className="text-left px-4 py-3 font-medium text-muted">Price</th>
+                  <th className="text-left px-4 py-3 font-medium text-muted">Delivery</th>
+                  <th className="text-left px-4 py-3 font-medium text-muted">Missing info</th>
+                  <th className="text-left px-4 py-3 font-medium text-muted">Risk</th>
+                  <th className="text-left px-4 py-3 font-medium text-muted">Suggested action</th>
                 </tr>
               </thead>
               <tbody>
                 {offers.map((offer) => (
                   <tr key={offer.supplier} className="border-b border-zinc-100 last:border-b-0">
                     <td className="px-4 py-3 font-medium text-zinc-900">{offer.supplier}</td>
-                    <td className="px-4 py-3 text-zinc-600">{offer.price}</td>
-                    <td className="px-4 py-3 text-zinc-600">{offer.delivery}</td>
-                    <td className="px-4 py-3 text-zinc-600">{offer.missingInfo}</td>
+                    <td className="px-4 py-3 text-muted">{offer.price}</td>
+                    <td className="px-4 py-3 text-muted">{offer.delivery}</td>
+                    <td className="px-4 py-3 text-muted">{offer.missingInfo}</td>
                     <td className="px-4 py-3"><span className={`text-xs px-2 py-1 rounded-full font-medium ${riskClass(offer.risk)}`}>{offer.risk}</span></td>
-                    <td className="px-4 py-3 text-zinc-600">{offer.action}</td>
+                    <td className="px-4 py-3 text-muted">{offer.action}</td>
                   </tr>
                 ))}
               </tbody>
@@ -230,7 +230,7 @@ export default function PurchasingAgentDemo() {
       <section className="border-t border-zinc-100 bg-zinc-50/50">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="max-w-3xl mb-10">
-            <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-medium text-muted uppercase tracking-wider mb-4">
               What This Could Connect To
             </h2>
             <h3 className="text-2xl md:text-3xl font-semibold tracking-tight">
@@ -253,7 +253,7 @@ export default function PurchasingAgentDemo() {
             <h2 className="text-2xl md:text-3xl font-semibold mb-4">
               Start with one purchasing workflow.
             </h2>
-            <p className="text-lg text-zinc-400 leading-relaxed mb-8">
+            <p className="text-lg text-muted leading-relaxed mb-8">
               FastSoftware can begin with a single recurring purchasing process and expand into a broader internal tool over time.
             </p>
             <a

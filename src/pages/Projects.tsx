@@ -75,16 +75,16 @@ export default function Projects() {
             </span>
             {!isModule && (
               <>
-                <span className="text-sm text-zinc-400">{project.division}</span>
+                <span className="text-sm text-zinc-600">{project.division}</span>
                 <span className="text-sm text-zinc-300">/</span>
-                <span className="text-sm text-zinc-400">{project.category}</span>
-                <span className="text-xs text-zinc-400 hidden sm:inline">
+                <span className="text-sm text-zinc-600">{project.category}</span>
+                <span className="text-xs text-zinc-600 hidden sm:inline">
                   {getStageDescription(project.status)}
                 </span>
               </>
             )}
             {isModule && (
-              <span className="text-xs text-zinc-400">Module</span>
+              <span className="text-xs text-zinc-600">Module</span>
             )}
           </div>
 
@@ -158,7 +158,7 @@ export default function Projects() {
         <div className="max-w-5xl mx-auto px-6 py-6">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-wrap">
             <div className="flex items-center gap-2">
-              <span className="text-sm text-zinc-400">Division:</span>
+              <span className="text-sm text-zinc-600">Division:</span>
               <div className="flex gap-1 flex-wrap">
                 {(['all', 'FastSoftware', 'Mobility Infrastructure', 'Albedo Nodes', 'Consumer / Experiments'] as const).map((division) => (
                   <button
@@ -176,7 +176,7 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-zinc-400">Category:</span>
+              <span className="text-sm text-zinc-600">Category:</span>
               <div className="flex gap-1">
                 {(['all', 'Consumer', 'B2B'] as const).map((cat) => (
                   <button
@@ -194,7 +194,7 @@ export default function Projects() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Stage</span>
+              <span className="text-xs font-medium text-zinc-600 uppercase tracking-wider">Stage</span>
               <div className="flex gap-1 flex-wrap">
                 {(['all', 'Live', 'Building', 'Concept'] as const).map((status) => (
                   <button
@@ -231,7 +231,7 @@ export default function Projects() {
                   {/* Child modules */}
                   {hasModules && (
                     <div className="space-y-3">
-                      <p className="text-xs text-zinc-400 uppercase tracking-wider ml-4 md:ml-6 mt-4">
+                      <p className="text-xs text-zinc-600 uppercase tracking-wider ml-4 md:ml-6 mt-4">
                         Available modules (can be adopted separately)
                       </p>
                       {childModules.map((module) => renderProjectCard(module, true))}
@@ -265,7 +265,7 @@ export default function Projects() {
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
+              <h2 className="text-sm font-medium text-zinc-600 uppercase tracking-wider">
                 Operating Map
               </h2>
             </div>
@@ -284,7 +284,7 @@ export default function Projects() {
       {/* Stages Explained */}
       <section ref={stagesRef} className="reveal border-t border-zinc-100">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-12">
+          <h2 className="text-sm font-medium text-zinc-600 uppercase tracking-wider mb-12">
             Development Stages
           </h2>
           <div className="grid md:grid-cols-3 gap-8">

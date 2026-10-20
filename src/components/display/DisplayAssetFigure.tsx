@@ -11,7 +11,7 @@ type DisplayAssetFigureProps = {
 export default function DisplayAssetFigure({ asset, className = '', showNotes = false, priority = false }: DisplayAssetFigureProps) {
   return (
     <figure className={`ad-asset ${className}`.trim()}>
-      <a href={asset.fullSizeSrc ?? asset.src} target="_blank" rel="noreferrer" aria-label={`View full-size ${asset.title}`}>
+      <a href={asset.fullSizeSrc ?? asset.src} target="_blank" rel="noreferrer" aria-label={`View full-size concept: ${asset.title} (opens in a new tab)`}>
         <img
           src={asset.src}
           srcSet={asset.srcSet}

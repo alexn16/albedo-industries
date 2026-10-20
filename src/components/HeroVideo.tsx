@@ -8,10 +8,12 @@ export default function HeroVideo({ src, className = '', poster = '/media/ALBEDO
   const [paused, setPaused] = useState(false)
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const update = () => setEnabled(!query.matches && !((navigator as Navigator & { connection?: Connection }).connection?.saveData))
+    const desktop = window.matchMedia('(min-width: 768px)')
+    const update = () => setEnabled(desktop.matches && !query.matches && !((navigator as Navigator & { connection?: Connection }).connection?.saveData))
     update()
     query.addEventListener('change', update)
-    return () => query.removeEventListener('change', update)
+    desktop.addEventListener('change', update)
+    return () => { query.removeEventListener('change', update); desktop.removeEventListener('change', update) }
   }, [])
   useEffect(() => {
     if (!enabled || paused) ref.current?.pause()

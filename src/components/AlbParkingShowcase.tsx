@@ -37,6 +37,9 @@ export default function AlbParkingShowcase() {
       {/* Desktop grid / Mobile carousel */}
       <div
         ref={ref}
+        tabIndex={0}
+        role="region"
+        aria-label="ALB Parking application screenshots"
         className="flex gap-6 overflow-x-auto pb-4 snap-scroll md:grid md:grid-cols-4 md:overflow-visible md:pb-0"
       >
         {screenshots.map((screenshot) => (

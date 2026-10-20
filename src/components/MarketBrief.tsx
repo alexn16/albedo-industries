@@ -58,7 +58,7 @@ export default function MarketBrief() {
       case 'afterhours':
         return 'bg-purple-50 text-purple-700'
       default:
-        return 'bg-zinc-100 text-zinc-600'
+        return 'bg-zinc-100 text-muted'
     }
   }
 
@@ -94,12 +94,12 @@ export default function MarketBrief() {
       <div className="border border-zinc-200 rounded-lg p-8 bg-zinc-50/50">
         <div className="text-center">
           <div className="w-12 h-12 mx-auto mb-4 bg-zinc-100 rounded-full flex items-center justify-center">
-            <svg className="w-6 h-6 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <h3 className="text-lg font-medium text-zinc-900 mb-2">Today's brief is being prepared</h3>
-          <p className="text-sm text-zinc-500 max-w-sm mx-auto">
+          <p className="text-sm text-muted max-w-sm mx-auto">
             Market briefs are generated daily. Check back soon for the latest intelligence.
           </p>
         </div>
@@ -116,7 +116,7 @@ export default function MarketBrief() {
             <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${getStatusColor(data.marketStatus)}`}>
               {getStatusLabel(data.marketStatus)}
             </span>
-            <span className="text-sm text-zinc-500">
+            <span className="text-sm text-muted">
               {new Date(data.date).toLocaleDateString('en-US', {
                 weekday: 'long',
                 year: 'numeric',
@@ -132,11 +132,11 @@ export default function MarketBrief() {
         {/* Highlights */}
         {data.premarketHighlights.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-3">Pre-Market</h4>
+            <h4 className="text-sm font-medium text-muted uppercase tracking-wider mb-3">Pre-Market</h4>
             <ul className="space-y-2">
               {data.premarketHighlights.map((highlight, i) => (
-                <li key={i} className="flex items-start text-sm text-zinc-600">
-                  <span className="text-zinc-400 mr-2">-</span>
+                <li key={i} className="flex items-start text-sm text-muted">
+                  <span className="text-muted mr-2">-</span>
                   <span>{highlight}</span>
                 </li>
               ))}
@@ -146,11 +146,11 @@ export default function MarketBrief() {
 
         {data.sessionHighlights.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-3">Session</h4>
+            <h4 className="text-sm font-medium text-muted uppercase tracking-wider mb-3">Session</h4>
             <ul className="space-y-2">
               {data.sessionHighlights.map((highlight, i) => (
-                <li key={i} className="flex items-start text-sm text-zinc-600">
-                  <span className="text-zinc-400 mr-2">-</span>
+                <li key={i} className="flex items-start text-sm text-muted">
+                  <span className="text-muted mr-2">-</span>
                   <span>{highlight}</span>
                 </li>
               ))}
@@ -160,11 +160,11 @@ export default function MarketBrief() {
 
         {data.afterHoursHighlights.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-3">After Hours</h4>
+            <h4 className="text-sm font-medium text-muted uppercase tracking-wider mb-3">After Hours</h4>
             <ul className="space-y-2">
               {data.afterHoursHighlights.map((highlight, i) => (
-                <li key={i} className="flex items-start text-sm text-zinc-600">
-                  <span className="text-zinc-400 mr-2">-</span>
+                <li key={i} className="flex items-start text-sm text-muted">
+                  <span className="text-muted mr-2">-</span>
                   <span>{highlight}</span>
                 </li>
               ))}
@@ -175,24 +175,24 @@ export default function MarketBrief() {
         {/* Top Movers */}
         {data.topMovers.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-3">Top Movers</h4>
+            <h4 className="text-sm font-medium text-muted uppercase tracking-wider mb-3">Top Movers</h4>
             <div className="border border-zinc-200 rounded-lg overflow-hidden">
               <table className="w-full text-sm">
                 <thead className="bg-zinc-50">
                   <tr>
-                    <th className="text-left px-4 py-2 text-zinc-500 font-medium">Symbol</th>
-                    <th className="text-left px-4 py-2 text-zinc-500 font-medium">Name</th>
-                    <th className="text-right px-4 py-2 text-zinc-500 font-medium">Change</th>
+                    <th className="text-left px-4 py-2 text-muted font-medium">Symbol</th>
+                    <th className="text-left px-4 py-2 text-muted font-medium">Name</th>
+                    <th className="text-right px-4 py-2 text-muted font-medium">Change</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.topMovers.map((mover, i) => (
                     <tr key={i} className="border-t border-zinc-100">
                       <td className="px-4 py-2 font-medium text-zinc-900">{mover.symbol}</td>
-                      <td className="px-4 py-2 text-zinc-600">{mover.name}</td>
+                      <td className="px-4 py-2 text-muted">{mover.name}</td>
                       <td className={`px-4 py-2 text-right font-medium ${
-                        mover.change.startsWith('+') ? 'text-green-600' :
-                        mover.change.startsWith('-') ? 'text-red-600' : 'text-zinc-600'
+                        mover.change.startsWith('+') ? 'text-green-700' :
+                        mover.change.startsWith('-') ? 'text-red-700' : 'text-muted'
                       }`}>
                         {mover.change} ({mover.changePercent})
                       </td>
@@ -207,22 +207,22 @@ export default function MarketBrief() {
         {/* News Drivers */}
         {data.newsDrivers.length > 0 && (
           <div>
-            <h4 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-3">News Drivers</h4>
+            <h4 className="text-sm font-medium text-muted uppercase tracking-wider mb-3">News Drivers</h4>
             <ul className="space-y-3">
               {data.newsDrivers.map((news, i) => (
                 <li key={i} className="flex items-start justify-between gap-4">
-                  <span className="text-sm text-zinc-600">{news.title}</span>
+                  <span className="text-sm text-muted">{news.title}</span>
                   {news.url ? (
                     <a
                       href={news.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-zinc-400 hover:text-zinc-600 whitespace-nowrap transition-colors"
+                      className="text-xs text-muted hover:text-zinc-900 whitespace-nowrap transition-colors"
                     >
                       {news.source}
                     </a>
                   ) : (
-                    <span className="text-xs text-zinc-400 whitespace-nowrap">{news.source}</span>
+                    <span className="text-xs text-muted whitespace-nowrap">{news.source}</span>
                   )}
                 </li>
               ))}
@@ -233,7 +233,7 @@ export default function MarketBrief() {
 
       {/* Footer */}
       <div className="bg-zinc-50 border-t border-zinc-200 px-6 py-3">
-        <p className="text-xs text-zinc-400">
+        <p className="text-xs text-muted">
           Generated {new Date(data.generatedAt).toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: '2-digit',

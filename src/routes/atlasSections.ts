@@ -3,7 +3,7 @@ export const atlasSectionAliases: Record<string, string> = {
   standard: 'evidence', partners: 'capital', about: 'contact', leadership: 'contact',
   footprint: 'opportunities', requirements: 'evidence', private: 'capital', research: 'evidence',
 }
-export const atlasSectionIds = ['opportunities', 'model', 'capital', 'evidence', 'contact'] as const
+export const atlasSectionIds = ['opportunities', 'model', 'capital', 'evidence', 'readiness', 'contact'] as const
 export type AtlasSectionId = (typeof atlasSectionIds)[number]
 export function resolveAtlasSection(value: string | null): AtlasSectionId | null {
   if (!value) return null

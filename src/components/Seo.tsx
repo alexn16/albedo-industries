@@ -12,7 +12,7 @@ export default function Seo() {
   useEffect(() => {
     const page = seoForPath(pathname); const canonical = `${SITE_URL}${pathname === '/' ? '/' : pathname.replace(/\/$/, '')}`
     document.title = page.title
-    setMeta('meta[name="description"]', 'content', page.description); setMeta('meta[name="robots"]', 'content', page.noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'); setMeta('link[rel="canonical"]', 'href', canonical)
+    setMeta('meta[name="description"]', 'content', page.description); setMeta('meta[name="robots"]', 'content', page.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'); setMeta('link[rel="canonical"]', 'href', canonical)
     for (const [selector, value] of [['meta[property="og:title"]', page.title], ['meta[property="og:description"]', page.description], ['meta[property="og:url"]', canonical], ['meta[property="og:type"]', page.type ?? 'website'], ['meta[property="og:image"]', page.image ?? SOCIAL_IMAGE], ['meta[name="twitter:card"]', 'summary_large_image'], ['meta[name="twitter:title"]', page.title], ['meta[name="twitter:description"]', page.description], ['meta[name="twitter:image"]', page.image ?? SOCIAL_IMAGE]]) setMeta(selector, 'content', value)
     document.querySelectorAll('script[data-site-structured-data]').forEach(node => node.remove())
     const graph: Record<string, unknown>[] = [{ '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: page.title, description: page.description, isPartOf: { '@id': `${SITE_URL}/#website` } }]
