@@ -29,8 +29,8 @@ export interface AtlasPipelineOpportunity {
 export const atlasPipeline: AtlasPipelineOpportunity[] = [
   {
     id: 'AF-MZ-BEL', market: 'Mozambique', name: 'Beluluane', layer: 'Development Opportunity',
-    stage: 'Active Validation', evidence: 'Counterparty Stated', scale: '60 MW stated as currently uncommitted',
-    position: 'The industrial park counterparty states 80 MW total park capacity, 20 MW in use and 60 MW currently uncommitted. It is identifying an indicative 8–12 hectare area; approximately 350 hectares refers to availability across the park, not Atlas control.',
+    stage: 'Active Validation', evidence: 'Counterparty Stated', scale: '60 MW counterparty-reported; preliminary and unverified',
+    position: 'The industrial park counterparty states 80 MW total park capacity, 20 MW in use and 60 MW currently uncommitted. These are preliminary counterparty reports; documentary confirmation and project-specific allocation have not been established. It is identifying an indicative 8–12 hectare area; approximately 350 hectares refers to availability across the park, not Atlas control.',
     validation: ['Exact plot and coordinates', 'Substation voltage and connection architecture', 'Reservation mechanics, evidence and timeline', 'Project-specific capacity pathway'], nextMilestone: 'Documentary plot and project-specific capacity review', lastReviewed: '21 August 2026', publication: publish({visibility:'featured',homepageFeatured:true,atlasFeatured:true,commercialPage:false,lastReviewed:'2026-08-21',publicReason:'Project-specific counterparty engagement and a defined documentary validation gate.',publicBlocker:'Plot, engineering and project-specific capacity evidence remain outstanding.'})
   },
   {

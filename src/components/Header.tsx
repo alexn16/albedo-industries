@@ -1,104 +1,54 @@
-import { useState, useEffect } from 'react'
+import ArrowUpRight from './ArrowUpRight'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { useAtlasShellLanguage } from '../hooks/useAtlasShellLanguage'
 
+const navigation = [
+  ['Project Atlas', '/atlas'], ['Robotics', '/robotics'], ['Orbital', '/orbital'],
+  ['Display', '/display'], ['FastSoftware', '/fastsoftware'], ['About', '/about'],
+]
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
-  const hasVideoHero = location.pathname === '/' || location.pathname.startsWith('/atlas') || location.pathname.startsWith('/infrastructure')
-  const locale=useAtlasShellLanguage()
-  const t={en:['About','Partners','Toggle menu'],es:['Empresa','Socios','Abrir o cerrar el menú'],pt:['Empresa','Parceiros','Abrir ou fechar o menu'],fi:['Yritys','Kumppanit','Avaa tai sulje valikko']}[locale]
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const heroOverlay = (location.pathname === '/' || location.pathname === '/atlas' || ['/infrastructure', '/infrastructure/europe', '/infrastructure/atlas'].includes(location.pathname)) && !scrolled && !mobileMenuOpen
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
   useEffect(() => {
     if (!mobileMenuOpen) return
-    const close = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileMenuOpen(false)
-    }
+    const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    window.addEventListener('keydown', close)
-    return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', close) }
+    menuRef.current?.querySelector('a')?.focus()
+    const close = () => { setMobileMenuOpen(false); toggleRef.current?.focus() }
+    const keyboard = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') close()
+      if (event.key === 'Tab') {
+        const links = [...(menuRef.current?.querySelectorAll<HTMLAnchorElement>('a') ?? [])]
+        const first = toggleRef.current
+        const last = links.at(-1)
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
+      }
+    }
+    const media = window.matchMedia('(min-width: 1024px)')
+    const resize = () => { if (media.matches) setMobileMenuOpen(false) }
+    media.addEventListener('change', resize)
+    window.addEventListener('keydown', keyboard)
+    return () => { document.body.style.overflow = previousOverflow; media.removeEventListener('change', resize); window.removeEventListener('keydown', keyboard) }
   }, [mobileMenuOpen])
-
-  // On the home page with video hero, use white text when not scrolled
-  const heroOverlay = hasVideoHero && !scrolled
-
-  const linkClass = ({ isActive }: { isActive: boolean }) =>
-    heroOverlay
-      ? `transition-colors ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}`
-      : `transition-colors ${isActive ? 'text-zinc-900' : 'text-zinc-500 hover:text-zinc-900'}`
-
-
-  return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/80 backdrop-blur-lg border-b border-zinc-200/60 shadow-sm'
-          : 'bg-white/0 backdrop-blur-none border-b border-transparent'
-      }`}
-    >
-      <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className={`text-lg font-semibold tracking-tight transition-colors duration-300 ${heroOverlay ? 'text-white' : ''}`}>
-          ALBEDO
-        </Link>
-
-        {/* Desktop navigation */}
-        <div className="hidden lg:flex items-center gap-5 text-sm">
-          <NavLink to="/atlas" className={linkClass}>Atlas</NavLink>
-          <NavLink to="/atlas/foundation" className={linkClass}>Atlas Foundation</NavLink>
-          <NavLink to="/orbital" className={linkClass}>Orbital</NavLink>
-          <NavLink to="/display" className={linkClass}>Display</NavLink>
-          <NavLink to="/fastsoftware" className={linkClass}>Software</NavLink>
-          <NavLink to="/about" className={linkClass}>{t[0]}</NavLink>
-          <NavLink to="/atlas/partners" className={`ml-3 px-4 py-2 font-semibold ${heroOverlay?'bg-white text-zinc-950':'bg-zinc-950 text-white'}`}>{t[1]}</NavLink>
-        </div>
-
-        {/* Mobile menu button */}
-        <button
-          className={`lg:hidden p-2 -mr-2 ${heroOverlay ? 'text-white' : ''}`}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={t[2]}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="site-mobile-menu"
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {mobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </nav>
-
-      {/* Mobile navigation — animated slide-down */}
-      {mobileMenuOpen && (
-        <div id="site-mobile-menu" className="lg:hidden border-t border-zinc-100 bg-white/95 px-6 py-5 backdrop-blur-lg mobile-menu-enter">
-          <div className="space-y-1">{[['Atlas','/atlas'],['Atlas Foundation','/atlas/foundation'],['Orbital','/orbital'],['Display','/display'],['Software','/fastsoftware'],[t[0],'/about']].map(([label,to])=><NavLink key={to} to={to} className="block min-h-11 py-3 text-zinc-700" onClick={()=>setMobileMenuOpen(false)}>{label}</NavLink>)}</div>
-          <NavLink to="/atlas/partners" className="mt-4 flex min-h-12 items-center justify-center bg-zinc-950 px-4 text-sm font-semibold text-white" onClick={()=>setMobileMenuOpen(false)}>{t[1]}</NavLink>
-        </div>
-      )}
-    </header>
-  )
+  const linkClass = ({ isActive }: { isActive: boolean }) => `inline-flex min-h-11 items-center border-b transition-colors ${isActive ? 'border-current' : 'border-transparent'} ${heroOverlay ? 'text-white/90 hover:text-white' : 'text-zinc-600 hover:text-zinc-950'}`
+  return <header className={`sticky top-0 z-50 border-b transition-colors duration-200 ${heroOverlay ? 'border-white/15 bg-transparent text-white' : 'border-zinc-200 bg-white/95 text-zinc-950 backdrop-blur-lg'}`}>
+    <nav aria-label="Main navigation" className="company-container flex h-[73px] items-center justify-between gap-8">
+      <Link to="/" onClick={() => setMobileMenuOpen(false)} aria-label="Albedo Industries home" className="flex min-h-11 shrink-0 flex-col justify-center"><span className="text-xl font-semibold leading-none tracking-[-.04em]">ALBEDO</span><span className="mt-1.5 text-[8px] font-semibold tracking-[.26em]">INDUSTRIES</span></Link>
+      <div className="hidden items-center gap-6 text-xs font-medium lg:flex">{navigation.map(([name, to]) => <NavLink key={to} to={to} className={linkClass}>{name}{to === '/robotics' && <span className={`ml-1.5 h-1 w-1 rounded-full ${heroOverlay ? 'bg-amber-200' : 'bg-amber-700'}`} aria-label="New division" />}</NavLink>)}<Link to="/support#partnerships" className={`inline-flex min-h-11 items-center gap-4 px-5 text-xs font-semibold ${heroOverlay ? 'bg-white text-zinc-950' : 'bg-zinc-950 text-white'}`}>Partner with us <ArrowUpRight /></Link></div>
+      <button ref={toggleRef} type="button" className="inline-flex min-h-11 min-w-11 items-center justify-center gap-3 text-xs font-semibold lg:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={mobileMenuOpen} aria-controls="site-mobile-menu"><span>{mobileMenuOpen ? 'Close' : 'Menu'}</span><svg aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeWidth="1.5" strokeLinecap="round" d={mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 7h16M4 12h16M4 17h16'} /></svg></button>
+    </nav>
+    {mobileMenuOpen && <div ref={menuRef} id="site-mobile-menu" className="absolute inset-x-0 top-full max-h-[calc(100dvh-73px)] overflow-y-auto border-b border-zinc-300 bg-white px-6 pb-8 pt-3 text-zinc-950 shadow-lg lg:hidden"><nav aria-label="Mobile navigation" className="mx-auto max-w-xl">{navigation.map(([name, to]) => <NavLink key={to} to={to} className="flex min-h-14 items-center justify-between border-b border-zinc-200 text-lg" onClick={() => setMobileMenuOpen(false)}>{name}<span className="flex items-center gap-3 text-xs text-zinc-500">{to === '/robotics' && 'New division'}<ArrowUpRight /></span></NavLink>)}<Link to="/support#partnerships" className="company-button mt-6 w-full" onClick={() => setMobileMenuOpen(false)}>Partner with us <ArrowUpRight /></Link><Link to="/support" className="company-text-link mt-3" onClick={() => setMobileMenuOpen(false)}>Contact Albedo</Link></nav></div>}
+  </header>
 }

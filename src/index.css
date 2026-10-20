@@ -311,3 +311,64 @@ body {
  .ad-hardware{box-shadow:4px 5px 0 var(--accent)}
  .ad-asset figcaption{grid-template-columns:1fr}
 }
+
+/* Company V2: shared rhythm, division cards and partnership controls. */
+.company-container{width:100%;max-width:1200px;margin-inline:auto;padding-inline:24px;min-width:0}
+.company-eyebrow{font-size:11px;font-weight:700;line-height:1.6;letter-spacing:.16em;text-transform:uppercase;color:#62635e}
+.company-hero-title{margin-top:24px;font-size:clamp(2.9rem,6.4vw,6.1rem);line-height:1.01;font-weight:600;letter-spacing:-.055em;text-wrap:balance;overflow-wrap:break-word}
+.company-heading{margin-top:18px;font-size:clamp(2.2rem,4.4vw,4rem);line-height:1.08;font-weight:600;letter-spacing:-.045em;text-wrap:balance}
+.company-intro{margin-top:24px;max-width:720px;font-size:18px;line-height:1.7;color:#575953}
+.division-section{padding-block:96px;border-bottom:1px solid #deded7;scroll-margin-top:88px}
+.division-section--dark{background:#09090b;color:white;border-color:#3f3f46}
+.division-section--dark .company-eyebrow{color:#fde68a}
+.division-section--dark .company-intro{color:#d4d4d8}
+.company-hero .company-eyebrow{color:#fde68a}
+.company-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px}
+.company-button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:24px;padding:14px 22px;background:#18181b;color:#fff;border:1px solid #18181b;font-size:13px;font-weight:600;line-height:1.4;text-decoration:none;transition:background .18s,color .18s}
+.company-button:hover{background:#3f3f46;border-color:#3f3f46}
+.company-button--light{background:#fff;color:#18181b;border-color:#fff}
+.company-button--light:hover{background:#fde68a;color:#18181b;border-color:#fde68a}
+.company-button--outline-light{border-color:#a1a1aa;color:#fff;background:transparent}
+.company-button--outline-light:hover{background:#fff;color:#18181b;border-color:#fff}
+.company-text-link{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:44px;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:6px;text-decoration-color:#a8a29e;transition:text-decoration-color .2s}
+.company-text-link:hover{text-decoration-color:currentColor}
+.division-stage{display:inline-flex;width:fit-content;max-width:100%;padding:7px 10px;border:1px solid #c7c7bc;background:#f3f2ed;color:#44463e;font-size:10px;font-weight:700;line-height:1.5;letter-spacing:.09em;text-transform:uppercase}
+.division-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px}
+.division-card{grid-column:span 2;display:flex;flex-direction:column;border:1px solid #d8d8d1;min-width:0;background:#fafaf7;transition:border-color .2s}
+.division-card:hover,.division-card:focus-within{border-color:#71716b}
+.division-card--atlas,.division-card--robotics{grid-column:span 3}
+.division-card__visual{height:220px;position:relative;overflow:hidden;background:#e5e4dc}
+.division-card--atlas .division-card__visual,.division-card--robotics .division-card__visual{height:270px}
+.division-card__visual>img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.division-card:hover .division-card__visual>img{transform:scale(1.025)}
+.division-card--display .division-card__visual>img{object-fit:contain;padding:12px}
+.division-card__number{position:absolute;top:16px;left:18px;z-index:1;padding:5px 8px;background:#fffdf0e6;color:#18181b;font-size:11px;font-weight:700}
+.division-card__body{padding:28px;display:flex;flex:1;flex-direction:column;align-items:flex-start}
+.division-card__body .company-eyebrow{margin-bottom:14px}
+.division-card__body .division-stage{margin-top:auto;padding-top:7px;margin-bottom:0}
+.division-card__body>p:nth-of-type(3){margin-bottom:24px}
+.division-card__body .company-text-link{width:100%}
+.atlas-lines{height:100%;display:flex;align-items:center;justify-content:center;gap:10px;background:radial-gradient(ellipse at 65% 30%,#535650,#151916 75%);perspective:600px;overflow:hidden}
+.atlas-lines span{height:70%;width:38px;border:1px solid #878f7b;background:repeating-linear-gradient(0deg,#1f2920 0 14px,#7a857122 14px 16px);transform:rotateY(-22deg) skewY(-8deg);box-shadow:8px 10px 0 #0002}
+.atlas-lines span:nth-child(3n){border-color:#baa676}
+.orbital-rings{position:relative;height:100%;background:#14171a;overflow:hidden}
+.orbital-rings i{position:absolute;top:50%;left:50%;width:230px;height:150px;border:1px solid #828682;border-radius:50%;transform:translate(-50%,-50%) rotate(-25deg)}
+.orbital-rings i:nth-child(2){transform:translate(-50%,-50%) rotate(35deg)}
+.orbital-rings i:nth-child(3){transform:translate(-50%,-50%) rotate(95deg)}
+.orbital-rings span{position:absolute;top:50%;left:50%;height:20px;width:20px;background:#d6d1af;transform:translate(-50%,-50%) rotate(45deg)}
+.software-lines{height:100%;display:flex;flex-direction:column;justify-content:center;gap:16px;background:#e5e5dd;padding:32px 32px 24px 56px;color:#494e42;font-family:monospace;font-size:12px;letter-spacing:.04em}
+.software-lines span{padding:10px 0;border-bottom:1px solid #b0b3a6}
+.robotics-figure{min-width:0;margin:0}
+.robotics-figure img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.robotics-figure figcaption{margin-top:12px;font-size:12px;line-height:1.6;color:#62635e}
+body{overflow-wrap:break-word}
+main{min-width:0}
+section[id]{scroll-margin-top:88px}
+@media(min-width:1280px){.company-hero-title{font-size:6.1rem}.company-hero .company-hero-title{max-width:1000px}}
+@media(max-width:900px){.division-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.division-card,.division-card--atlas,.division-card--robotics{grid-column:span 1}.division-card:last-child{grid-column:span 2}.division-card__visual,.division-card--atlas .division-card__visual,.division-card--robotics .division-card__visual{height:220px}.division-section{padding-block:72px}}
+@media(max-width:600px){.company-container{padding-inline:20px}.division-section{padding-block:60px}.division-grid{grid-template-columns:minmax(0,1fr);gap:20px}.division-card:last-child{grid-column:auto}.division-card__body{padding:24px}.company-actions{align-items:stretch;flex-direction:column;gap:12px}.company-actions .company-text-link{justify-content:center}.company-hero-title{font-size:clamp(2.7rem,11vw,4rem)}.company-intro{font-size:17px}.division-card__visual,.division-card--atlas .division-card__visual,.division-card--robotics .division-card__visual{height:230px}}
+.company-eyebrow.text-amber-200{color:#fde68a}
+.ad-asset__notes{color:#575953;font-size:12px;line-height:1.6}
+/* Split heroes need a smaller scale so complete words fit beside their imagery. */
+.division-split-title{font-size:clamp(2.8rem,4.7vw,4.15rem);overflow-wrap:normal}
+@media(max-width:600px){.division-split-title{font-size:clamp(2.35rem,10vw,3rem)}}

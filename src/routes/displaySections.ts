@@ -1,5 +1,8 @@
-export const displaySections = ['evidence', 'works', 'pilot', 'faq'] as const
+export const displaySections = ['concept', 'uses', 'workflow', 'partners'] as const
 export type DisplaySection = typeof displaySections[number]
-export const resolveDisplaySection = (value: string | null): DisplaySection | null =>
-  displaySections.includes(value as DisplaySection) ? value as DisplaySection : null
+const aliases: Record<string, DisplaySection> = { evidence: 'concept', works: 'workflow', pilot: 'partners', faq: 'partners' }
+export const resolveDisplaySection = (value: string | null): DisplaySection | null => {
+  if (!value) return null
+  return aliases[value] ?? (displaySections.includes(value as DisplaySection) ? value as DisplaySection : null)
+}
 export const displaySectionHref = (section: DisplaySection) => `/display?section=${section}`

@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.albedo-industries.com/</loc><lastmod>2026-09-13</lastmod></url>
-  <url><loc>https://www.albedo-industries.com/atlas</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/atlas</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://www.albedo-industries.com/atlas/partners</loc><lastmod>2026-09-13</lastmod></url>
   <url><loc>https://www.albedo-industries.com/atlas/research</loc><lastmod>2026-09-13</lastmod></url>
-  <url><loc>https://www.albedo-industries.com/orbital</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/robotics</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/orbital</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://www.albedo-industries.com/orbital/research</loc><lastmod>2026-09-13</lastmod></url>
   <url><loc>https://www.albedo-industries.com/orbital/experiment-01</loc><lastmod>2026-09-13</lastmod></url>
-  <url><loc>https://www.albedo-industries.com/display</loc><lastmod>2026-09-13</lastmod></url>
-  <url><loc>https://www.albedo-industries.com/display/invest</loc><lastmod>2026-09-13</lastmod></url>
-  <url><loc>https://www.albedo-industries.com/fastsoftware</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/display</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/display/invest</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/fastsoftware</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://www.albedo-industries.com/fastsoftware/purchasing-agent</loc><lastmod>2026-09-13</lastmod></url>
   <url><loc>https://www.albedo-industries.com/foreman</loc><lastmod>2026-09-13</lastmod></url>
-  <url><loc>https://www.albedo-industries.com/about</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/about</loc><lastmod>2026-10-20</lastmod></url>
   <url><loc>https://www.albedo-industries.com/infrastructure/spain/el-bierzo</loc><lastmod>2026-09-13</lastmod></url>
   <url><loc>https://www.albedo-industries.com/infrastructure/uruguay/canelones</loc><lastmod>2026-09-13</lastmod></url>
   <url><loc>https://www.albedo-industries.com/infrastructure/portugal/sines</loc><lastmod>2026-09-13</lastmod></url>
@@ -31,4 +32,5 @@
   <url><loc>https://www.albedo-industries.com/privacy</loc><lastmod>2026-09-13</lastmod></url>
   <url><loc>https://www.albedo-industries.com/terms</loc><lastmod>2026-09-13</lastmod></url>
   <url><loc>https://www.albedo-industries.com/security</loc><lastmod>2026-09-13</lastmod></url>
+  <url><loc>https://www.albedo-industries.com/support</loc><lastmod>2026-10-20</lastmod></url>
 </urlset>

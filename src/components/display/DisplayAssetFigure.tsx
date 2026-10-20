@@ -1,3 +1,4 @@
+import ArrowUpRight from '../ArrowUpRight'
 import type { DisplayAsset } from '../../data/albedoDisplayAssets'
 
 type DisplayAssetFigureProps = {
@@ -10,9 +11,10 @@ type DisplayAssetFigureProps = {
 export default function DisplayAssetFigure({ asset, className = '', showNotes = false, priority = false }: DisplayAssetFigureProps) {
   return (
     <figure className={`ad-asset ${className}`.trim()}>
-      <a href={asset.src} target="_blank" rel="noreferrer" aria-label={`View full-size ${asset.title}`}>
+      <a href={asset.fullSizeSrc ?? asset.src} target="_blank" rel="noreferrer" aria-label={`View full-size ${asset.title}`}>
         <img
           src={asset.src}
+          srcSet={asset.srcSet}
           alt={asset.alt}
           width={asset.width ?? 1200}
           height={asset.height ?? 820}
@@ -21,7 +23,7 @@ export default function DisplayAssetFigure({ asset, className = '', showNotes = 
           decoding="async"
           sizes={asset.sizes}
         />
-        <span className="ad-asset__zoom" aria-hidden="true">View full-size concept ↗</span>
+        <span className="ad-asset__zoom gap-2" aria-hidden="true">View full-size concept <ArrowUpRight /></span>
       </a>
       <figcaption>
         <span className="ad-status">{asset.status}</span>

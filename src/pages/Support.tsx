@@ -1,158 +1,18 @@
+import ArrowUpRight from '../components/ArrowUpRight'
 import { Link } from 'react-router-dom'
-import { projects } from '../data/projects'
-
-const generalMailto = 'mailto:alex@albedo-industries.com?subject=ALBEDO%20Industries%20inquiry&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20get%20in%20touch%20about%20ALBEDO%20Industries.%0A%0ATopic%3A%0A%0ACompany%20%2F%20project%3A%0A%0AThanks.'
-const fastSoftwareMailto = 'mailto:alex@albedo-industries.com?subject=FastSoftware%20Sprint%20request&body=Hi%20ALBEDO%2C%0A%0AI%E2%80%99d%20like%20to%20discuss%20a%20FastSoftware%20Sprint%20for%20one%20internal%20workflow.%0A%0AThe%20process%20I%20want%20to%20improve%20is%3A%0A%0ACompany%20%2F%20team%3A%0A%0APreferred%20contact%20time%3A%0A%0AThanks.'
-
+import DivisionSection from '../components/DivisionSection'
+import { contactEmail, divisions, enquiryHref } from '../data/divisions'
 const pathways = [
-  {
-    title: 'General inquiries',
-    description: 'Questions about ALBEDO Industries, product direction, media, or anything that does not fit another category.',
-    href: generalMailto,
-    label: 'Contact ALBEDO',
-  },
-  {
-    title: 'FastSoftware inquiries',
-    description: 'Discuss a FastSoftware Sprint, a purchasing agent, a lightweight ERP, dashboards, document review, or an internal workflow.',
-    href: fastSoftwareMailto,
-    label: 'Request a sprint',
-  },
-  {
-    title: 'Partnerships & strategic inquiries',
-    description: 'Partnerships, investors, pilots, ALB Parking, mobility infrastructure, or Albedo Nodes conversations.',
-    href: generalMailto,
-    label: 'Start a conversation',
-  },
+  ['Investors & development capital', 'Project Atlas development gates, co-development mandates or early-stage technology initiatives. Include your investment focus and the relevant division.', 'Albedo Industries — investor enquiry'],
+  ['Industrial & technology partners', 'Autonomous equipment, construction capability, computing research, display engineering or manufacturing. Tell us what expertise you could contribute.', 'Albedo Industries — industrial or technology partnership'],
+  ['Developers, operators & landowners', 'A potential infrastructure site, a development partnership or specific data center requirements. Start with public, non-confidential context.', 'Project Atlas — site, developer or operator enquiry'],
+  ['Business customers', 'A purchasing, document or operational workflow to improve with FastSoftware. Describe the process, current tools and desired outcome.', 'FastSoftware — business workflow enquiry'],
 ]
-
 export default function Support() {
-  return (
-    <div>
-      <section className="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-20">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
-            Support and contact
-          </h1>
-          <p className="text-xl text-zinc-600 leading-relaxed mb-8">
-            Use the ALBEDO contact email for FastSoftware, ALB Parking, partnerships and general enquiries.
-          </p>
-          <div className="rounded-2xl border border-zinc-200 bg-zinc-50/70 p-5">
-            <p className="text-sm text-zinc-500 mb-2">Current contact email</p>
-            <a href={generalMailto} className="text-lg font-medium text-zinc-900 hover:text-zinc-600 transition-colors">
-              alex@albedo-industries.com
-            </a>
-            <p className="text-sm text-zinc-500 mt-3">
-              Use this address for FastSoftware, ALB Parking, partnerships and general enquiries.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-zinc-100">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <div className="max-w-3xl mb-10">
-            <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">
-              Contact pathways
-            </h2>
-            <p className="text-lg text-zinc-600 leading-relaxed">
-              Choose the closest topic so your message includes the most useful context.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-5">
-            {pathways.map((pathway) => (
-              <div key={pathway.title} className="border border-zinc-200 rounded-2xl p-6 bg-white hover:border-zinc-300 hover:shadow-sm transition-all">
-                <h3 className="text-lg font-medium mb-3">{pathway.title}</h3>
-                <p className="text-sm text-zinc-600 leading-relaxed mb-5">{pathway.description}</p>
-                <a href={pathway.href} className="text-sm font-medium text-zinc-900 hover:text-zinc-600 transition-colors">
-                  {pathway.label}
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <div className="max-w-3xl mb-10">
-            <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider mb-4">
-              Product-specific questions
-            </h2>
-            <p className="text-lg text-zinc-600 leading-relaxed">
-              If your message is about a specific ALBEDO system, include the product name and the context you need help with.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {projects.filter((project) => !project.parentSlug).map((project) => (
-              <div key={project.slug} className="bg-white border border-zinc-200 rounded-2xl p-5 hover:border-zinc-300 transition-colors">
-                <div className="flex items-center justify-between gap-3 mb-3">
-                  <span className="text-xs text-zinc-400">{project.division}</span>
-                  <span className={`text-xs px-2 py-0.5 rounded-full ${
-                    project.status === 'Live'
-                      ? 'bg-green-50 text-green-700'
-                      : project.status === 'Building'
-                      ? 'bg-blue-50 text-blue-700'
-                      : 'bg-zinc-100 text-zinc-600'
-                  }`}>{project.status}</span>
-                </div>
-                <h3 className="font-medium mb-2">{project.name}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed mb-4">{project.tagline}</p>
-                <div className="flex items-center gap-4 text-sm">
-                  <a href={generalMailto} className="font-medium text-zinc-900 hover:text-zinc-600 transition-colors">Email</a>
-                  <Link to={project.dedicatedPage || `/projects/${project.slug}`} className="text-zinc-500 hover:text-zinc-900 transition-colors">Details</Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-zinc-100">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-wider">
-                What to include
-              </h2>
-            </div>
-            <div className="md:col-span-2">
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                {[
-                  'The product or workflow you are asking about',
-                  'Company / project context',
-                  'What you want to improve or clarify',
-                  'Preferred contact time or response channel',
-                ].map((item) => (
-                  <div key={item} className="border border-zinc-200 rounded-xl p-4 bg-white">
-                    <p className="text-sm text-zinc-600">{item}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-zinc-600 leading-relaxed">
-                ALBEDO is a small team. Clear context helps us route the message and respond with useful next steps.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-zinc-100 bg-zinc-50/50">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h2 className="text-xl font-medium mb-2">Looking for legal information?</h2>
-              <p className="text-zinc-600">
-                Review our privacy policy, terms of service, and security practices.
-              </p>
-            </div>
-            <div className="flex gap-6">
-              <Link to="/privacy" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Terms of Service</Link>
-              <Link to="/security" className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors">Security</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
+  return <article>
+    <header className="bg-[#eeece5]"><div className="company-container py-20 md:py-28"><p className="company-eyebrow">Contact Albedo</p><h1 className="company-hero-title max-w-4xl">A useful conversation<br />starts with context.</h1><p className="mt-7 max-w-2xl text-lg leading-relaxed text-zinc-600">Discuss a development opportunity, investment mandate, industrial capability or practical business need. Choose a topic below or contact us directly.</p><a href={enquiryHref('Albedo Industries — general enquiry')} className="company-text-link mt-7 break-all text-lg">{contactEmail} <ArrowUpRight /></a><p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-600">Email links open your email application with a draft. Nothing is submitted through this page. You can also copy the address into your preferred email service.</p></div></header>
+    <DivisionSection id="partnerships" eyebrow="01 · Investor & partner pathways" title="What would you like to explore?"><div className="grid gap-8 md:grid-cols-2">{pathways.map(([title, copy, topic]) => <article className="flex flex-col items-start border-t-2 border-zinc-900 pt-6" key={title}><h3 className="text-2xl font-semibold">{title}</h3><p className="mb-5 mt-4 leading-relaxed text-zinc-600">{copy}</p><a className="company-text-link mt-auto" href={enquiryHref(topic)}>Start an email enquiry <ArrowUpRight /></a></article>)}</div></DivisionSection>
+    <DivisionSection dark eyebrow="02 · Division enquiries" title="Speak to the right area of work."><div className="divide-y divide-zinc-700 border-y border-zinc-700">{divisions.map(division => <article className="grid gap-5 py-6 md:grid-cols-[1fr_1.3fr_auto] md:items-center" key={division.id}><div><h3 className="text-xl font-semibold">{division.name}</h3><p className="mt-2 text-xs text-zinc-300">{division.stage}</p></div><p className="text-sm leading-relaxed text-zinc-300">{division.partner}</p><a className="company-text-link text-white" href={enquiryHref(`${division.name} — partnership enquiry`)} aria-label={`Email about ${division.name}`}>Email <ArrowUpRight /></a></article>)}</div></DivisionSection>
+    <DivisionSection eyebrow="03 · Before you contact us" title="A clear question helps define a next step."><div className="grid gap-8 md:grid-cols-2"><ul className="space-y-4 leading-relaxed text-zinc-600">{['Your name, organisation and role.', 'The division, opportunity or workflow you want to discuss.', 'Relevant geography, technical capability or commercial requirements.', 'The next step you would find useful.'].map(item => <li className="flex gap-3" key={item}><span aria-hidden="true">—</span>{item}</li>)}</ul><div><p className="leading-relaxed text-zinc-600">Share only information you are authorised to disclose. Project-specific confidential material can be discussed after an initial fit review and appropriate confidentiality arrangements.</p><p className="mt-5 leading-relaxed text-zinc-600">For support with an earlier product or demonstration, include its name and what you need help with.</p><Link to="/projects" className="company-text-link mt-5">Earlier systems & project records <span aria-hidden="true">→</span></Link></div></div><div className="mt-10 flex flex-wrap gap-6 border-t border-zinc-300 pt-6 text-sm"><Link to="/privacy" className="company-text-link">Privacy notice</Link><Link to="/terms" className="company-text-link">Website terms</Link><Link to="/security" className="company-text-link">Security</Link></div></DivisionSection>
+  </article>
 }

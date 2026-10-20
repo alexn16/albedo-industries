@@ -4,7 +4,7 @@ export function useAtlasMetadata({name,country,description,route,title}:{name:st
   useEffect(()=>{
     const pageTitle=title??`Project Atlas — ${name}, ${country} | Albedo Industries`
     const canonical=`https://www.albedo-industries.com${route}`
-    const image='https://www.albedo-industries.com/atlas-social.svg'
+    const image='https://www.albedo-industries.com/atlas-social.png'
     const values:[string,string][]=[
       ['meta[name="description"]',description],
       ['meta[property="og:title"]',pageTitle],

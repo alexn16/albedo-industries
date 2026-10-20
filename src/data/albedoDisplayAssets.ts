@@ -6,6 +6,8 @@ export type DisplayAsset = {
   status: DisplayAssetStatus
   caption: string
   src: string
+  srcSet?: string
+  fullSizeSrc?: string
   width?: number
   height?: number
   alt: string
@@ -19,7 +21,9 @@ export const displayAssets = {
     date: '2026-09-05',
     status: 'concept',
     caption: 'Illustrative Albedo Display concept — not a working prototype.',
-    src: '/media/albedo-display/ChatGPT%20Image%20Sep%205%2C%202026%2C%2008_54_11%20AM.png',
+    src: '/media/albedo-display/display-concept-960.webp',
+    srcSet: '/media/albedo-display/display-concept-640.webp 640w, /media/albedo-display/display-concept-960.webp 960w',
+    fullSizeSrc: '/media/albedo-display/ChatGPT%20Image%20Sep%205%2C%202026%2C%2008_54_11%20AM.png',
     width: 1536,
     height: 1024,
     alt: 'Concept sheet showing a black Albedo Display from the front, side and back, with an exploded enclosure, electronic components, block diagram and dimensions',
